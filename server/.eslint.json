@@ -1,8 +1,0 @@
-{
-    arrowFunctions: true,
-    classes: true,
-    modules: true,
-    restParams: true,
-    spread: true,
-    defaultParams: true
-}
