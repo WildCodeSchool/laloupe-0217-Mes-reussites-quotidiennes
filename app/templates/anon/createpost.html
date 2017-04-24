@@ -1,0 +1,42 @@
+<div class="container">
+
+    <!-- Form -->
+    <form ng-submit="addTodo()" class="form">
+          <div class="fluid transparent input left icon">
+            <input type="text" ng-model="newTodo" placeholder="Add todo ...">
+            <i class="add to calendar icon"></i>
+          </div>
+        </form>
+      </div>
+
+    <!-- Todos -->
+    <div class="two column grid">
+      <div class="row">
+        <!-- Todo -->
+        <div class="column">
+          <h3>Todo</h3>
+          <div class="segments">
+            <div class="segment" ng-repeat="todo in todos | filter:{'isDone':false, 'content': stringFilter} track by $index">
+              <div class="checkbox">
+                <input class="checkbox" type="checkbox" ng-model="todo.isDone" ng-change="check()">
+                <label>{{ todo.content }}</label>
+              </div>
+              <i style="float:right" class="remove icon" ng-click="removeTodo($index)"></i>
+            </div>
+          </div>
+        </div>
+        <!-- Done -->
+        <div class="column">
+          <h3>Done</h3>
+          <div class="segments">
+            <div class="tertiary inverted green segment" ng-repeat="todo in todos | filter:{'isDone':true, 'content': stringFilter} track by $index">
+              <div class="checkbox">
+                <input class="checkbox" type="checkbox" ng-model="todo.isDone" ng-change="check()">
+                <label>{{ todo.content | caesar:3 }}</label>
+              </div>
+              <i style="float:right" class="remove icon" ng-click="removeTodo($index)"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
