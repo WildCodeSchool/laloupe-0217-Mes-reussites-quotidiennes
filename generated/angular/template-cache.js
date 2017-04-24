@@ -1,48 +1,24 @@
 angular.module("app").run(["$templateCache", function($templateCache) {
 
   $templateCache.put("anon/createpost.html",
-    "<div class=\"container\">\n" +
+    "<form ng-submit= sendPost()>\n" +
+    "  <input type=\"text\" name=\"post\" ng-model=\"newPost\" placeholder=\"Écrivez votre réussite ici\">\n" +
+    "</form>\n" +
     "\n" +
-    "    <!-- Form -->\n" +
-    "    <form ng-submit=\"addTodo()\" class=\"form\">\n" +
-    "          <div class=\"fluid transparent input left icon\">\n" +
-    "            <input type=\"text\" ng-model=\"newTodo\" placeholder=\"Add todo ...\">\n" +
-    "            <i class=\"add to calendar icon\"></i>\n" +
-    "          </div>\n" +
-    "        </form>\n" +
-    "      </div>\n" +
+    "<hr>\n" +
     "\n" +
-    "    <!-- Todos -->\n" +
-    "    <div class=\"two column grid\">\n" +
-    "      <div class=\"row\">\n" +
-    "        <!-- Todo -->\n" +
-    "        <div class=\"column\">\n" +
-    "          <h3>Todo</h3>\n" +
-    "          <div class=\"segments\">\n" +
-    "            <div class=\"segment\" ng-repeat=\"todo in todos | filter:{'isDone':false, 'content': stringFilter} track by $index\">\n" +
-    "              <div class=\"checkbox\">\n" +
-    "                <input class=\"checkbox\" type=\"checkbox\" ng-model=\"todo.isDone\" ng-change=\"check()\">\n" +
-    "                <label>{{ todo.content }}</label>\n" +
-    "              </div>\n" +
-    "              <i style=\"float:right\" class=\"remove icon\" ng-click=\"removeTodo($index)\"></i>\n" +
-    "            </div>\n" +
-    "          </div>\n" +
-    "        </div>\n" +
-    "        <!-- Done -->\n" +
-    "        <div class=\"column\">\n" +
-    "          <h3>Done</h3>\n" +
-    "          <div class=\"segments\">\n" +
-    "            <div class=\"tertiary inverted green segment\" ng-repeat=\"todo in todos | filter:{'isDone':true, 'content': stringFilter} track by $index\">\n" +
-    "              <div class=\"checkbox\">\n" +
-    "                <input class=\"checkbox\" type=\"checkbox\" ng-model=\"todo.isDone\" ng-change=\"check()\">\n" +
-    "                <label>{{ todo.content | caesar:3 }}</label>\n" +
-    "              </div>\n" +
-    "              <i style=\"float:right\" class=\"remove icon\" ng-click=\"removeTodo($index)\"></i>\n" +
-    "            </div>\n" +
-    "          </div>\n" +
-    "        </div>\n" +
-    "      </div>\n" +
-    "    </div>\n"
+    "<h2>Mes réussites</h2>\n" +
+    "\n" +
+    "<div >\n" +
+    "  <div class=\"\">\n" +
+    "    <ul>\n" +
+    "      <li ng-repeat=\"post in posts track by $index\" ng-model=\"newPost\" ng-change=\"check()\">\n" +
+    "        {{ post.content }} - <button ng-click=\"removePost()\">Supprimer</button>\n" +
+    "      </li>\n" +
+    "    </ul>\n" +
+    "  </div>\n" +
+    "  <p ng-hide=\"posts.length\">Vous n'avez pas encore posté de réussite.</p>\n" +
+    "</div>\n"
   );
 
   $templateCache.put("anon/home.html",

@@ -1,42 +1,18 @@
-<div class="container">
+<form ng-submit= sendPost()>
+  <input type="text" name="post" ng-model="newPost" placeholder="Écrivez votre réussite ici">
+</form>
 
-    <!-- Form -->
-    <form ng-submit="addTodo()" class="form">
-          <div class="fluid transparent input left icon">
-            <input type="text" ng-model="newTodo" placeholder="Add todo ...">
-            <i class="add to calendar icon"></i>
-          </div>
-        </form>
-      </div>
+<hr>
 
-    <!-- Todos -->
-    <div class="two column grid">
-      <div class="row">
-        <!-- Todo -->
-        <div class="column">
-          <h3>Todo</h3>
-          <div class="segments">
-            <div class="segment" ng-repeat="todo in todos | filter:{'isDone':false, 'content': stringFilter} track by $index">
-              <div class="checkbox">
-                <input class="checkbox" type="checkbox" ng-model="todo.isDone" ng-change="check()">
-                <label>{{ todo.content }}</label>
-              </div>
-              <i style="float:right" class="remove icon" ng-click="removeTodo($index)"></i>
-            </div>
-          </div>
-        </div>
-        <!-- Done -->
-        <div class="column">
-          <h3>Done</h3>
-          <div class="segments">
-            <div class="tertiary inverted green segment" ng-repeat="todo in todos | filter:{'isDone':true, 'content': stringFilter} track by $index">
-              <div class="checkbox">
-                <input class="checkbox" type="checkbox" ng-model="todo.isDone" ng-change="check()">
-                <label>{{ todo.content | caesar:3 }}</label>
-              </div>
-              <i style="float:right" class="remove icon" ng-click="removeTodo($index)"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<h2>Mes réussites</h2>
+
+<div >
+  <div class="">
+    <ul>
+      <li ng-repeat="post in posts track by $index" ng-model="newPost" ng-change="check()">
+        {{ post.content }} - <button ng-click="removePost()">Supprimer</button>
+      </li>
+    </ul>
+  </div>
+  <p ng-hide="posts.length">Vous n'avez pas encore posté de réussite.</p>
+</div>
