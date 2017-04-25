@@ -86681,6 +86681,7 @@ angular.module('app')
 angular.module('app')
     .controller('MainController', function($scope) {
       /* Here is your main controller */
+
     });
 
 angular.module('app')
@@ -86788,7 +86789,7 @@ angular.module('app')
 angular.module("app").run(["$templateCache", function($templateCache) {
 
   $templateCache.put("anon/home.html",
-    "<h1>Hello World</h1>"
+    "\n"
   );
 
   $templateCache.put("anon/login.html",
@@ -86837,7 +86838,23 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "            </ul>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "</nav> -->\n"
+    "</nav> -->\n" +
+    "<header>\n" +
+    "    <div layout=\"row\" layout-align=\" center\">\n" +
+    "        <div flex=\"10\"><img src=\"img/logo_wcs.png\" alt=\"logo\"></div>\n" +
+    "        <div flex=\"20\"><h1>Safaro</h1></div>\n" +
+    "        <input flex=\"45\" class=\"search\" type=\"text\" placeholder=\"rechercher...\" required></input>\n" +
+    "        <div flex class=\"avatar\"><img ng-src=\"img/squirrel.jpg\" class=\"md-avatar\" alt=\"{{contact.name}}\" /></div>\n" +
+    "    </div>\n" +
+    "</header>\n" +
+    "\n" +
+    "<md-content>\n" +
+    "    <md-nav-bar class=\"menu\" md-selected-nav-item=\"currentNavItem\" nav-bar-aria-label=\"navigation links\">\n" +
+    "      <md-nav-item class=\"reussites_session\" flex=\"45\" md-nav-click=\"goto('page1')\" name=\"page1\">Réussites de la session</md-nav-item>\n" +
+    "      <md-nav-item class=\"reussites\"flex=\"15\" md-nav-click=\"goto('page2')\" name=\"page2\">Mes réussites</md-nav-item>\n" +
+    "      <md-nav-item flex md-nav-click=\"goto('page3')\" name=\"page3\">Evaluer mes pairs</md-nav-item>\n" +
+    "    </md-nav-bar>\n" +
+    "</md-content>\n"
   );
 
   $templateCache.put("anon/register.html",
@@ -86864,7 +86881,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
   );
 
   $templateCache.put("user/navbar.html",
-    "<nav class=\"navbar navbar-default\" role=\"navigation\" ng-controller=\"NavbarController\">\n" +
+    "<!-- <nav class=\"navbar navbar-default\" role=\"navigation\" ng-controller=\"NavbarController\">\n" +
     "    <div class=\"container-fluid\">\n" +
     "        <div class=\"navbar-header\">\n" +
     "            <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#navbar\">\n" +
@@ -86889,7 +86906,23 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "            </ul>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "</nav>\n"
+    "</nav> -->\n" +
+    "<header>\n" +
+    "    <div layout=\"row\" layout-align=\" center\">\n" +
+    "        <div flex=\"10\"><img src=\"img/logo_wcs.png\" alt=\"logo\"></div>\n" +
+    "        <div flex=\"20\"><h1>Safaro</h1></div>\n" +
+    "        <input flex=\"45\" class=\"search\" type=\"text\" placeholder=\"rechercher...\" required></input>\n" +
+    "        <div flex class=\"avatar\"><img ng-src=\"img/squirrel.jpg\" class=\"md-avatar\" alt=\"{{contact.name}}\" /></div>\n" +
+    "    </div>\n" +
+    "</header>\n" +
+    "\n" +
+    "<md-content>\n" +
+    "    <md-nav-bar class=\"menu\" md-selected-nav-item=\"currentNavItem\" nav-bar-aria-label=\"navigation links\">\n" +
+    "      <md-nav-item class=\"reussites_session\" flex=\"45\" md-nav-click=\"goto('page1')\" name=\"page1\">Réussites de la session</md-nav-item>\n" +
+    "      <md-nav-item class=\"reussites\"flex=\"15\" md-nav-click=\"goto('page2')\" name=\"page2\">Mes réussites</md-nav-item>\n" +
+    "      <md-nav-item flex md-nav-click=\"goto('page3')\" name=\"page3\">Evaluer mes pairs</md-nav-item>\n" +
+    "    </md-nav-bar>\n" +
+    "</md-content>\n"
   );
 
   $templateCache.put("user/profile.html",
