@@ -86765,6 +86765,15 @@ angular.module('app')
                     access: AccessLevels.user
                 }
             })
+            .state('user.home', {
+                url: '/home',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/home.html',
+                        controller: 'MainController'
+                    }
+                }
+            });
             .state('user.dashboard', {
                 url: '/dashboard',
                 views: {
@@ -86878,6 +86887,10 @@ angular.module("app").run(["$templateCache", function($templateCache) {
 
   $templateCache.put("user/dashboard.html",
     "Dashboard de {{user.email}}\n"
+  );
+
+  $templateCache.put("user/home.html",
+    ""
   );
 
   $templateCache.put("user/navbar.html",

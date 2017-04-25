@@ -92,6 +92,10 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "Dashboard de {{user.email}}\n"
   );
 
+  $templateCache.put("user/home.html",
+    ""
+  );
+
   $templateCache.put("user/navbar.html",
     "<!-- <nav class=\"navbar navbar-default\" role=\"navigation\" ng-controller=\"NavbarController\">\n" +
     "    <div class=\"container-fluid\">\n" +
