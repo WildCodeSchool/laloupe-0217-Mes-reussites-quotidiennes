@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation" ng-controller="NavbarController">
+<!-- <nav class="navbar navbar-default" role="navigation" ng-controller="NavbarController">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
@@ -23,4 +23,20 @@
             </ul>
         </div>
     </div>
-</nav>
+</nav> -->
+<header>
+    <div layout="row" layout-align=" center">
+        <div flex="10"><img src="img/logo_wcs.png" alt="logo"></div>
+        <div flex="20"><h1>Safaro</h1></div>
+        <input flex="45" class="search" type="text" placeholder="rechercher..." required></input>
+        <div flex class="avatar"><img ng-src="img/squirrel.jpg" class="md-avatar" alt="{{contact.name}}" /></div>
+    </div>
+</header>
+
+<md-content>
+    <md-nav-bar class="menu" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+      <md-nav-item class="reussites_session" flex="45" md-nav-click="goto('page1')" name="page1">Réussites de la session</md-nav-item>
+      <md-nav-item class="reussites"flex="15" md-nav-click="goto('page2')" name="page2">Mes réussites</md-nav-item>
+      <md-nav-item flex md-nav-click="goto('page3')" name="page3">Evaluer mes pairs</md-nav-item>
+    </md-nav-bar>
+</md-content>
