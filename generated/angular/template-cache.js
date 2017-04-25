@@ -51,7 +51,6 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "        </div>\n" +
     "    </div>\n" +
     "</nav> -->\n" +
-    "\n" +
     "<header>\n" +
     "    <div layout=\"row\" layout-align=\" center\">\n" +
     "        <div flex=\"10\"><img src=\"img/logo_wcs.png\" alt=\"logo\"></div>\n" +
