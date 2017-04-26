@@ -86773,7 +86773,7 @@ angular.module('app')
                         controller: 'MainController'
                     }
                 }
-            });
+            })
             .state('user.dashboard', {
                 url: '/dashboard',
                 views: {
@@ -86848,22 +86848,28 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "        </div>\n" +
     "    </div>\n" +
     "</nav> -->\n" +
-    "<header>\n" +
-    "    <div layout=\"row\" layout-align=\" center\">\n" +
-    "        <div flex=\"10\"><img src=\"img/logo_wcs.png\" alt=\"logo\"></div>\n" +
-    "        <div flex=\"20\"><h1>Safaro</h1></div>\n" +
-    "        <input flex=\"45\" class=\"search\" type=\"text\" placeholder=\"rechercher...\" required></input>\n" +
-    "        <div flex class=\"avatar\"><img ng-src=\"img/squirrel.jpg\" class=\"md-avatar\" alt=\"{{contact.name}}\" /></div>\n" +
-    "    </div>\n" +
-    "</header>\n" +
     "\n" +
-    "<md-content>\n" +
-    "    <md-nav-bar class=\"menu\" md-selected-nav-item=\"currentNavItem\" nav-bar-aria-label=\"navigation links\">\n" +
-    "      <md-nav-item class=\"reussites_session\" flex=\"45\" md-nav-click=\"goto('page1')\" name=\"page1\">Réussites de la session</md-nav-item>\n" +
-    "      <md-nav-item class=\"reussites\"flex=\"15\" md-nav-click=\"goto('page2')\" name=\"page2\">Mes réussites</md-nav-item>\n" +
-    "      <md-nav-item flex md-nav-click=\"goto('page3')\" name=\"page3\">Evaluer mes pairs</md-nav-item>\n" +
-    "    </md-nav-bar>\n" +
-    "</md-content>\n"
+    "<nav role=\"navigation\" ng-controller=\"NavbarController\">\n" +
+    "    <header>\n" +
+    "        <div layout=\"row\" layout-align=\" center\">\n" +
+    "            <div flex=\"10\"><img src=\"img/logo_wcs.png\" alt=\"logo\"></div>\n" +
+    "            <div flex=\"20\">\n" +
+    "                <h1>Safaro</h1></div>\n" +
+    "            <input flex=\"45\" class=\"search\" type=\"text\" placeholder=\"rechercher...\" required></input>\n" +
+    "            <div flex class=\"avatar\"><img ng-src=\"img/squirrel.jpg\" class=\"md-avatar\" alt=\"{{contact.name}}\" /></div>\n" +
+    "        </div>\n" +
+    "    </header>\n" +
+    "\n" +
+    "    <md-content>\n" +
+    "        <md-nav-bar class=\"menu\" md-selected-nav-item=\"currentNavItem\" nav-bar-aria-label=\"navigation links\">\n" +
+    "            <md-nav-item ui-sref=\"user.home\" ng-show=\"auth.isAuthenticated()\" class=\"reussites_session\" flex=\"45\" md-nav-click=\"goto('page1')\" name=\"page1\">\n" +
+    "              <!--route provisoire à changer-->\n" +
+    "              Réussites de la session</md-nav-item>\n" +
+    "            <md-nav-item class=\"reussites\" flex=\"15\" md-nav-click=\"goto('page2')\" name=\"page2\">Mes réussites</md-nav-item>\n" +
+    "            <md-nav-item flex md-nav-click=\"goto('page3')\" name=\"page3\">Evaluer mes pairs</md-nav-item>\n" +
+    "        </md-nav-bar>\n" +
+    "    </md-content>\n" +
+    "</nav>\n"
   );
 
   $templateCache.put("anon/register.html",
@@ -86890,7 +86896,22 @@ angular.module("app").run(["$templateCache", function($templateCache) {
   );
 
   $templateCache.put("user/home.html",
-    ""
+    "<div flex-xs flex-gt-xs=\"25\" layout=\"column\">\n" +
+    "      <md-card>\n" +
+    "        <md-card-header layout=\"column\" layout-align=\"space-around center\">\n" +
+    "            <img class=\"profil\" src=\"img/squirrel.jpg\"/>\n" +
+    "            <span class=\"md-title\">Name Student</span>\n" +
+    "            <span class=\"md-subhead\">La Loupe, session #4</span>\n" +
+    "        </md-card-header>\n" +
+    "        <md-card-content layout=\"row\" layout-align=\"space-around none\">\n" +
+    "          <div class=\"count\" flex=\"50\" layout=\"column\"><span class=\"score\">400</span><span class=\"md-headline\">Réussites</span></div>\n" +
+    "          <div flex=\"50\" layout=\"column\"><span class=\"score\">32</span><span class=\"md-headline\">Badges</span></div>\n" +
+    "        </md-card-content>\n" +
+    "        <md-card-content layout=\"row\" layout-align=\"space-around none\">\n" +
+    "          <span class=\"smileys\">SMILEYS</span>\n" +
+    "        </md-card-content>\n" +
+    "      </md-card>\n" +
+    "</div>\n"
   );
 
   $templateCache.put("user/navbar.html",
@@ -86920,22 +86941,26 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "        </div>\n" +
     "    </div>\n" +
     "</nav> -->\n" +
-    "<header>\n" +
-    "    <div layout=\"row\" layout-align=\" center\">\n" +
-    "        <div flex=\"10\"><img src=\"img/logo_wcs.png\" alt=\"logo\"></div>\n" +
-    "        <div flex=\"20\"><h1>Safaro</h1></div>\n" +
-    "        <input flex=\"45\" class=\"search\" type=\"text\" placeholder=\"rechercher...\" required></input>\n" +
-    "        <div flex class=\"avatar\"><img ng-src=\"img/squirrel.jpg\" class=\"md-avatar\" alt=\"{{contact.name}}\" /></div>\n" +
-    "    </div>\n" +
-    "</header>\n" +
     "\n" +
-    "<md-content>\n" +
-    "    <md-nav-bar class=\"menu\" md-selected-nav-item=\"currentNavItem\" nav-bar-aria-label=\"navigation links\">\n" +
-    "      <md-nav-item class=\"reussites_session\" flex=\"45\" md-nav-click=\"goto('page1')\" name=\"page1\">Réussites de la session</md-nav-item>\n" +
-    "      <md-nav-item class=\"reussites\"flex=\"15\" md-nav-click=\"goto('page2')\" name=\"page2\">Mes réussites</md-nav-item>\n" +
-    "      <md-nav-item flex md-nav-click=\"goto('page3')\" name=\"page3\">Evaluer mes pairs</md-nav-item>\n" +
-    "    </md-nav-bar>\n" +
-    "</md-content>\n"
+    "<nav role=\"navigation\" ng-controller=\"NavbarController\">\n" +
+    "    <header>\n" +
+    "        <div layout=\"row\" layout-align=\" center\">\n" +
+    "            <div flex=\"10\"><img src=\"img/logo_wcs.png\" alt=\"logo\"></div>\n" +
+    "            <div flex=\"20\">\n" +
+    "                <h1>Safaro</h1></div>\n" +
+    "            <input flex=\"45\" class=\"search\" type=\"text\" placeholder=\"rechercher...\" required></input>\n" +
+    "            <div flex class=\"avatar\"><img ng-src=\"img/squirrel.jpg\" class=\"md-avatar\" alt=\"{{contact.name}}\" /></div>\n" +
+    "        </div>\n" +
+    "    </header>\n" +
+    "\n" +
+    "    <md-content>\n" +
+    "        <md-nav-bar class=\"menu\" md-selected-nav-item=\"currentNavItem\" nav-bar-aria-label=\"navigation links\">\n" +
+    "            <md-nav-item class=\"reussites_session\" flex=\"45\" md-nav-click=\"goto('page1')\" name=\"page1\">Réussites de la session</md-nav-item>\n" +
+    "            <md-nav-item class=\"reussites\" flex=\"15\" md-nav-click=\"goto('page2')\" name=\"page2\">Mes réussites</md-nav-item>\n" +
+    "            <md-nav-item flex md-nav-click=\"goto('page3')\" name=\"page3\">Evaluer mes pairs</md-nav-item>\n" +
+    "        </md-nav-bar>\n" +
+    "    </md-content>\n" +
+    "</nav>\n"
   );
 
   $templateCache.put("user/profile.html",

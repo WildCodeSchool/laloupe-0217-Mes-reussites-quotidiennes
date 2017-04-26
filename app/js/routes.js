@@ -62,7 +62,7 @@ angular.module('app')
                         controller: 'MainController'
                     }
                 }
-            });
+            })
             .state('user.dashboard', {
                 url: '/dashboard',
                 views: {
