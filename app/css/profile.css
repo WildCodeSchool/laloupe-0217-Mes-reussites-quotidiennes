@@ -1,7 +1,8 @@
 /*info perso*/
+
 .profile {
-  border: 1px solid lightgrey;
-  margin: 3vh 25vw 2vh 3vw;
+    border: 1px solid lightgrey;
+    margin: 3vh 25vw 2vh 3vw;
 }
 
 .tabsdemoDynamicHeight md-content {
@@ -22,10 +23,26 @@
 }
 
 md-tabs md-ink-bar {
-  background-color: orange;
-  color: orange;
+    background-color: orange;
+    color: orange;
 }
 
 .md-raised {
-  float: right;
+    float: right;
+}
+
+.inputdemoIcons .inputIconDemo {
+    min-height: 48px;
+}
+
+md-icon.email {
+    color: green;
+}
+
+md-icon.name {
+    color: dodgerblue;
+}
+
+.inputdemoIcons md-input-container.md-input-invalid>md-icon.email, .inputdemoIcons md-input-container.md-input-invalid>md-icon.name {
+    color: red;
 }

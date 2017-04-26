@@ -60,6 +60,10 @@ span._md-nav-button-text {
   text-align: left;
 }
 
+md-nav-bar md-nav-ink-bar {
+   color: orange;
+   background: orange;
+
 /*card*/
 md-card-header.layout-column {
   padding-top: 20px;
