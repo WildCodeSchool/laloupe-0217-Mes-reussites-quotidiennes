@@ -3,22 +3,18 @@ body {
 }
 
 header {
-  padding: 10px;
+  padding: 0 20px 20px 20px;
   background-color: #fff;
 }
 
 h1 {
   font-size: 3.5em;
+  padding-bottom: 14px;
+  margin-bottom: 0px;
 }
 
-input.search {
-  border-radius: 4px;
-  background-color: #f2f2f2;
-  height: 40px;
-}
-
-input.search:focus {
-    outline: none;
+md-input-container {
+  margin-bottom: 0;
 }
 
 .md-icon-button {
@@ -43,7 +39,7 @@ ul._md-nav-bar-list {
 }
 
 .md-nav-item:first-of-type {
-    margin-left: 24px;
+    margin-left: 65px;
 }
 
 span._md-nav-button-text {
@@ -88,7 +84,7 @@ md-card {
   margin-top: 100px;
 }
 md-card-content {
-  border-top: 2px solid lightgrey;
+  border-top: 1px solid lightgrey;
   text-align: center;
 }
 
@@ -102,7 +98,7 @@ span.score {
 }
 
 .count {
-  border-right: 2px solid lightgrey;
+  border-right: 1px solid lightgrey;
 }
 
 span.md-headline {
