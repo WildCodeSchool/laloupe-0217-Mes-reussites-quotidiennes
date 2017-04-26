@@ -31,6 +31,15 @@ angular.module('app')
                     }
                 }
             })
+            .state('anon.createpost', {
+                url: '/createpost',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/createpost.html',
+                        controller: 'CreatePostController'
+                    }
+                }
+            })
             .state('anon.register', {
                 url: '/register',
                 views: {
@@ -52,6 +61,15 @@ angular.module('app')
                 },
                 data: {
                     access: AccessLevels.user
+                }
+            })
+            .state('user.home', {
+                url: '/home',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/home.html',
+                        controller: 'MainController'
+                    }
                 }
             })
             .state('user.dashboard', {
