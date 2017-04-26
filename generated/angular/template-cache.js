@@ -12,8 +12,8 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "<div >\n" +
     "  <div class=\"\">\n" +
     "    <ul>\n" +
-    "      <li ng-repeat=\"post in posts track by $index\" ng-model=\"newPost\" ng-change=\"check()\">\n" +
-    "        {{ post.content }} - <button ng-click=\"removePost()\">Supprimer</button>\n" +
+    "      <li ng-repeat=\"post in posts\" ng-model=\"newPost\" ng-change=\"check()\">\n" +
+    "        {{ post.content }} - <button ng-click=\"removePost(post._id)\">Supprimer</button>\n" +
     "      </li>\n" +
     "    </ul>\n" +
     "  </div>\n" +

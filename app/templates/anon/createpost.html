@@ -9,8 +9,8 @@
 <div >
   <div class="">
     <ul>
-      <li ng-repeat="post in posts track by $index" ng-model="newPost" ng-change="check()">
-        {{ post.content }} - <button ng-click="removePost()">Supprimer</button>
+      <li ng-repeat="post in posts" ng-model="newPost" ng-change="check()">
+        {{ post.content }} - <button ng-click="removePost(post._id)">Supprimer</button>
       </li>
     </ul>
   </div>

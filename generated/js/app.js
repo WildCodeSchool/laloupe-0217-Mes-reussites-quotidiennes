@@ -89693,6 +89693,21 @@ angular.module('app')
     });
 
 angular.module('app')
+  .service("PostService", function($http) {
+    return {
+      getAll: function() {
+        return $http.get("/posts");
+      },
+      create: function(post) {
+        return $http.post("/posts", post);
+      },
+      delete: function(id) {
+        return $http.delete("/posts/" + id);
+      }
+    };
+  });
+
+angular.module('app')
     .service('UserService', function($http) {
         return {
             getAll: function() {
@@ -89711,33 +89726,32 @@ angular.module('app')
     });
 
 angular.module('app')
-  .controller('CreatePostController', function($scope) {
+  .controller('CreatePostController', function($scope, PostService) {
 
-    if (localStorage.getItem('posts')) {
-      $scope.posts = JSON.parse(localStorage.getItem('posts'));
-    } else {
-      $scope.posts = [];
+    function load() {
+      PostService.getAll().then(function(res) {
+        $scope.posts = res.data;
+      });
     }
-$scope.test= 'test';
+
+    load();
+    $scope.test = 'test';
     $scope.newPost = '';
 
     $scope.sendPost = function() {
-      $scope.posts.push({
+      PostService.create({
         content: $scope.newPost
+      }).then(function(res) {
+        load();
+        $scope.newPost = '';
       });
-      localStorage.setItem("posts", JSON.stringify($scope.posts));
-      $scope.newPost = '';
     };
-    //
-    $scope.removePost = function(index) {
-      $scope.posts.splice(index, 1);
-      localStorage.setItem("posts", JSON.stringify($scope.posts));
+    
+    $scope.removePost = function(id) {
+      PostService.delete(id).then(function() {
+        load();
+      });
     };
-    //
-    // $scope.check = function (newVal, oldVal) {
-    //   localStorage.setItem("posts", JSON.stringify($scope.posts));
-    //   console.log('cc');
-    // };
   });
 
 angular.module('app')
@@ -89893,8 +89907,8 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "<div >\n" +
     "  <div class=\"\">\n" +
     "    <ul>\n" +
-    "      <li ng-repeat=\"post in posts track by $index\" ng-model=\"newPost\" ng-change=\"check()\">\n" +
-    "        {{ post.content }} - <button ng-click=\"removePost()\">Supprimer</button>\n" +
+    "      <li ng-repeat=\"post in posts\" ng-model=\"newPost\" ng-change=\"check()\">\n" +
+    "        {{ post.content }} - <button ng-click=\"removePost(post._id)\">Supprimer</button>\n" +
     "      </li>\n" +
     "    </ul>\n" +
     "  </div>\n" +
