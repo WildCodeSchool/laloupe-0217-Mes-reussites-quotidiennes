@@ -71,6 +71,16 @@ angular.module('app')
                         controller: 'ProfileController'
                     }
                 }
-            });
+            })
+            .state('user.mes_reussites', {
+                url: '/mes_reussites',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/mes_reussites.html',
+                        controller: 'mes_reussitesController'
+                    }
+                }
+            })
+            ;
         $urlRouterProvider.otherwise('/');
     });

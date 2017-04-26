@@ -1,27 +1,26 @@
 <div class="profile">
-
 <md-content>
     <md-tabs md-dynamic-height md-border-bottom>
-        <md-tab class="info" label="INFORMATIONS PERSONNELLES">
+        <md-tab class="info" label="Editer mon Profil">
             <md-content class="md-padding">
                 <md-content class="md-no-momentum">
                     <md-input-container class="md-icon-float md-block">
                         <!-- Use floating label instead of placeholder -->
                         <label>Nom</label>
-                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                        <md-icon md-svg-src="img/ic_person_24px.svg" class="name"></md-icon>
                         <input ng-model="user.lastname" type="text">
                     </md-input-container>
 
                     <md-input-container class="md-icon-float md-block">
                         <!-- Use floating label instead of placeholder -->
                         <label>Prénom</label>
-                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                        <md-icon md-svg-src="img/ic_person_24px.svg" class="name"></md-icon>
                         <input ng-model="user.firstname" type="text">
                     </md-input-container>
 
                     <md-input-container class="md-block">
                         <!-- Use floating placeholder instead of label -->
-                        <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+                        <md-icon md-svg-src="img/ic_email_24px.svg" class="email"></md-icon>
                         <input ng-model="user.email" type="email" placeholder="Email (requis)" ng-required="true">
                     </md-input-container>
 
@@ -46,6 +45,6 @@
             </md-content>
         </md-tab>
     </md-tabs>
-    <md-button class="md-raised md-primary">Valider</md-button>
+    <md-button type="submit" class="md-raised md-primary">Valider</md-button>
 </md-content>
 </div>

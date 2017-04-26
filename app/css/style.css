@@ -26,8 +26,9 @@ input.search:focus {
 }
 
 .md-avatar {
-  width: 100px;
-  height: 100px;
+  margin-top: 1vh;
+  width:4em;
+  height:4em;
   border-radius: 50px;
 }
 
@@ -62,4 +63,9 @@ span._md-nav-button-text {
 
 .evaluer {
   text-align: left;
+}
+
+md-nav-bar md-nav-ink-bar {
+   color: orange;
+   background: orange;
 }
