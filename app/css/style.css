@@ -1,0 +1,115 @@
+body {
+  background-color: #f2f2f2;
+}
+
+header {
+  padding: 10px;
+  background-color: #fff;
+}
+
+h1 {
+  font-size: 3.5em;
+}
+
+input.search {
+  border-radius: 4px;
+  background-color: #f2f2f2;
+  height: 40px;
+}
+
+input.search:focus {
+    outline: none;
+}
+
+.md-icon-button {
+  background-color: lightgrey;
+}
+
+.md-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+.avatar {
+  text-align: right;
+}
+
+/*navbar*/
+ul._md-nav-bar-list {
+  border-top: 2px solid lightgrey;
+  background-color: #f2f2f2;
+  text-transform: lowercase;
+}
+
+.md-nav-item:first-of-type {
+    margin-left: 24px;
+}
+
+span._md-nav-button-text {
+  text-transform: none;
+  color: black;
+  font-size: 1.4em;
+}
+
+.reussites_session {
+  text-align: right;
+}
+
+.reussites {
+  text-align: center;
+}
+
+.evaluer {
+  text-align: left;
+}
+
+/*card*/
+md-card-header.layout-column {
+  padding-top: 20px;
+}
+
+span.md-title {
+  padding-top: 5px;
+}
+
+span.md-subhead {
+  padding-top: 5px;
+  color: #918f8f;
+}
+
+.profil {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+md-card {
+  margin-top: 100px;
+}
+md-card-content {
+  border-top: 2px solid lightgrey;
+  text-align: center;
+}
+
+md-card-content.layout-row {
+  padding: 0;
+}
+
+span.score {
+  padding-top: 10px;
+  font-size: 1.5em;
+}
+
+span.md-headline {
+  padding-bottom: 10px;
+  color: #918f8f;
+}
+
+span.smileys {
+  padding: 20px;
+}
+
+.count {
+  border-right: 2px solid lightgrey;
+}
