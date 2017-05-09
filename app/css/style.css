@@ -109,7 +109,17 @@ span.md-headline {
   color: #918f8f;
 }
 
-img.smiley {
+.smiley {
   height: 42px;
   width: 42px;
+  filter: grayscale(1);
+}
+
+.smiley:hover {
+  cursor: pointer;
+}
+
+.selected {
+  filter: grayscale(0);
+  outline: none;
 }
