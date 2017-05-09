@@ -31,6 +31,15 @@ angular.module('app')
                     }
                 }
             })
+            .state('anon.createpost', {
+                url: '/createpost',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/createpost.html',
+                        controller: 'CreatePostController'
+                    }
+                }
+            })
             .state('anon.register', {
                 url: '/register',
                 views: {
@@ -54,6 +63,15 @@ angular.module('app')
                     access: AccessLevels.user
                 }
             })
+            .state('user.home', {
+                url: '/home',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/home.html',
+                        controller: 'MainController'
+                    }
+                }
+            })
             .state('user.dashboard', {
                 url: '/dashboard',
                 views: {
@@ -71,6 +89,16 @@ angular.module('app')
                         controller: 'ProfileController'
                     }
                 }
-            });
+            })
+            .state('user.mes_reussites', {
+                url: '/mes_reussites',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/mes_reussites.html',
+                        controller: 'mes_reussitesController'
+                    }
+                }
+            })
+            ;
         $urlRouterProvider.otherwise('/');
     });

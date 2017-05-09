@@ -3,22 +3,18 @@ body {
 }
 
 header {
-  padding: 10px;
+  padding: 0 20px 20px 20px;
   background-color: #fff;
 }
 
 h1 {
   font-size: 3.5em;
+  padding-bottom: 14px;
+  margin-bottom: 0px;
 }
 
-input.search {
-  border-radius: 4px;
-  background-color: #f2f2f2;
-  height: 40px;
-}
-
-input.search:focus {
-    outline: none;
+md-input-container {
+  margin-bottom: 0;
 }
 
 .md-icon-button {
@@ -28,7 +24,7 @@ input.search:focus {
 .md-avatar {
   width: 100px;
   height: 100px;
-  border-radius: 50px;
+  border-radius: 50%;
 }
 
 .avatar {
@@ -36,14 +32,14 @@ input.search:focus {
 }
 
 /*navbar*/
-nav {
-  height: 200px;
-}
-
 ul._md-nav-bar-list {
   border-top: 2px solid lightgrey;
   background-color: #f2f2f2;
   text-transform: lowercase;
+}
+
+.md-nav-item:first-of-type {
+    margin-left: 65px;
 }
 
 span._md-nav-button-text {
@@ -62,4 +58,59 @@ span._md-nav-button-text {
 
 .evaluer {
   text-align: left;
+}
+
+md-nav-bar md-nav-ink-bar {
+   color: orange;
+   background: orange;
+
+/*card*/
+md-card-header.layout-column {
+  padding-top: 20px;
+}
+
+span.md-title {
+  padding-top: 5px;
+}
+
+span.md-subhead {
+  padding-top: 5px;
+  color: #918f8f;
+}
+
+.profil {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+md-card {
+  margin-top: 100px;
+}
+md-card-content {
+  border-top: 1px solid lightgrey;
+  text-align: center;
+}
+
+md-card-content.layout-row {
+  padding: 0;
+}
+
+span.score {
+  padding-top: 10px;
+  font-size: 1.5em;
+}
+
+.count {
+  border-right: 1px solid lightgrey;
+}
+
+span.md-headline {
+  padding-bottom: 10px;
+  color: #918f8f;
+}
+
+img.smiley {
+  height: 42px;
+  width: 42px;
 }
