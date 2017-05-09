@@ -1,0 +1,35 @@
+<div class="success edit">
+    <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Partager une réussite">
+                <md-content class="md-padding">
+                    <md-input-container class="md-block">
+                        <input ng-model="user.post" type="text" placeholder="Poste ta réussite">
+                    </md-input-container>
+                </md-content>
+            </md-tab>
+            <md-tab ui-sref="user.profile" label="Editer mon profil">
+                <md-content class="md-padding">
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>
+
+<div class="success">
+    <div layout="row"><img ng-src="img/squirrel.jpg" class="md-avatar posts" alt="{{user.lastname}}" />
+    <span id="username"> {{ user.firstname }} {{ user.lastname }} </span>
+    <img ng-src="img/SMILING FACE WITH SUNGLASSES.png" class="smiley_sunglasses" alt="smiley" />
+  </div>
+  <div ng-model="user.post">
+    <hr>
+      <p> {{ user.post }} </p>
+      <p class="posts">J'ai mangé 10 noisettes</p>
+  </div>
+      <hr>
+      <div>
+        <img ng-src="img/FACE WITH OPEN MOUTH AND BIG SMILEY.png" class="compteur_smiley" alt="smiley" />
+        <img ng-src="img/WINKY FACE.png" class="compteur_smiley" alt="smiley" />
+
+    </div>
+</div>
