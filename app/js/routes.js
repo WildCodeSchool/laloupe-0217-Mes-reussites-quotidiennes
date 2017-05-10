@@ -72,6 +72,15 @@ angular.module('app')
                     }
                 }
             })
+            .state('user.badger', {
+                url: '/badger',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/badger.html',
+                        controller: 'BadgerController'
+                    }
+                }
+            })
             .state('user.dashboard', {
                 url: '/dashboard',
                 views: {
