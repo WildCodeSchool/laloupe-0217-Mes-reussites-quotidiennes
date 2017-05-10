@@ -5,13 +5,14 @@
     <title>
         <%= pkg.name %>
     </title>
-    
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<%= css %>" media="all" />
 </head>
 
 <body>
-    <div ui-view='content'></div>
+        <div ui-view='navbar'></div>
+        <div ui-view='content'></div>
 
     <script type="text/javascript" src="<%= js %>"></script>
 </body>
