@@ -6,6 +6,9 @@
         <%= pkg.name %>
     </title>
 
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="<%= css %>" media="all" />
 </head>
 
@@ -14,6 +17,7 @@
     <div ui-view='navbar'></div>
     <div ui-view='home'></div>
     <div ui-view='content'></div>
+
 
 
 

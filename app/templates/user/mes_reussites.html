@@ -1,40 +1,40 @@
 <div flex-offset-xs flex-offset-gt-xs="30">
-    <div class="ownsuccess">
+  <div class="ownsuccess">
 
-        <div class="success edit">
-            <md-content>
-                <md-tabs md-dynamic-height md-border-bottom>
-                    <md-tab label="Partager une réussite">
-                        <md-content class="md-padding">
-                            <md-input-container class="md-block">
-                                <input ng-model="user.post" type="text" placeholder="Poste ta réussite">
-                            </md-input-container>
-                        </md-content>
-                    </md-tab>
-                    <md-tab ui-sref="user.profile" label="Editer mon profil">
-                        <md-content class="md-padding">
-                        </md-content>
-                    </md-tab>
-                </md-tabs>
+    <div class="success edit">
+      <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab label="Partager une réussite">
+            <form ng-submit = sendPost()>
+              <input type="text" name="post" ng-model="newPost" placeholder="Écrivez votre réussite ici">
+            </form>
+          </md-tab>
+          <md-tab ui-sref="user.profile" label="Editer mon profil">
+            <md-content class="md-padding">
             </md-content>
-        </div>
-
-        <div class="success">
-            <div layout="row"><img ng-src="img/squirrel.jpg" class="md-avatar posts" alt="{{user.lastname}}" />
-                <span id="username"> {{ user.firstname }} {{ user.lastname }} </span>
-                <img ng-src="img/SMILING FACE WITH SUNGLASSES.png" class="smiley_sunglasses" alt="smiley" />
-            </div>
-            <div ng-model="user.post">
-                <hr>
-                <p> {{ user.post }} </p>
-                <p class="posts">J'ai mangé 10 noisettes</p>
-            </div>
-            <hr>
-            <div>
-                <img ng-src="img/FACE WITH OPEN MOUTH AND BIG SMILEY.png" class="compteur_smiley" alt="smiley" />
-                <img ng-src="img/WINKY FACE.png" class="compteur_smiley" alt="smiley" />
-
-            </div>
-        </div>
+          </md-tab>
+        </md-tabs>
+        <md-button type="submit" class="md-raised">Valider</md-button>
+      </md-content>
     </div>
+
+    <ul>
+      <li ng-repeat="post in posts" ng-model="newPost" ng-change="check()">
+        <div class="success">
+          <div layout="row post_line1">
+              <img ng-src="img/squirrel.jpg" class="md-avatar posts" alt="{{user.lastname}}" />
+            <div id="username"> {{ user.firstname }} {{ user.lastname }} </div>
+            <img ng-src="img/SMILING FACE WITH SUNGLASSES.png" class="smiley_sunglasses" alt="smiley" />
+          </div>
+          <hr> <div class="post">{{ post.content }}</div>
+          <hr>
+          <div>
+            <img ng-src="img/FACE WITH OPEN MOUTH AND BIG SMILEY.png" class="compteur_smiley" alt="smiley" />
+            <img ng-src="img/WINKY FACE.png" class="compteur_smiley" alt="smiley" />
+            <md-button ng-click="removePost(post._id)" type="submit" class="md-raised">Supprimer</md-button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
