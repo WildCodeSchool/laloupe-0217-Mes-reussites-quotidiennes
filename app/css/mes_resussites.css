@@ -1,0 +1,81 @@
+.success {
+  border: 1px solid lightgrey;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.ownsuccess {
+  margin: -22em 25vw 2vh 3vw;
+}
+
+@media screen and (max-width: 600px) {
+  .ownsuccess {
+    margin: auto;
+    margin-top: 2em;
+  }
+}
+
+.tabsdemoDynamicHeight md-content {
+    background-color: transparent !important;
+}
+
+.tabsdemoDynamicHeight md-content md-tabs {
+    background: #f6f6f6;
+    border: 1px solid #e1e1e1;
+}
+
+.tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
+    background: white;
+}
+
+md-tabs md-ink-bar {
+  background-color: orange;
+  color: orange;
+}
+
+#username {
+  margin-top: 1vh;
+  margin-left: 2vw;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+hr {
+  width: 90%;
+  border-color: #f6f6f6;
+}
+
+.posts {
+  margin-left: 5%;
+}
+
+.smiley_sunglasses {
+  height: 4em;
+  padding-right: 30px;
+
+}
+
+.compteur_smiley {
+  height: 3em;
+  padding-left: 3em;
+}
+
+.edit {
+  margin-bottom: 5em;
+}
+
+li {
+  list-style: none;
+}
+
+.post {
+  margin: 40px;
+}
+
+.layout-row {
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

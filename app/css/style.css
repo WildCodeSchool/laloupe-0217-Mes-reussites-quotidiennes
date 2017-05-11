@@ -1,0 +1,125 @@
+body {
+  background-color: #f2f2f2;
+}
+
+header {
+  padding: 15px 20px 0 20px;
+  background-color: #fff;
+}
+
+h1 {
+  font-size: 3.5em;
+  margin-bottom: 5px;
+  margin-top: 15px;;
+}
+
+md-input-container {
+  padding-top: 20px;
+  width: 400px;
+}
+
+.md-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-top: 12px;
+}
+
+.avatar {
+  text-align: right;
+}
+
+/*navbar*/
+ul._md-nav-bar-list {
+  border-top: 2px solid lightgrey;
+  background-color: #f2f2f2;
+  text-transform: lowercase;
+}
+
+.md-nav-item:first-of-type {
+    margin-left: 65px;
+}
+
+span._md-nav-button-text {
+  text-transform: none;
+  color: black;
+  font-size: 1.4em;
+}
+
+.reussites_session {
+  text-align: right;
+}
+
+.reussites {
+  text-align: center;
+}
+
+.evaluer {
+  text-align: left;
+}
+
+md-nav-bar md-nav-ink-bar {
+   color: orange;
+   background: orange;
+}
+
+/*card*/
+md-card-header.layout-column {
+  padding-top: 20px;
+}
+
+span.md-title {
+  padding-top: 5px;
+}
+
+span.md-subhead {
+  padding-top: 5px;
+  color: #918f8f;
+}
+
+.profil {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+md-card {
+  margin-top: 100px;
+}
+md-card-content {
+  border-top: 1px solid lightgrey;
+  text-align: center;
+}
+
+md-card-content.layout-row {
+  padding: 0;
+}
+
+span.score {
+  padding-top: 10px;
+  font-size: 1.5em;
+}
+
+.count {
+  border-right: 1px solid lightgrey;
+}
+
+span.md-headline {
+  padding-bottom: 10px;
+  color: #918f8f;
+}
+
+.smiley {
+  height: 42px;
+  width: 42px;
+  filter: grayscale(1);
+}
+
+.smiley:hover {
+  cursor: pointer;
+}
+
+.selected {
+  filter: grayscale(0);
+  outline: none;
+}
