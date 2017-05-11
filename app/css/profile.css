@@ -2,7 +2,14 @@
 
 .profile {
     border: 1px solid lightgrey;
-    margin: 3vh 25vw 2vh 3vw;
+    margin: -22em 25vw 2vh 3vw;
+    background-color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .profile {
+    margin: auto;
+  }
 }
 
 .tabsdemoDynamicHeight md-content {
