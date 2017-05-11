@@ -1,7 +1,17 @@
 .success {
   border: 1px solid lightgrey;
-  margin: 3vh 25vw 2vh 3vw;
   background-color: white;
+}
+
+.ownsuccess {
+  margin: -22em 25vw 2vh 3vw;
+}
+
+@media screen and (max-width: 600px) {
+  .ownsuccess {
+    margin: auto;
+    margin-top: 2em;
+  }
 }
 
 .tabsdemoDynamicHeight md-content {
@@ -40,7 +50,7 @@ hr {
 
 .smiley_sunglasses {
   height: 4em;
-  padding-left: 38vw;
+  padding-left: 10em;
 }
 
 .compteur_smiley {
