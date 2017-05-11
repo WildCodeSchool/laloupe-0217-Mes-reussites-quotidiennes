@@ -96,6 +96,10 @@ angular.module('app')
                     'content@': {
                         templateUrl: 'user/profile.html',
                         controller: 'ProfileController'
+                    },
+                    'home@': {
+                        templateUrl: 'user/home.html',
+                        controller: 'MainController'
                     }
                 }
             })
@@ -105,6 +109,10 @@ angular.module('app')
                     'content@': {
                         templateUrl: 'user/mes_reussites.html',
                         controller: 'mes_reussitesController'
+                    },
+                    'home@': {
+                        templateUrl: 'user/home.html',
+                        controller: 'MainController'
                     }
                 }
             })
