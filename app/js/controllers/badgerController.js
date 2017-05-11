@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('BadgerController', function($scope) {
-      /* Here is your main controller */
+    .controller('BadgerController', function($scope, CurrentUser) {
+      $scope.user = CurrentUser.user();
 
     });
