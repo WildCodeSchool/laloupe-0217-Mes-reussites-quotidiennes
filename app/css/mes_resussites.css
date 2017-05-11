@@ -1,6 +1,7 @@
 .success {
   border: 1px solid lightgrey;
   background-color: white;
+  margin-bottom: 10px;
 }
 
 .ownsuccess {
@@ -50,7 +51,8 @@ hr {
 
 .smiley_sunglasses {
   height: 4em;
-  padding-left: 10em;
+  padding-right: 30px;
+
 }
 
 .compteur_smiley {
@@ -60,4 +62,20 @@ hr {
 
 .edit {
   margin-bottom: 5em;
+}
+
+li {
+  list-style: none;
+}
+
+.post {
+  margin: 40px;
+}
+
+.layout-row {
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
