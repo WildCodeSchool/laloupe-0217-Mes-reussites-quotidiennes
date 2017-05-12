@@ -6,7 +6,11 @@
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab label="Partager une réussite">
             <form ng-submit = sendPost()>
-              <input type="text" name="post" ng-model="newPost" placeholder="Écrivez votre réussite ici">
+              <md-input-container class="md-block">
+          <label>Écrivez une réussite ici</label>
+          <textarea ng-model="newPost" md-maxlength="200" rows="2" md-select-on-focus></textarea>
+        </md-input-container>
+        <md-button type="submit" class="md-raised">Valider</md-button>
             </form>
           </md-tab>
           <md-tab ui-sref="user.profile" label="Editer mon profil">
@@ -14,7 +18,6 @@
             </md-content>
           </md-tab>
         </md-tabs>
-        <md-button type="submit" class="md-raised">Valider</md-button>
       </md-content>
     </div>
 
@@ -31,7 +34,7 @@
           <div>
             <img ng-src="img/FACE WITH OPEN MOUTH AND BIG SMILEY.png" class="compteur_smiley" alt="smiley" />
             <img ng-src="img/WINKY FACE.png" class="compteur_smiley" alt="smiley" />
-            <md-button ng-click="removePost(post._id)" type="submit" class="md-raised">Supprimer</md-button>
+            <md-button ng-click="removePost(post._id)" type="submit" md-color="red" class="md-raised md-warn">Supprimer</md-button>
           </div>
         </div>
       </li>
