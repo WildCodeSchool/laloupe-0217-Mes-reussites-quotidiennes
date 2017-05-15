@@ -1,5 +1,7 @@
 body {
   background-color: #f2f2f2;
+  height: auto;
+  padding-bottom: 100px;
 }
 
 header {
@@ -40,6 +42,11 @@ ul._md-nav-bar-list {
   border-top: 2px solid lightgrey;
   background-color: #f2f2f2;
   text-transform: lowercase;
+}
+
+md-nav-bar {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .md-nav-item:first-of-type {
