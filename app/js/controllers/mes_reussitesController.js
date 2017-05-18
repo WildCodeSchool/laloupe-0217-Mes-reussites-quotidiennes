@@ -7,6 +7,10 @@ angular.module('app')
         });
       }
 
+      $(function(){
+       $("textarea").prop('required',true);
+});
+
       load();
       $scope.test = 'test';
       $scope.newPost = '';
