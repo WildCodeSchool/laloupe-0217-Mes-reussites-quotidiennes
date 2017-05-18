@@ -17,6 +17,14 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    city: {
+        type: String,
+        required: true
+    },
+    session: {
+        type: Number,
+        required: true
+    },
     email: {
         type: String,
         required: [true, 'Email address is required'],
