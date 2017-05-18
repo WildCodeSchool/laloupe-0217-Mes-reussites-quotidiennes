@@ -1,43 +1,84 @@
 <div flex-offset-xs flex-offset-gt-xs="30">
-  <div class="ownsuccess">
+    <div class="ownsuccess">
+            <md-content>
+                <md-tabs md-dynamic-height md-border-bottom>
+                    <md-tab label="Partager une réussite">
+                        <form class="edit" ng-submit= "sendPost()">
+                            <md-input-container class="md-block">
+                                <label>Écrivez une réussite ici</label>
+                                <textarea ng-model="newPost" md-maxlength="200" rows="2" md-select-on-focus></textarea>
+                            </md-input-container>
+                            <md-button type="submit" class="md-raised">Valider</md-button>
+                        </form>
 
-    <div class="success edit">
-      <md-content>
-        <md-tabs md-dynamic-height md-border-bottom>
-          <md-tab label="Partager une réussite">
-            <form ng-submit = sendPost()>
-              <md-input-container class="md-block">
-          <label>Écrivez une réussite ici</label>
-          <textarea ng-model="newPost" md-maxlength="200" rows="2" md-select-on-focus></textarea>
-        </md-input-container>
-        <md-button type="submit" class="md-raised">Valider</md-button>
-            </form>
-          </md-tab>
-          <md-tab ui-sref="user.profile" label="Editer mon profil">
-            <md-content class="md-padding">
+                        <ul>
+                            <li class="newsuccess" ng-repeat="post in posts | orderBy:'createdate':true" ng-model="newPost" ng-change="check()">
+                                <div class="success">
+                                    <div layout="row post_line1">
+                                        <img ng-src="img/squirrel.jpg" class="md-avatar posts" alt="{{user.lastname}}" />
+                                        <div id="username"> {{ user.firstname }} {{ user.lastname }} </div>
+                                        <img ng-src="img/SMILING FACE WITH SUNGLASSES.png" class="smiley_sunglasses" alt="smiley" />
+                                    </div>
+                                    <hr>
+                                    <div class="post">{{ post.content }}</div>
+                                    <hr>
+                                    <div>
+                                        <img ng-src="img/FACE WITH OPEN MOUTH AND BIG SMILEY.png" class="compteur_smiley" alt="smiley" />
+                                        <img ng-src="img/WINKY FACE.png" class="compteur_smiley" alt="smiley" />
+                                        <md-button ng-click="removePost(post._id)" type="submit" md-color="red" class="md-raised md-warn">Supprimer</md-button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </md-tab>
+                    <md-tab label="Editer mon profil">
+                        <md-content class="md-padding">
+                            <md-content class="md-no-momentum">
+                                <md-input-container class="md-icon-float md-block">
+                                    <!-- Use floating label instead of placeholder -->
+                                    <label>Nom</label>
+                                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                                    <input ng-model="user.lastname" type="text">
+                                </md-input-container>
+
+                                <md-input-container class="md-icon-float md-block">
+                                    <!-- Use floating label instead of placeholder -->
+                                    <label>Prénom</label>
+                                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                                    <input ng-model="user.firstname" type="text">
+                                </md-input-container>
+
+                                <md-input-container class="md-block">
+                                    <!-- Use floating placeholder instead of label -->
+                                    <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+                                    <input ng-model="user.email" type="email" placeholder="Email (requis)" ng-required="true">
+                                </md-input-container>
+
+                                <md-input-container class="md-block">
+                                    <!-- Use floating placeholder instead of label -->
+                                    <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+                                    <input type="password" placeholder="Mot de passe">
+                                </md-input-container>
+
+                                <md-input-container md-no-float class="md-block">
+                                    <label>Pseudo Github</label>
+                                    <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                                    <input ng-model="user.pseudo" type="text">
+                                </md-input-container>
+
+                                <md-input-container md-no-float class="md-block">
+                                    <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                                    <textarea ng-model="user.bio" type="text" placeholder="Biographie" rows="3" cols="80"></textarea>
+                                </md-input-container>
+
+                                <md-button class="md-raised md-warn" ng-click="update()">Editer</md-button>
+
+                            </md-content>
+
+                        </md-content>
+                    </md-tab>
+
+                </md-tabs>
             </md-content>
-          </md-tab>
-        </md-tabs>
-      </md-content>
     </div>
-
-    <ul>
-      <li ng-repeat="post in posts | orderBy:'createdate':true" ng-model="newPost" ng-change="check()">
-        <div class="success">
-          <div layout="row post_line1">
-              <img ng-src="img/squirrel.jpg" class="md-avatar posts" alt="{{user.lastname}}" />
-            <div id="username"> {{ user.firstname }} {{ user.lastname }} </div>
-            <img ng-src="img/SMILING FACE WITH SUNGLASSES.png" class="smiley_sunglasses" alt="smiley" />
-          </div>
-          <hr> <div class="post">{{ post.content }}</div>
-          <hr>
-          <div>
-            <img ng-src="img/FACE WITH OPEN MOUTH AND BIG SMILEY.png" class="compteur_smiley" alt="smiley" />
-            <img ng-src="img/WINKY FACE.png" class="compteur_smiley" alt="smiley" />
-            <md-button ng-click="removePost(post._id)" type="submit" md-color="red" class="md-raised md-warn">Supprimer</md-button>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
 </div>

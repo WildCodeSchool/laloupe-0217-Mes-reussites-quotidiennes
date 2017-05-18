@@ -1,7 +1,7 @@
-.success {
+.edit {
   border: 1px solid lightgrey;
+  margin-bottom: 8em;
   background-color: white;
-  margin-bottom: 10px;
 }
 
 .ownsuccess {
@@ -13,6 +13,12 @@
     margin: auto;
     margin-top: 2em;
   }
+}
+
+.newsuccess {
+  border: 1px solid lightgrey;
+  margin-top: 3em;
+  background-color: white;
 }
 
 .tabsdemoDynamicHeight md-content {
@@ -57,10 +63,6 @@ hr {
 .compteur_smiley {
   height: 3em;
   padding-left: 3em;
-}
-
-.edit {
-  margin-bottom: 5em;
 }
 
 li {
