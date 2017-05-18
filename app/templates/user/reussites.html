@@ -1,0 +1,22 @@
+<div flex-offset-xs flex-offset-gt-xs="30">
+  <div class="ownsuccess">
+    <ul>
+      <li ng-repeat="post in posts | orderBy:'createdate':true" ng-model="newPost" ng-change="check()">
+        <div class="success">
+          <div layout="row post_line1">
+            <img ng-src="img/squirrel.jpg" class="md-avatar posts" alt="{{user.lastname}}" />
+            <div id="username"> {{ user.firstname }} {{ user.lastname }} </div>
+            <img ng-src="img/SMILING FACE WITH SUNGLASSES.png" class="smiley_sunglasses" alt="smiley" />
+          </div>
+          <hr>
+          <div class="post">{{ post.content }}</div>
+          <hr>
+          <div>
+            <img ng-src="img/FACE WITH OPEN MOUTH AND BIG SMILEY.png" class="compteur_smiley" alt="smiley" />
+            <img ng-src="img/WINKY FACE.png" class="compteur_smiley" alt="smiley" />
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
