@@ -16,13 +16,13 @@ module.exports = (app) => {
 
     router.get('/', Auth.isAdministrator, user.findAll);
 
-    router.get('/:id', Auth.hasAuthorization, user.findById);
+    router.get('/:userId', Auth.hasAuthorization, user.findById);
 
     router.post('/', user.create);
 
-    router.put('/:id', Auth.hasAuthorization, user.update);
+    router.put('/:userId', Auth.isOwnUser, user.update);
 
-    router.delete('/:id', Auth.isAdministrator, user.delete);
+    router.delete('/:userId', Auth.isAdministrator, user.delete);
 
     app.use('/users', router);
 
