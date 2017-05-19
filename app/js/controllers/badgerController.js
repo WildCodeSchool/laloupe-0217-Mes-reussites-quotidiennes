@@ -1,7 +1,10 @@
 angular.module('app')
     .controller('BadgerController', function($scope, CurrentUser, BadgeService) {
+
+
       $scope.user = CurrentUser.user();
-      $scope.newBadge = '';
+      $scope.demandBadges = [];
+      $scope.newDemand = "";
 
       function load() {
         BadgeService.getAll().then(function(res) {
@@ -9,13 +12,11 @@ angular.module('app')
         });
       }
 
-      $scope.sendBadge = function() {
-        BadgeService.create({
-          name: $scope.newBadge
-        }).then(function(res) {
-          load();
-          $scope.newBadge = '';
-        });
-      };
+      $scope.sendDemand = function() {
+        BadgeService.create().then(function(res){
+          $scope.demandBadges.push($scope.newDemand);
+          $scope.newDemand = "";
+      });
 
-    });
+    };
+});

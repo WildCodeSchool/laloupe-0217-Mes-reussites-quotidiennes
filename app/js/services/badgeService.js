@@ -5,7 +5,7 @@ angular.module('app')
         return $http.get("/badges");
       },
       create: function(badge) {
-        return $http.post("/badges", badge);
+        return $http.post("/demandBadges", badge);
       },
     };
   });
