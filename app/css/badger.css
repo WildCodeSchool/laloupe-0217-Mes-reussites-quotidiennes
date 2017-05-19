@@ -22,6 +22,16 @@
   margin-top: 40px;
 }
 
+img.career{
+  height: 15%;
+  width: 15%;
+  filter: grayscale(1);
+}
+
+img.career:hover{
+  cursor: pointer;
+}
+
 img.badge {
   margin-left: -100px;
 }
