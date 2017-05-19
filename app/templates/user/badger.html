@@ -1,12 +1,5 @@
 <div class="badge_demand">
 
-<input ng-model="newTodo" type="text" name="" value=""><button ng-click="postTodo()" type="button" name="button">validez</button>
-<ul>
-  <li ng-repeat="todo in todos">{{newTodo}}</li>
-</ul>
-
-
-
   <md-card ng-repeat="demandBadge in demandBadges | orderBy:'date':true" layout="row" layout-align="space-between center">
       <md-card-header flex="50">
         <img class="user_badge" src="img/casimir.png" />
