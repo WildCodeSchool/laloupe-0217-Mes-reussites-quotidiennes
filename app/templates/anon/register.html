@@ -24,6 +24,18 @@
           </div>
           <div layout-gt-sm="row">
             <md-input-container class="md-block" flex-gt-sm>
+              <label>Ville de la session</label>
+              <input ng-model="user.city" required>
+            </md-input-container>
+          </div>
+          <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Numéro de la session</label>
+              <input ng-model="user.session" required>
+            </md-input-container>
+          </div>
+          <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
               <label>Mot de passe</label>
               <input type="password" ng-model="user.password" required>
             </md-input-container>

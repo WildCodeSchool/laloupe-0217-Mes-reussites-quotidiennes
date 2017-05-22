@@ -90,6 +90,19 @@ angular.module('app')
                     }
                 }
             })
+            .state('user.reussites', {
+                url: '/reussites',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/reussites.html',
+                        controller: 'ReussitesController'
+                    },
+                    'home@': {
+                        templateUrl: 'user/home.html',
+                        controller: 'MainController'
+                    }
+                }
+            })
             .state('user.profile', {
                 url: '/profile',
                 views: {
@@ -115,7 +128,6 @@ angular.module('app')
                         controller: 'MainController'
                     }
                 }
-            })
-            ;
+            });
         $urlRouterProvider.otherwise('/');
     });

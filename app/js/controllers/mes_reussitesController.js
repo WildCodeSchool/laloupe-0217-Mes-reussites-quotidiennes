@@ -1,11 +1,15 @@
 angular.module('app')
-    .controller('mes_reussitesController', function($scope, CurrentUser, PostService) {
+    .controller('mes_reussitesController', function($scope, CurrentUser, PostService, UserService) {
       $scope.user = CurrentUser.user();
       function load() {
         PostService.getAll().then(function(res) {
           $scope.posts = res.data;
         });
       }
+
+      $(function(){
+       $("textarea").prop('required',true);
+});
 
       load();
       $scope.test = 'test';
@@ -22,6 +26,14 @@ angular.module('app')
       $scope.removePost = function(id) {
         PostService.delete(id).then(function() {
           load();
+        });
+      };
+
+      $scope.update = function () {
+        UserService.update($scope.user._id, $scope.user).then(function(res) {
+          console.log('user updated');
+        }, function(err) {
+          console.log('error update user', err);
         });
       };
 });

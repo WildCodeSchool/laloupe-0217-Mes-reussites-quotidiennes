@@ -17,6 +17,14 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    city: {
+        type: String,
+        required: true
+    },
+    session: {
+        type: Number,
+        required: true
+    },
     email: {
         type: String,
         required: [true, 'Email address is required'],
@@ -102,11 +110,11 @@ export default class User {
     }
 
     findById(req, res) {
-        model.findById(req.params.id, {
+        model.findById(req.params.userId, {
             password: 0
         }, (err, user) => {
             if (err || !user) {
-                res.sendStatus(403);
+                res.sendStatus(500);
             } else {
                 res.json(user);
             }
@@ -140,7 +148,7 @@ export default class User {
 
     update(req, res) {
         model.update({
-            _id: req.params.id
+            _id: req.params.userId
         }, req.body, (err, user) => {
             if (err || !user) {
                 res.status(500).send(err.message);
@@ -158,7 +166,7 @@ export default class User {
     }
 
     delete(req, res) {
-        model.findByIdAndRemove(req.params.id, (err) => {
+        model.findByIdAndRemove(req.params.userId, (err) => {
             if (err) {
                 res.status(500).send(err.message);
             } else {
