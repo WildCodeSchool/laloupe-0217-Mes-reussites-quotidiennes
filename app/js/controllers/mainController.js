@@ -10,9 +10,11 @@ angular.module('app')
 
       //initialisation demand badges
       $scope.newDemand = "";
-      $scope.sendDemand = function() {
-        BadgeService.create().then(function(res){
+      $scope.sendDemand = function(badgeId) {
+        BadgeService.create(badgeId,$scope.user._id).then(function(res){
           $state.go('user.badger');
-      });
-    };
+        }, function(err) {
+          console.log('error when creating a demand', err);
+        });
+      };
 });

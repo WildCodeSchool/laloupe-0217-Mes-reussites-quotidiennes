@@ -10,6 +10,7 @@ module.exports = (app) => {
 
 
     router.post('/', Auth.hasAuthorization, demand.create);
+    router.get('/', Auth.hasAuthorization, demand.findAll);
 
     app.use('/demandBadges', router);
 
