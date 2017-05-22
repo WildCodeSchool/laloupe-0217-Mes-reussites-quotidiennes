@@ -4,8 +4,11 @@ angular.module('app')
       getAll: function() {
         return $http.get("/badges");
       },
-      create: function(badge) {
-        return $http.post("/demandBadges", badge);
+      getAllDemands: function () {
+        return $http.get("/demandBadges");
+      },
+      create: function(badgeId, userId) {
+        return $http.post("/demandBadges", {student:userId, badge:badgeId});
       },
     };
   });

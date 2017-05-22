@@ -43,4 +43,17 @@ export default class DemandBadge {
       }
     });
   }
+
+  findAll(req, res) {
+    model.find({})
+      .populate('badge')
+      .populate('student')
+      .exec((err, demandsBadge) => {
+        if (err || !demandsBadge) {
+          res.sendStatus(403);
+        } else {
+          res.json(demandsBadge);
+        }
+      });
+  }
 }

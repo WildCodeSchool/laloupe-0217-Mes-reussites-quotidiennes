@@ -3,20 +3,17 @@ angular.module('app')
 
 
       $scope.user = CurrentUser.user();
+      $scope.badge = "";
+
       $scope.demandBadges = [];
       $scope.newDemand = "";
 
       function load() {
-        BadgeService.getAll().then(function(res) {
-          $scope.badges = res.data;
+        BadgeService.getAllDemands().then(function(res) {
+          $scope.demandBadges = res.data;
+          $scope.badge = res.data[0].badge;
+          console.log('demands', $scope.demandBadges, $scope.badge);
         });
       }
-
-      $scope.sendDemand = function() {
-        BadgeService.create().then(function(res){
-          $scope.demandBadges.push($scope.newDemand);
-          $scope.newDemand = "";
-      });
-
-    };
-});
+      load();
+    });
