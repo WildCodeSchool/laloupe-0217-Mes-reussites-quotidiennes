@@ -21,6 +21,21 @@
   background-color: white;
 }
 
+.smileys_delete {
+    max-width:100%;
+    /*margin:150px auto;*/
+    padding:0 27px;
+    position: relative;
+    display: flex;
+    /*justify-content: space-around;*/
+    align-items: center;
+    text-align: right;
+  }
+
+  .delete_button {
+    margin-left: 22em;
+  }
+
 .tabsdemoDynamicHeight md-content {
     background-color: transparent !important;
 }
@@ -53,16 +68,18 @@ hr {
 
 .posts {
   margin-left: 5%;
+  margin-top: 2%;
 }
 
 .smiley_sunglasses {
-  height: 4em;
+  height: 2.5em;
   padding-right: 30px;
 }
 
 .compteur_smiley {
-  height: 3em;
-  padding-left: 3em;
+  height: 2em;
+  padding-right: 1em;
+  margin-bottom: 2%;
 }
 
 li {

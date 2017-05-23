@@ -1,30 +1,3 @@
-<!-- <nav class="navbar navbar-default" role="navigation" ng-controller="NavbarController">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-            <a class="navbar-brand" href="#"></a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbar">
-            <ul class="nav navbar-nav">
-                <li ui-sref-active="active"><a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()">Dashboard</a></li>
-                <li ui-sref-active="active"><a ui-sref="user.profile" ng-show="auth.isAuthenticated()">Profile</a></li>
-
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                <li ui-sref-active="active"><a ui-sref="anon.home">Website</a></li>
-                    <li><a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#'>Logout</a></li>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav> -->
-
 <nav role="navigation">
     <header>
         <div layout="row" layout-align=" end">
@@ -35,7 +8,7 @@
                 <label>Rechercher ...</label>
                 <input ng-model="user.firstName">
             </md-input-container>
-            <div flex class="avatar"><img ng-src="img/squirrel.jpg" ui-sref="user.profile" class="md-avatar" alt="{{contact.name}}" /></div>
+            <div flex class="avatar"><img ng-src="http://github.com/{{user.pseudo}}.png" ui-sref="user.profile" class="md-avatar" alt="{{contact.name}}" /></div>
         </div>
     </header>
 
