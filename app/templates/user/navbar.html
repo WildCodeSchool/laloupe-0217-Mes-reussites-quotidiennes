@@ -46,6 +46,7 @@
                 Réussites de la session</md-nav-item>
             <md-nav-item class="reussites" ui-sref="user.mes_reussites" flex="15" md-nav-click="goto('page2')" name="page2">Mes réussites</md-nav-item>
             <md-nav-item ui-sref="user.badger" flex md-nav-click="goto('page3')" name="page3">Badger</md-nav-item>
+            <md-nav-item ng-click="logout()" ui-sref="anon.login" md-nav-click="goto('login')">Déconnecter</md-nav-item>
         </md-nav-bar>
     </md-content>
 </nav>

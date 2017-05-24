@@ -1,6 +1,8 @@
 angular.module('app')
     .controller('mes_reussitesController', function($scope, CurrentUser, PostService, UserService) {
       $scope.user = CurrentUser.user();
+      console.log($scope.user);
+
       function load() {
         PostService.getAll().then(function(res) {
           $scope.posts = res.data;

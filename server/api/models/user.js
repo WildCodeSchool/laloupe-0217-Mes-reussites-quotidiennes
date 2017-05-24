@@ -151,15 +151,15 @@ export default class User {
             _id: req.params.userId
         }, req.body, (err, user) => {
             if (err || !user) {
-                res.status(500).send(err.message);
+              res.status(500).send(err.message);
             } else {
                 let tk = jsonwebtoken.sign(user, token, {
-                    expiresIn: "24h"
+                  expiresIn: "24h"
                 });
                 res.json({
-                    success: true,
-                    user: user,
-                    token: tk
+                  success: true,
+                  user: user,
+                  token: tk
                 });
             }
         });
