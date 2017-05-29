@@ -2,7 +2,7 @@ angular.module('app')
     .controller('mes_reussitesController', function($scope, CurrentUser, PostService, UserService) {
       $scope.user = CurrentUser.user();
       function load() {
-        PostService.getAll().then(function(res) {
+        PostService.getUserPost(CurrentUser.user()._id).then(function(res) {
           $scope.posts = res.data;
         });
       }
@@ -17,7 +17,8 @@ angular.module('app')
 
       $scope.sendPost = function() {
         PostService.create({
-          content: $scope.newPost
+          content: $scope.newPost,
+          student: $scope.user._id
         }).then(function(res) {
           load();
           $scope.newPost = '';
