@@ -36,7 +36,7 @@ angular.module('app')
 
           console.log('user updated');
         }, function(err) {
-          
+
           console.log('error update user', err);
         });
       };
