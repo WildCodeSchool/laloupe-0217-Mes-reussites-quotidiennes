@@ -75,7 +75,7 @@ export default class User {
                 } else {
                     user.comparePassword(req.body.password, (err, isMatch) => {
                         if (err) {
-                            res.status(400).send(err);
+                            res.sendStatus(400);
                         } else {
                             if (isMatch) {
                                 user.password = null;
@@ -88,7 +88,7 @@ export default class User {
                                     token: tk
                                 });
                             } else {
-                                res.status(400).send('Incorrect password');
+                                res.send();
                             }
                         }
                     });

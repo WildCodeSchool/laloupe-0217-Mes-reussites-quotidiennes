@@ -1,7 +1,7 @@
 angular.module('app')
     .controller('mes_reussitesController', function($scope, CurrentUser, PostService, UserService) {
       $scope.user = CurrentUser.user();
-      console.log($scope.user);
+      delete $scope.user.password;
 
       function load() {
         PostService.getAll().then(function(res) {
@@ -33,8 +33,10 @@ angular.module('app')
 
       $scope.update = function () {
         UserService.update($scope.user._id, $scope.user).then(function(res) {
+
           console.log('user updated');
         }, function(err) {
+          
           console.log('error update user', err);
         });
       };
