@@ -31,6 +31,7 @@ export default class Post {
       }
     });
   }
+
   findUserPost(req, res) {
     model.find({student:req.params.userId})
     .populate('student', {password: 0, __v: 0})
@@ -42,6 +43,7 @@ export default class Post {
       }
     });
   }
+
   create(req, res) {
     model.create(req.body, (err, posts) => {
       if (err) {
