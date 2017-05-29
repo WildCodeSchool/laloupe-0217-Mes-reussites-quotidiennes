@@ -41,3 +41,18 @@ img.badge {
   height: 60px;
   width: 60px;
 }
+
+.heart:hover {
+  cursor: pointer;
+}
+
+.heart:focus{
+  outline: none;
+}
+
+.grey_heart {
+  filter: grayscale(1);
+  margin: 10px 40px;
+  height: 60px;
+  width: 60px;
+}

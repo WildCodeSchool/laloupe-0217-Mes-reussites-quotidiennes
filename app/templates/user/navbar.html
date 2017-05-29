@@ -1,15 +1,16 @@
 <nav role="navigation">
-    <header>
-        <div layout="row" layout-align=" end">
-            <div flex="5"><img class="logo" src="img/logo_wcs.png" alt="logo"></div>
-            <div flex="25">
-                <h1>Safaro</h1></div>
-            <md-input-container class="md-block rechercher" flex-gt-sm flex="45">
-                <label>Rechercher ...</label>
-                <input ng-model="user.firstName">
-            </md-input-container>
-            <div flex class="avatar"><img ng-src="http://github.com/{{user.pseudo}}.png" ui-sref="user.profile" class="md-avatar" alt="{{contact.name}}" /></div>
-        </div>
+    <header layout="row" layout-wrap layout-align-md="start center" layout-align="start center">
+      <div flex="6"><img class="logo" src="img/logo_wcs.png" alt="logo"></div>
+      <div flex="30"><h1>Safaro</h1></div>
+      <div flex=""><md-input-container class="md-block rechercher">
+          <label>Rechercher ...</label>
+          <input ng-model="user.firstName">
+      </md-input-container></div>
+
+
+
+            <!-- <div flex class="avatar"><img ng-src="http://github.com/{{user.pseudo}}.png" ui-sref="user.profile" class="md-avatar" alt="{{contact.name}}" /></div> -->
+
     </header>
 
     <md-content class="navbar">

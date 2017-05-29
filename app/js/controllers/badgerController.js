@@ -8,6 +8,11 @@ angular.module('app')
       $scope.demandBadges = [];
       $scope.newDemand = "";
 
+      $scope.grey_heart = false;
+      $scope.actived = function() {
+        $scope.grey_heart = true;
+      };
+
       function load() {
         BadgeService.getAllDemands().then(function(res) {
           $scope.demandBadges = res.data;
