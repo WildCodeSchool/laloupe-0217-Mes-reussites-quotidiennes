@@ -15,9 +15,9 @@
                             <li class="newsuccess" ng-repeat="post in posts | orderBy:'createdate':true" ng-model="newPost" ng-change="check()">
                                 <div class="success">
                                     <div layout="row post_line1">
-                                        <img ng-src="http://github.com/{{user.pseudo}}.png" class="md-avatar posts" alt="{{user.lastname}}" />
-                                        <div id="username"> {{ user.firstname }} {{ user.lastname }} </div>
-                                        <img ng-src="img/SMILING FACE WITH SUNGLASSES.png" class="smiley_sunglasses" alt="smiley" />
+                                        <img ng-src="http://github.com/{{post.student.pseudo}}.png" class="md-avatar posts" alt="{{user.lastname}}" />
+                                        <div id="username"> {{ post.student.firstname }} {{ post.student.lastname }} </div>
+                                        <img ng-src="img/cool.png" class="smiley_sunglasses" alt="smiley" />
                                     </div>
                                     <hr>
                                     <div class="post">{{ post.content }}</div>

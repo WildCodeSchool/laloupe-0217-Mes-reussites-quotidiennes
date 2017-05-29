@@ -8,6 +8,10 @@ const postSchema = new mongoose.Schema({
       type: Date,
       default: Date.now
   },
+  student: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+  },
   updated_at: {
       type: Date,
       default: Date.now
@@ -27,6 +31,19 @@ export default class Post {
       }
     });
   }
+
+  findUserPost(req, res) {
+    model.find({student:req.params.userId})
+    .populate('student', {password: 0, __v: 0})
+    .exec((err, posts) => {
+      if (err || !posts) {
+        res.sendStatus(403);
+      } else {
+        res.json(posts);
+      }
+    });
+  }
+
   create(req, res) {
     model.create(req.body, (err, posts) => {
       if (err) {
