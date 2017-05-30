@@ -5,6 +5,7 @@ angular.module('app')
     function load() {
       PostService.getAll().then(function(res) {
         $scope.posts = res.data;
+        console.log($scope.posts);
       });
     }
 
