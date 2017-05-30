@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-generated/
-=======
-
 .DS_Store
 node_modules/
 npm-debug.log*
@@ -9,4 +5,3 @@ npm-debug.log*
 generated/
 
 node_modules/
->>>>>>> cae94f9a4f805713be88b2075bb2a129b3280efc
