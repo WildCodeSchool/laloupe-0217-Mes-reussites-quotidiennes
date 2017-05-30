@@ -75,7 +75,7 @@ export default class User {
                 } else {
                     user.comparePassword(req.body.password, (err, isMatch) => {
                         if (err) {
-                            res.status(400).send(err);
+                            res.sendStatus(400);
                         } else {
                             if (isMatch) {
                                 user.password = null;
@@ -88,7 +88,7 @@ export default class User {
                                     token: tk
                                 });
                             } else {
-                                res.status(400).send('Incorrect password');
+                                res.send();
                             }
                         }
                     });
@@ -151,15 +151,15 @@ export default class User {
             _id: req.params.userId
         }, req.body, (err, user) => {
             if (err || !user) {
-                res.status(500).send(err.message);
+              res.status(500).send(err.message);
             } else {
                 let tk = jsonwebtoken.sign(user, token, {
-                    expiresIn: "24h"
+                  expiresIn: "24h"
                 });
                 res.json({
-                    success: true,
-                    user: user,
-                    token: tk
+                  success: true,
+                  user: user,
+                  token: tk
                 });
             }
         });
