@@ -23,7 +23,9 @@ let model = mongoose.model('Post', postSchema);
 export default class Post {
 
   findAll(req, res) {
-    model.find({}, (err, posts) => {
+    model.find({})
+    .populate('student', {password: 0, __v: 0})
+    .exec((err, posts) => {
       if (err || !posts) {
         res.sendStatus(403);
       } else {
@@ -45,6 +47,7 @@ export default class Post {
   }
 
   create(req, res) {
+    console.log('body', req.body);
     model.create(req.body, (err, posts) => {
       if (err) {
         res.sendStatus(500);

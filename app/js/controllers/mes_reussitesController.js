@@ -6,6 +6,7 @@ angular.module('app')
       function load() {
         PostService.getUserPost(CurrentUser.user()._id).then(function(res) {
           $scope.posts = res.data;
+          console.log('res user posts', $scope.posts, res);
         });
       }
 
