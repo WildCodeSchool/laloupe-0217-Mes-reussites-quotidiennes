@@ -1,42 +1,40 @@
 <div flex-offset-xs flex-offset-gt-xs="30">
-  <div class="ownsuccess">
-    <ul>
-      <li class="newsuccess" ng-repeat="post in posts | orderBy:'createdate':true" ng-model="newPost" ng-change="check()">
-        <div class="success">
-          <div layout="row post_line1">
-            <img ng-src="http://github.com/{{user.pseudo}}.png" class="md-avatar posts" alt="{{user.lastname}}" />
-            <div id="username"> {{ user.firstname }} {{ user.lastname }} </div>
-            <img ng-src="img/cool.png" class="smiley_sunglasses" alt="smiley" />
-          </div>
-          <hr>
-          <div class="post">{{ post.content }}</div>
-          <hr>
-          <div>
-          </div>
-          <div class="facebook-reaction">
-            <img ng-src="img/grinning.png" class="compteur_smiley" alt="smiley" />
-            <img ng-src="img/wink.png" class="compteur_smiley" alt="smiley" />
-            <!-- container div for reaction system -->
-            <span class="like-btn"> <!-- Default like button -->
-						<span class="like-btn-emo like-btn-default"></span>
-            <!-- Default like button emotion-->
-            <span class="like-btn-text">J'aime</span>
-            <!-- Default like button text,(Like, wow, sad..) default:Like  -->
-            <ul class="reactions-box">
-              <!-- Reaction buttons container-->
-              <li class="reaction reaction-like" data-reaction="Like"></li>
-              <li class="reaction reaction-love" data-reaction="J'adore"></li>
-              <li class="reaction reaction-haha" data-reaction="Félicitations"></li>
-              <li class="reaction reaction-wow" data-reaction="Wow"></li>
-              <li class="reaction reaction-sad" data-reaction="Pas mal"></li>
-              <li class="reaction reaction-angry" data-reaction="Courage"></li>
-            </ul>
-            </span>
-
-          </div>
-        </div>
-  </div>
-  </li>
-  </ul>
-</div>
+    <div class="ownsuccess">
+        <ul>
+            <li class="newsuccess" ng-repeat="post in posts | orderBy:'createdate':true" ng-model="newPost" ng-change="check()">
+                <div class="success">
+                    <div layout="row post_line1">
+                        <img ng-src="http://github.com/{{user.pseudo}}.png" class="md-avatar posts" alt="{{user.lastname}}" />
+                        <div id="username"> {{ user.firstname }} {{ user.lastname }} </div>
+                        <img ng-src="img/cool.png" class="smiley_sunglasses" alt="smiley" />
+                    </div>
+                    <hr>
+                    <div class="post">{{ post.content }}</div>
+                    <hr>
+                    <div>
+                    </div>
+                    <div class="facebook-reaction">
+                        <img ng-src="img/grinning.png" class="compteur_smiley" alt="smiley" />
+                        <img ng-src="img/wink.png" class="compteur_smiley" alt="smiley" />
+                        <!-- container div for reaction system -->
+                        <span class="like-btn"> <!-- Default like button -->
+						               <span class="like-btn-emo like-btn-default"></span>
+                        <!-- Default like button emotion-->
+                          <span class="like-btn-text">J'aime</span>
+                        <!-- Default like button text,(Like, wow, sad..) default:Like  -->
+                          <ul class="reactions-box">
+                            <!-- Reaction buttons container-->
+                            <li class="reaction reaction-like" data-reaction="Like"></li>
+                            <li class="reaction reaction-love" data-reaction="J'adore"></li>
+                            <li class="reaction reaction-haha" data-reaction="Félicitations"></li>
+                            <li class="reaction reaction-wow" data-reaction="Wow"></li>
+                            <li class="reaction reaction-sad" data-reaction="Pas mal"></li>
+                            <li class="reaction reaction-angry" data-reaction="Courage"></li>
+                          </ul>
+                        </span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>
