@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('mes_reussitesController', function($scope, $mdDialog, CurrentUser, PostService, UserService) {
+    .controller('mes_reussitesController', function($scope, $mdDialog, CurrentUser, PostService, UserService, LocalService) {
       $scope.user = CurrentUser.user();
 
       function load() {
@@ -63,7 +63,8 @@ angular.module('app')
               .clickOutsideToClose(true)
               .title('Demande envoyée')
           );
-          console.log('error update user', err);
         });
+        LocalService.set('user', JSON.stringify($scope.user));
+        $scope.user = CurrentService.user();
       };
 });
