@@ -18,7 +18,7 @@ module.exports = (app) => {
 
     router.get('/', Auth.isAdministrator, user.findAll);
 
-   router.get('/:userId/posts', Auth.hasAuthorization, post.findUserPost);
+    router.get('/:userId/posts', Auth.hasAuthorization, post.findUserPost);
 
     router.get('/:userId', Auth.hasAuthorization, user.findById);
 

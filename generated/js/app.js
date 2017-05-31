@@ -89904,14 +89904,12 @@ angular.module('app')
     });
 
 angular.module('app')
-    .controller('mes_reussitesController', function($scope, CurrentUser, PostService, UserService) {
+    .controller('mes_reussitesController', function($scope, $mdDialog, CurrentUser, PostService, UserService, LocalService) {
       $scope.user = CurrentUser.user();
-      delete $scope.user.password;
 
       function load() {
         PostService.getUserPost(CurrentUser.user()._id).then(function(res) {
           $scope.posts = res.data;
-          console.log('res user posts', $scope.posts, res);
         });
       }
 
@@ -89939,18 +89937,45 @@ angular.module('app')
       };
 
       $scope.update = function () {
+        delete $scope.user.password;
         UserService.update($scope.user._id, $scope.user).then(function(res) {
-
-          console.log('user updated');
+          $mdDialog.show(
+              $mdDialog.alert({
+                  template:
+                      '<md-dialog>' +
+                      '<md-title class="Modal2">' +
+                      'Mise à jour effectuée' +
+                      '<md-icon md-svg-src="img/checkmark.svg" class="s24" aria-label="checkmark">'+
+                      '</md-icon>' +
+                      '</md-title>' +
+                      '</md-dialog>',
+              })
+              .clickOutsideToClose(true)
+              .title('Demande envoyée')
+          );
         }, function(err) {
-
-          console.log('error update user', err);
+          $mdDialog.show(
+              $mdDialog.alert({
+                  template:
+                      '<md-dialog>' +
+                      '<md-title class="Modal2">' +
+                      'Une erreur est survenue' +
+                      '<md-icon md-svg-src="img/deletemark.svg" class="s24" aria-label="deletemark">'+
+                      '</md-icon>' +
+                      '</md-title>' +
+                      '</md-dialog>',
+              })
+              .clickOutsideToClose(true)
+              .title('Demande envoyée')
+          );
         });
+        LocalService.set('user', JSON.stringify($scope.user));
+        $scope.user = CurrentService.user();
       };
 });
 
 angular.module('app')
-    .controller('NavbarController', function($scope, Auth, CurrentUser) {
+    .controller('NavbarController', function($scope, Auth, CurrentUser, UserService) {
         $scope.isCollapsed = true;
         $scope.auth = Auth;
         $scope.user = CurrentUser.user();
@@ -89959,6 +89984,7 @@ angular.module('app')
             Auth.logout();
             console.log('user deco');
         };
+
     });
 
 angular.module('app')
@@ -89982,7 +90008,6 @@ angular.module('app')
     function load() {
       PostService.getAll().then(function(res) {
         $scope.posts = res.data;
-        console.log($scope.posts);
       });
     }
 

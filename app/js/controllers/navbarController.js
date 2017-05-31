@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('NavbarController', function($scope, Auth, CurrentUser) {
+    .controller('NavbarController', function($scope, Auth, CurrentUser, UserService) {
         $scope.isCollapsed = true;
         $scope.auth = Auth;
         $scope.user = CurrentUser.user();
@@ -8,4 +8,5 @@ angular.module('app')
             Auth.logout();
             console.log('user deco');
         };
+
     });
