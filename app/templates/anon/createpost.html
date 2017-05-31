@@ -1,0 +1,18 @@
+<form ng-submit= sendPost()>
+  <input type="text" name="post" ng-model="newPost" placeholder="Écrivez votre réussite ici">
+</form>
+
+<hr>
+
+<h2>Mes réussites</h2>
+
+<div >
+  <div class="">
+    <ul>
+      <li ng-repeat="post in posts" ng-model="newPost" ng-change="check()">
+        {{ post.content }} - <button ng-click="removePost(post._id)">Supprimer</button>
+      </li>
+    </ul>
+  </div>
+  <p ng-hide="posts.length">Vous n'avez pas encore posté de réussite.</p>
+</div>

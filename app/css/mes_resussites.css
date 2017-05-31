@@ -1,0 +1,104 @@
+.edit {
+  border: 1px solid lightgrey;
+  margin-bottom: 8em;
+  background-color: white;
+}
+
+.ownsuccess {
+  margin: -32em 25vw 2vh 3vw;
+}
+
+@media screen and (max-width: 600px) {
+  .ownsuccess {
+    margin: auto;
+    margin-top: 2em;
+  }
+}
+
+.newsuccess {
+  border: 1px solid lightgrey;
+  margin-bottom: 3em;
+  background-color: white;
+}
+
+.smileys_delete {
+    max-width:100%;
+    /*margin:150px auto;*/
+    padding:0 27px;
+    position: relative;
+    display: flex;
+    /*justify-content: space-around;*/
+    align-items: center;
+    text-align: right;
+  }
+
+  .delete_button {
+    margin-left: 22em;
+  }
+
+.tabsdemoDynamicHeight md-content {
+    background-color: transparent !important;
+}
+
+.tabsdemoDynamicHeight md-content md-tabs {
+    background: #f6f6f6;
+    border: 1px solid #e1e1e1;
+}
+
+.tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
+    background: white;
+}
+
+md-tabs md-ink-bar {
+  background-color: orange;
+  color: orange;
+}
+
+#username {
+  margin-top: 1vh;
+  margin-left: 2vw;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+hr {
+  width: 90%;
+  border-color: #f6f6f6;
+}
+
+.posts {
+  margin-left: 5%;
+  margin-top: 2%;
+}
+
+.smiley_sunglasses {
+  height: 2.5em;
+  padding-right: 30px;
+}
+
+.compteur_smiley {
+  height: 2em;
+  padding-right: 1em;
+  margin-bottom: 2%;
+}
+
+li {
+  list-style: none;
+}
+
+.post {
+  margin: 40px;
+}
+
+.layout-row {
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}

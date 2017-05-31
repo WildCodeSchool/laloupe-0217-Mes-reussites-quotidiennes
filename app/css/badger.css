@@ -1,0 +1,58 @@
+.badge_demand {
+  margin: 20px;
+}
+
+.user_name {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.user_badge {
+  height: 80px;
+  width: 80px;
+  margin: 10px 30px;
+}
+
+.name_badge {
+  color: #918f8f;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-left: 10px;
+  margin-top: 40px;
+}
+
+img.career{
+  height: 22%;
+  width: 22%;
+  filter: grayscale(1);
+}
+
+img.career:hover{
+  cursor: pointer;
+}
+
+img.badge {
+  margin-left: -100px;
+}
+
+.heart {
+  margin: 10px 40px;
+  height: 60px;
+  width: 60px;
+}
+
+.heart:hover {
+  cursor: pointer;
+}
+
+.heart:focus{
+  outline: none;
+}
+
+.grey_heart {
+  filter: grayscale(1);
+  margin: 10px 40px;
+  height: 60px;
+  width: 60px;
+}
