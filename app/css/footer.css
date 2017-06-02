@@ -1,0 +1,17 @@
+footer {
+  background-color: white;
+  text-align: center;
+  height: 50px;
+  padding-top: 10px;
+  margin-top: 100px;
+}
+
+.copyright {
+  float: left;
+  padding-left: 31%;
+}
+
+.logout {
+  float: right;
+  padding-right: 15%;
+}

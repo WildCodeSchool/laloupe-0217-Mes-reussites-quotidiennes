@@ -1,7 +1,6 @@
 body {
   background-color: #f2f2f2;
   height: auto;
-  padding-bottom: 100px;
 }
 
 header {
@@ -47,6 +46,14 @@ ul._md-nav-bar-list {
 md-nav-bar {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+md-content {
+  overflow: hidden;
+}
+
+label {
+  bottom: 80% !important;
 }
 
 .md-nav-item:first-of-type {
@@ -132,6 +139,10 @@ span.md-subhead {
   border-radius: 50px;
 }
 
+/*md-card {
+  margin-top: 50px;
+  margin-left: 3em;
+}*/
 
 md-card-content {
   border-top: 1px solid lightgrey;
@@ -202,53 +213,68 @@ span.md-headline {
     font-size: 1.2em;
   }
 }
+
 @media screen and (max-width: 870px){
   span._md-nav-button-text {
     font-size: 1.2em !important;
   }
+
   .evaluer {
     text-align: right;
   }
+
   .reussites_session {
     margin-left: 0 !important;
   }
+
   #badger {
     margin-left: 3em !important;
   }
+
   h1 {
     font-size: 3em !important;
   }
+
   .logo {
     margin-bottom: 0px;
     width: 70px !important;
     height: 70px !important;
   }
+
   .ownsuccess {
     margin-right: 30px !important;
   }
+
   #username {
     font-size: 1.2em;
   }
-  #card_left{
+
+  #card_left {
     margin-left: 20px;
   }
 }
+
 @media(max-width:600px){
   span._md-nav-button-text {
     font-size: 1.2em !important;
   }
+
   .evaluer {
     text-align: right;
   }
+
   .reussites_session {
     margin-right: 2em !important;
   }
+
   #badger {
     margin-left: 3em !important;
   }
+
   h1 {
     font-size: 3em !important;
   }
+
   .logo {
     margin-bottom: 0px;
     width: 70px !important;
@@ -258,18 +284,22 @@ span.md-headline {
   #username {
     font-size: 1.2em;
   }
+
   #main_content{
     display: flex !important;
     flex-direction: column;
   }
+
   div #card_left{
     margin-left: 50px;
     width: 100em;
   }
+
   div #post_right{
     margin-left: 50px;
     width: 140em;
   }
+  
   .smiley_sunglasses{
     margin-top: 1.2em;
   }
