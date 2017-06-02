@@ -1,7 +1,6 @@
 body {
   background-color: #f2f2f2;
   height: auto;
-  padding-bottom: 100px;
 }
 
 header {
@@ -48,6 +47,14 @@ ul._md-nav-bar-list {
 md-nav-bar {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+md-content {
+  overflow: hidden;
+}
+
+label {
+  bottom: 80% !important;
 }
 
 .md-nav-item:first-of-type {
@@ -98,7 +105,7 @@ span.md-subhead {
 }
 
 md-card {
-  margin-top: 100px;
+  margin-top: 50px;
   margin-left: 3em;
 }
 md-card-content {

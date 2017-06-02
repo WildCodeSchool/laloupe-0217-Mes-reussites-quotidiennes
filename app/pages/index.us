@@ -2,26 +2,29 @@
 <html ng-app="app">
 
 <head>
-    <title>
-        <%= pkg.name %>
-    </title>
+  <title>
+    <%= pkg.name %>
+  </title>
 
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="<%= css %>" media="all" />
+  <link rel="stylesheet" type="text/css" href="<%= css %>" media="all" />
 </head>
 
 <body>
 
-    <div ui-view='navbar'></div>
-    <div ui-view='home'></div>
-    <div ui-view='content'></div>
+  <div ui-view='navbar'></div>
+  <div ui-view='home'></div>
+  <div ui-view='content'></div>
 
+  <footer>
+    <div class="copyright">
+      <p>Projet pour la Wild Code School développé par Angélique Cléry, Manu Jousselin et Philippe Pinceloup | <a ng-click="logout()" ui-sref="anon.login" md-nav-click="goto('login')" class="logout_footer">Se déconnecter</a></p>
+    </div>
+  </footer>
 
-
-
-    <script type="text/javascript" src="<%= js %>"></script>
+  <script type="text/javascript" src="<%= js %>"></script>
 </body>
 
 </html>

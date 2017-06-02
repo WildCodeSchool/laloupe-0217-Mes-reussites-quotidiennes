@@ -413,7 +413,6 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "                Réussites de la session</md-nav-item>\n" +
     "            <md-nav-item class=\"reussites\" ui-sref=\"user.mes_reussites\" flex=\"15\" md-nav-click=\"goto('page2')\" name=\"page2\">Mes réussites</md-nav-item>\n" +
     "            <md-nav-item id=\"badger\" ui-sref=\"user.badger\" flex md-nav-click=\"goto('page3')\" name=\"page3\">Badger</md-nav-item>\n" +
-    "            <md-nav-item ng-click=\"logout()\" ui-sref=\"anon.login\" md-nav-click=\"goto('login')\">Déconnecter</md-nav-item>\n" +
     "        </md-nav-bar>\n" +
     "    </md-content>\n" +
     "</nav>\n"
