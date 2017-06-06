@@ -8,9 +8,9 @@ module.exports = (app) => {
     var post = new Post();
 
     router.get('/', post.findAll);
-    router.post('/', post.create);
-    router.put('/:id', post.update);
-    router.delete('/:id', post.delete);
+    router.post('/', Auth.isOwnUser, post.create);
+    router.put('/:id', Auth.isOwnUser, post.update);
+    router.delete('/:id', Auth.isOwnUser, post.delete);
 
     app.use('/posts', router);
 

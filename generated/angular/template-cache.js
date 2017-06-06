@@ -392,30 +392,50 @@ angular.module("app").run(["$templateCache", function($templateCache) {
 
   $templateCache.put("user/navbar.html",
     "<nav role=\"navigation\">\n" +
-    "    <header layout=\"row\" layout-wrap layout-align-md=\"start center\" layout-align=\"start center\">\n" +
-    "      <div flex=\"6\"><img class=\"logo\" src=\"img/logo_wcs.png\" alt=\"logo\"></div>\n" +
-    "      <div flex=\"30\"><h1>Safaro</h1></div>\n" +
-    "      <div flex=\"\"><md-input-container class=\"md-block rechercher\">\n" +
-    "          <label>Rechercher ...</label>\n" +
-    "          <input ng-model=\"user.firstName\">\n" +
-    "      </md-input-container></div>\n" +
+    "  <header layout=\"row\" layout-wrap layout-align-md=\"start center\" layout-align=\"start center\">\n" +
+    "    <div flex=\"6\"><img class=\"logo\" src=\"img/logo_wcs.png\" alt=\"logo\"></div>\n" +
+    "    <div flex=\"30\">\n" +
+    "      <h1>Safaro</h1></div>\n" +
+    "    <form ng-submit=\"$event.preventDefault()\">\n" +
+    "      <div layout-gt-sm=\"row\">\n" +
+    "        <md-content class=\"md-padding\">\n" +
+    "          <form ng-submit=\"$event.preventDefault()\" name=\"searchForm\">\n" +
+    "            <div layout-gt-sm=\"row\">\n" +
+    "              <md-autocomplete flex required\n" +
+    "                md-input-name=\"userAutocompleteField\"\n" +
+    "                md-input-minlength=\"3\"\n" +
+    "                md-input-maxlength=\"18\" \n" +
+    "                md-no-cache=\"true\" \n" +
+    "                md-selected-item=\"selectedUser\" \n" +
+    "                md-search-text=\"searchText\" \n" +
+    "                md-items=\"user in searchUser(searchText)\" \n" +
+    "                md-item-text=\"fullName(user)\"\n" +
+    "                md-require-match \n" +
+    "                md-floating-label=\" Rechercher \">\n" +
+    "                <md-item-template>\n" +
+    "                  <span md-highlight-text=\"searchText\">{{user.firstname}} {{ user.lastname}}</span>\n" +
+    "                </md-item-template>\n" +
+    "              </md-autocomplete>\n" +
+    "            </div>\n" +
+    "          </form>\n" +
+    "        </md-content>\n" +
+    "      </div>\n" +
+    "    </form>\n" +
     "\n" +
+    "    <!-- <div flex class=\"avatar\"><img ng-src=\"http://github.com/{{user.pseudo}}.png\" ui-sref=\"user.profile\" class=\"md-avatar\" alt=\"{{contact.name}}\" /></div> -->\n" +
     "\n" +
+    "  </header>\n" +
     "\n" +
-    "            <!-- <div flex class=\"avatar\"><img ng-src=\"http://github.com/{{user.pseudo}}.png\" ui-sref=\"user.profile\" class=\"md-avatar\" alt=\"{{contact.name}}\" /></div> -->\n" +
-    "\n" +
-    "    </header>\n" +
-    "\n" +
-    "    <md-content class=\"navbar\">\n" +
-    "        <md-nav-bar class=\"menu\" md-selected-nav-item=\"currentNavItem\" nav-bar-aria-label=\"navigation links\">\n" +
-    "            <md-nav-item ui-sref=\"user.reussites\" class=\"reussites_session\" flex=\"45\" md-nav-click=\"goto('page1')\" name=\"page1\">\n" +
-    "                <!--route provisoire à changer-->\n" +
-    "                Réussites de la session</md-nav-item>\n" +
-    "            <md-nav-item class=\"reussites\" ui-sref=\"user.mes_reussites\" flex=\"15\" md-nav-click=\"goto('page2')\" name=\"page2\">Mes réussites</md-nav-item>\n" +
-    "            <md-nav-item id=\"badger\" ui-sref=\"user.badger\" flex md-nav-click=\"goto('page3')\" name=\"page3\">Badger</md-nav-item>\n" +
-    "            <md-nav-item ng-click=\"logout()\" ui-sref=\"anon.login\" md-nav-click=\"goto('login')\">Déconnecter</md-nav-item>\n" +
-    "        </md-nav-bar>\n" +
-    "    </md-content>\n" +
+    "  <md-content class=\"navbar\">\n" +
+    "    <md-nav-bar class=\"menu\" md-selected-nav-item=\"currentNavItem\" nav-bar-aria-label=\"navigation links\">\n" +
+    "      <md-nav-item ui-sref=\"user.reussites\" class=\"reussites_session\" flex=\"45\" md-nav-click=\"goto('page1')\" name=\"page1\">\n" +
+    "        <!--route provisoire à changer-->\n" +
+    "        Réussites de la session</md-nav-item>\n" +
+    "      <md-nav-item class=\"reussites\" ui-sref=\"user.mes_reussites\" flex=\"15\" md-nav-click=\"goto('page2')\" name=\"page2\">Mes réussites</md-nav-item>\n" +
+    "      <md-nav-item id=\"badger\" ui-sref=\"user.badger\" flex md-nav-click=\"goto('page3')\" name=\"page3\">Badger</md-nav-item>\n" +
+    "      <md-nav-item ng-click=\"logout()\" ui-sref=\"anon.login\" md-nav-click=\"goto('login')\">Déconnecter</md-nav-item>\n" +
+    "    </md-nav-bar>\n" +
+    "  </md-content>\n" +
     "</nav>\n"
   );
 
