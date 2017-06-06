@@ -5,14 +5,7 @@
 }
 
 .ownsuccess {
-  margin: -32em 25vw 2vh 3vw;
-}
-
-@media screen and (max-width: 600px) {
-  .ownsuccess {
-    margin: auto;
-    margin-top: 2em;
-  }
+  margin-right: 200px;
 }
 
 .newsuccess {
@@ -55,7 +48,7 @@ md-tabs md-ink-bar {
 }
 
 #username {
-  margin-top: 1vh;
+  margin-top: 1.5em;
   margin-left: 2vw;
   font-size: 20px;
   font-weight: bold;
@@ -74,6 +67,7 @@ hr {
 .smiley_sunglasses {
   height: 2.5em;
   padding-right: 30px;
+  margin-top: 1.6em;
 }
 
 .compteur_smiley {
@@ -95,7 +89,7 @@ li {
     -webkit-flex-direction: row;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    /*align-items: center;*/
 }
 
 ul {

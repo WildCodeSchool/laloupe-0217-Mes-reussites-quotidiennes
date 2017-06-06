@@ -25,7 +25,7 @@ angular.module('app')
             .state('anon.login', {
                 url: '/login',
                 views: {
-                    'content@': {
+                    'login@': {
                         templateUrl: 'anon/login.html',
                         controller: 'LoginController'
                     }
@@ -75,7 +75,7 @@ angular.module('app')
             .state('user.badger', {
                 url: '/badger',
                 views: {
-                    'content@': {
+                    'badger@': {
                         templateUrl: 'user/badger.html',
                         controller: 'BadgerController'
                     }
