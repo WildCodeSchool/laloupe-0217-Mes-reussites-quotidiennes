@@ -12,13 +12,13 @@ module.exports = (app) => {
     });
 
     var user = new User();
-    //var post = new Post();
+    var post = new Post();
 
     app.post('/login', user.connect);
 
-    router.get('/', Auth.isAdministrator, user.findAll);
+    router.get('/', Auth.hasAuthorization, user.findAll);
 
-  //  router.get('/:userId/posts', Auth.hasAuthorization, post.findUserPost);
+    router.get('/:userId/posts', Auth.hasAuthorization, post.findUserPost);
 
     router.get('/:userId', Auth.hasAuthorization, user.findById);
 
