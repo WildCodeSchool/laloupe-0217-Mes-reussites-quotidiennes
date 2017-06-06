@@ -30,3 +30,4 @@ angular.module('app')
       return user.firstname + ' ' + user.lastname;
     };
   });
+

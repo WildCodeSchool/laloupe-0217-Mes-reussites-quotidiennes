@@ -1,4 +1,5 @@
 <nav role="navigation">
+
   <header layout="row" layout-wrap layout-align-md="start center" layout-align="start center">
     <div flex="6"><img class="logo" src="img/logo_wcs.png" alt="logo"></div>
     <div flex="30">
@@ -29,9 +30,11 @@
       </div>
     </form>
 
+
     <!-- <div flex class="avatar"><img ng-src="http://github.com/{{user.pseudo}}.png" ui-sref="user.profile" class="md-avatar" alt="{{contact.name}}" /></div> -->
 
   </header>
+
 
   <md-content class="navbar">
     <md-nav-bar class="menu" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
@@ -43,4 +46,5 @@
       <md-nav-item ng-click="logout()" ui-sref="anon.login" md-nav-click="goto('login')">Déconnecter</md-nav-item>
     </md-nav-bar>
   </md-content>
+
 </nav>
