@@ -1,4 +1,33 @@
 <nav role="navigation">
+  <header layout="row" layout-wrap layout-align-md="start center" layout-align="start center">
+    <div flex="6"><img class="logo" src="img/logo_wcs.png" alt="logo"></div>
+    <div flex="30">
+      <h1>Safaro</h1></div>
+    <form ng-submit="$event.preventDefault()">
+      <div layout-gt-sm="row">
+        <md-content class="md-padding">
+          <form ng-submit="$event.preventDefault()" name="searchForm">
+            <div layout-gt-sm="row">
+              <md-autocomplete required
+                md-input-name="userAutocompleteField"
+                md-input-minlength="3"
+                md-input-maxlength="18"
+                md-no-cache="true"
+                md-selected-item="selectedUser"
+                md-search-text="searchText"
+                md-items="user in searchUser(searchText)"
+                md-item-text="fullName(user)"
+                md-require-match
+                md-floating-label=" Rechercher ">
+                <md-item-template>
+                  <span md-highlight-text="searchText">{{user.firstname}} {{ user.lastname}}</span>
+                </md-item-template>
+              </md-autocomplete>
+            </div>
+          </form>
+        </md-content>
+      </div>
+    </form>
 
     <header layout="row" layout-align="start center">
         <div flex="10"><img class="logo" src="img/logo_wcs.png" alt="logo"></div>
