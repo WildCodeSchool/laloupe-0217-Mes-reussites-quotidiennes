@@ -1,6 +1,5 @@
 import express from 'express';
 import Post from '../models/post.js';
-import Auth from '../middlewares/authorization.js';
 
 let router = express.Router();
 
