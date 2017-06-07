@@ -90613,16 +90613,16 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "        <md-content class=\"md-padding\">\n" +
     "          <form ng-submit=\"$event.preventDefault()\" name=\"searchForm\">\n" +
     "            <div layout-gt-sm=\"row\">\n" +
-    "              <md-autocomplete flex required\n" +
+    "              <md-autocomplete required\n" +
     "                md-input-name=\"userAutocompleteField\"\n" +
     "                md-input-minlength=\"3\"\n" +
-    "                md-input-maxlength=\"18\" \n" +
-    "                md-no-cache=\"true\" \n" +
-    "                md-selected-item=\"selectedUser\" \n" +
-    "                md-search-text=\"searchText\" \n" +
-    "                md-items=\"user in searchUser(searchText)\" \n" +
+    "                md-input-maxlength=\"18\"\n" +
+    "                md-no-cache=\"true\"\n" +
+    "                md-selected-item=\"selectedUser\"\n" +
+    "                md-search-text=\"searchText\"\n" +
+    "                md-items=\"user in searchUser(searchText)\"\n" +
     "                md-item-text=\"fullName(user)\"\n" +
-    "                md-require-match \n" +
+    "                md-require-match\n" +
     "                md-floating-label=\" Rechercher \">\n" +
     "                <md-item-template>\n" +
     "                  <span md-highlight-text=\"searchText\">{{user.firstname}} {{ user.lastname}}</span>\n" +
