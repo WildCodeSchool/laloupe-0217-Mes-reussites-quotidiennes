@@ -10,6 +10,7 @@ module.exports = (app) => {
 
     router.get('/', post.findAll);
     router.post('/', Auth.isOwnUser, post.create);
+    router.put('/:id/like', Auth.hasAuthorization, post.createLike);
     router.put('/:id', Auth.isOwnUser, post.update);
     router.delete('/:id', Auth.isOwnUser, post.delete);
 
