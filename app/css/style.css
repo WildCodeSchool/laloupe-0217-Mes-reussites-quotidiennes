@@ -83,6 +83,10 @@ md-nav-bar md-nav-ink-bar {
    background: orange;
 }
 
+md-virtual-repeat-container {
+  margin-top: 1.1em !important;
+}
+
 /*burguer*/
 .fabSpeedDialdemoBasicUsage .text-capitalize {
   text-transform: capitalize; }
@@ -299,7 +303,7 @@ span.md-headline {
     margin-left: 50px;
     width: 140em;
   }
-  
+
   .smiley_sunglasses{
     margin-top: 1.2em;
   }
