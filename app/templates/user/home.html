@@ -1,0 +1,31 @@
+<div>
+      <md-card>
+        <md-card-header layout="column" layout-align="space-around center">
+            <img class="profil" src="http://github.com/{{user.pseudo}}.png"/>
+            <span class="md-title">{{ user.firstname }} {{ user.lastname }}</span>
+            <span class="md-subhead">{{ user.city }}, session #{{ user.session }}</span>
+        </md-card-header>
+        <md-card-content layout="row" layout-align="space-around none">
+          <div class="count" flex="50" layout="column"><span class="score">400</span><span class="md-headline">Réussites</span></div>
+          <div flex="50" layout="column"><span class="score">32</span><span class="md-headline">Badges</span></div>
+        </md-card-content>
+        <md-card-content>
+          <div class="smileys" layout="row" layout-align="space-around">
+            <img ng-class="{'selected': (color === 1)}" ng-click="changeColor(1)" class="smiley" src="img/smileys/grinning.png" alt="grinning">
+            <img ng-class="{'selected': (color === 2)}" ng-click="changeColor(2)" class="smiley" src="img/smileys/confused.png" alt="confused">
+            <img ng-class="{'selected': (color === 3)}" ng-click="changeColor(3)" class="smiley" src="img/smileys/angryface.png" alt="crying">
+            <img ng-class="{'selected': (color === 4)}" ng-click="changeColor(4)" class="smiley" src="img/smileys/heart.png" alt="pouting">
+            <img ng-class="{'selected': (color === 5)}" ng-click="changeColor(5)" class="smiley" src="img/smileys/wink.png" alt="sleeping">
+            <img ng-class="{'selected': (color === 6)}" ng-click="changeColor(6)" class="smiley" src="img/smileys/cool.png" alt="cool">
+          </div>
+        </md-card-content>
+      </md-card>
+</div>
+
+<div>
+      <md-card id="badges" layout="column" layout-align="space-around center">
+        <img ng-click ="showModal()" ng-model="newDemand" type="submit" class="career" src="../img/vintage.png"></img>
+      </md-card>
+</div>
+
+<!-- img ng-click ="sendDemand('591d699c51f8f7fa17f12c0c')"  -->

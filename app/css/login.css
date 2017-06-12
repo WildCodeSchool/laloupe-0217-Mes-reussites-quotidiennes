@@ -1,0 +1,38 @@
+.login-container {
+	display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+  align-items: center;
+}
+
+.login-container > div {
+	width: 50%;
+}
+
+.login-container > div:first-child {
+	margin-right: 20px;
+}
+
+
+.loginBackground {
+  background-image: url("../../img/registerBackground.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.login-h1 {
+  text-align: center;
+}
+
+md-content.md-default-theme, md-content {
+  background-color: rgba(250, 250, 250, 0);
+}
+
+.userForm {
+  width: 50%;
+}
+
+.have_account {
+	text-align: center;
+}

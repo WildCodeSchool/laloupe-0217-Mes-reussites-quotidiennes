@@ -58076,7 +58076,7 @@ angular.module('app')
     });
 
 angular.module('app')
-    .factory('Auth', function($http, LocalService, AccessLevels) {
+    .factory('Auth', ["$http", "LocalService", "AccessLevels", function($http, LocalService, AccessLevels) {
         function checkTokenStatus(token) {
             $http.get('/token_status');
         }
@@ -58120,8 +58120,8 @@ angular.module('app')
                 return register;
             }
         };
-    })
-    .factory('AuthInterceptor', function($q, $injector) {
+    }])
+    .factory('AuthInterceptor', ["$q", "$injector", function($q, $injector) {
         var LocalService = $injector.get('LocalService');
 
         return {
@@ -58143,13 +58143,13 @@ angular.module('app')
                 return $q.reject(response);
             }
         };
-    })
-    .config(function($httpProvider) {
+    }])
+    .config(["$httpProvider", function($httpProvider) {
         $httpProvider.interceptors.push('AuthInterceptor');
-    });
+    }]);
 
 angular.module('app')
-    .factory('CurrentUser', function(LocalService) {
+    .factory('CurrentUser', ["LocalService", function(LocalService) {
         return {
             user: function() {
                 if (LocalService.get('user')) {
@@ -58159,7 +58159,7 @@ angular.module('app')
                 }
             }
         };
-    });
+    }]);
 
 angular.module('app')
     .factory('LocalService', function() {
@@ -58177,7 +58177,7 @@ angular.module('app')
     });
 
 angular.module('app')
-    .service('UserService', function($http) {
+    .service('UserService', ["$http", function($http) {
         return {
             getAll: function() {
                 return $http.get('/users');
@@ -58192,17 +58192,17 @@ angular.module('app')
                 return $http.delete('/users/' + id);
             }
         };
-    });
+    }]);
 
 angular.module('app')
-    .controller('DashboardController', function($scope, CurrentUser, UserService) {
+    .controller('DashboardController', ["$scope", "CurrentUser", "UserService", function($scope, CurrentUser, UserService) {
         UserService.getOne(CurrentUser.user()._id).then(function(res) {
             $scope.user = res.data;
         });
-    });
+    }]);
 
 angular.module('app')
-    .controller('LoginController', function($scope, $state, Auth) {
+    .controller('LoginController', ["$scope", "$state", "Auth", function($scope, $state, Auth) {
         $scope.errors = [];
 
         $scope.login = function() {
@@ -58215,15 +58215,15 @@ angular.module('app')
                 });
             }
         };
-    });
+    }]);
 
 angular.module('app')
-    .controller('MainController', function($scope) {
+    .controller('MainController', ["$scope", function($scope) {
       /* Here is your main controller */
-    });
+    }]);
 
 angular.module('app')
-    .controller('NavbarController', function($scope, Auth, CurrentUser) {
+    .controller('NavbarController', ["$scope", "Auth", "CurrentUser", function($scope, Auth, CurrentUser) {
         $scope.isCollapsed = true;
         $scope.auth = Auth;
         $scope.user = CurrentUser.user();
@@ -58231,24 +58231,24 @@ angular.module('app')
         $scope.logout = function() {
             Auth.logout();
         };
-    });
+    }]);
 
 angular.module('app')
-    .controller('ProfileController', function($scope, CurrentUser) {
+    .controller('ProfileController', ["$scope", "CurrentUser", function($scope, CurrentUser) {
       $scope.user = CurrentUser.user();
-    });
+    }]);
 
 angular.module('app')
-    .controller('RegisterController', function($scope, $state, Auth) {
+    .controller('RegisterController', ["$scope", "$state", "Auth", function($scope, $state, Auth) {
         $scope.register = function() {
             Auth.register($scope.user).then(function() {
                 $state.go('anon.home');
             });
         };
-    });
+    }]);
 
 angular.module('app')
-    .config(function($stateProvider, $urlRouterProvider, AccessLevels) {
+    .config(["$stateProvider", "$urlRouterProvider", "AccessLevels", function($stateProvider, $urlRouterProvider, AccessLevels) {
         $stateProvider
             .state('anon', {
                 abstract: true,
@@ -58322,7 +58322,7 @@ angular.module('app')
                 }
             });
         $urlRouterProvider.otherwise('/');
-    });
+    }]);
 
 angular.module("app").run(["$templateCache", function($templateCache) {
 

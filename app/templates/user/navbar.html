@@ -1,26 +1,62 @@
-<nav class="navbar navbar-default" role="navigation" ng-controller="NavbarController">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-            <a class="navbar-brand" href="#"></a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbar">
-            <ul class="nav navbar-nav">
-                <li ui-sref-active="active"><a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()">Dashboard</a></li>
-                <li ui-sref-active="active"><a ui-sref="user.profile" ng-show="auth.isAuthenticated()">Profile</a></li>
+<nav role="navigation">
 
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                <li ui-sref-active="active"><a ui-sref="anon.home">Website</a></li>
-                    <li><a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#'>Logout</a></li>
-                </li>
-            </ul>
-        </div>
-    </div>
+  <header layout="row" layout-wrap layout-align-md="start center" layout-align="start center">
+    <div flex="6"><img class="logo" src="img/logo_wcs.png" alt="logo"></div>
+    <div flex="30">
+      <h1>Safaro</h1></div>
+    <form ng-submit="$event.preventDefault()">
+      <div layout-gt-sm="row">
+        <md-content class="md-padding">
+          <form ng-submit="$event.preventDefault()" name="searchForm">
+            <div layout-gt-sm="row">
+              <md-autocomplete flex required
+                md-input-name="userAutocompleteField"
+                md-input-minlength="3"
+                md-input-maxlength="18"
+                md-no-cache="true"
+                md-selected-item="selectedUser"
+                md-search-text="searchText"
+                md-items="user in searchUser(searchText)"
+                md-item-text="fullName(user)"
+                md-require-match
+                md-floating-label=" Rechercher ">
+                <md-item-template>
+                  <span md-highlight-text="searchText">{{user.firstname}} {{ user.lastname}}</span>
+                </md-item-template>
+              </md-autocomplete>
+            </div>
+          </form>
+        </md-content>
+      </div>
+    </form>
+
+
+    <!-- <div flex class="avatar"><img ng-src="http://github.com/{{user.pseudo}}.png" ui-sref="user.profile" class="md-avatar" alt="{{contact.name}}" /></div> -->
+
+  </header>
+
+
+  <md-content class="navbar">
+    <md-nav-bar class="menu" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+      <md-nav-item ui-sref="user.reussites" class="reussites_session" flex="45" md-nav-click="goto('page1')" name="page1">
+        <!--route provisoire à changer-->
+        Réussites de la session</md-nav-item>
+      <md-nav-item class="reussites" ui-sref="user.mes_reussites" flex="15" md-nav-click="goto('page2')" name="page2">Mes réussites</md-nav-item>
+      <md-nav-item id="badger" ui-sref="user.badger" flex md-nav-click="goto('page3')" name="page3">Badger</md-nav-item>
+      <md-nav-item ng-click="logout()" ui-sref="anon.login" md-nav-click="goto('login')">Déconnecter</md-nav-item>
+    </md-nav-bar>
+  </md-content>
+
+<!-- <<<<<<< 086331a596e20316999dfdc65879af7f746f7a1e
+=======
+    <md-content class="navbar">
+        <md-nav-bar class="menu" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+            <md-nav-item ui-sref="user.reussites" class="reussites_session" flex="45" md-nav-click="goto('page1')" name="page1">
+                <!-route provisoire à changer->
+                Réussites de la session</md-nav-item>
+            <md-nav-item class="reussites" ui-sref="user.mes_reussites" flex="15" md-nav-click="goto('page2')" name="page2">Mes réussites</md-nav-item>
+            <md-nav-item id="badger" ui-sref="user.badger" flex md-nav-click="goto('page3')" name="page3">Badger</md-nav-item>
+        </md-nav-bar>
+    </md-content>
+>>>>>>> Scrollbar removed from menu, footer margin-top 100px, badge margin-top 50px, Rechercher bottom 80% -->
 </nav>
