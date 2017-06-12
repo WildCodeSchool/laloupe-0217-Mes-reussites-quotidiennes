@@ -1,13 +1,12 @@
-![Lineman build](https://travis-ci.org/JbPasquier/mean-lineman.svg?branch=master)
+# Safaro
 
-# [MEAN](http://mean.io/) Starter with [Lineman](http://linemanjs.com/)
+## Projet 3
 
-## Angular
+### Groupe
 
-### Requirements
-
--   [Node](https://doc.ubuntu-fr.org/nodejs#depuis_un_ppa)
--   [MongoDB](https://doc.ubuntu-fr.org/mongodb#installation)
+-   Philippe Pinceloup
+-   Angélique Clery
+-   Emmanuel Jousselin
 
 ### Execution
 
@@ -30,5 +29,3 @@ npm start
 ```bash
 npm run production
 ```
-
-[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)

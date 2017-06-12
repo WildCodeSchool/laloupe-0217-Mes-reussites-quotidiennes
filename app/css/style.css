@@ -1,0 +1,310 @@
+body {
+  background-color: #f2f2f2;
+  height: auto;
+}
+
+header {
+  padding: 0px 20px;
+  background-color: #fff;
+}
+
+h1 {
+  font-size: 3.5em;
+  padding: 0;
+  margin: 5px 0 10px 10px;
+}
+
+.logo {
+  margin-bottom: 0px;
+  width: 80px;
+  height: 80px;
+}
+
+md-input-container {
+  padding-top: 14px;
+  margin-bottom: 0px;
+  width: 400px;
+}
+
+.md-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.avatar {
+  text-align: right;
+}
+
+/*navbar*/
+ul._md-nav-bar-list {
+  border-top: 2px solid lightgrey;
+  background-color: #f2f2f2;
+  text-transform: lowercase;
+}
+
+md-nav-bar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+md-content {
+  overflow: hidden;
+}
+
+label {
+  bottom: 80% !important;
+}
+
+.md-nav-item:first-of-type {
+    margin-left: 65px;
+}
+
+span._md-nav-button-text {
+  text-transform: none;
+  color: black;
+  font-size: 1.4em;
+}
+
+.reussites_session {
+  text-align: right;
+}
+
+.reussites {
+  text-align: center;
+}
+
+.evaluer {
+  text-align: left;
+}
+
+md-nav-bar md-nav-ink-bar {
+   color: orange;
+   background: orange;
+}
+
+md-virtual-repeat-container {
+  margin-top: 1.1em !important;
+}
+
+/*burguer*/
+.fabSpeedDialdemoBasicUsage .text-capitalize {
+  text-transform: capitalize; }
+
+.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
+  background-color: #000 !important; }
+
+.fabSpeedDialdemoBasicUsage p.note {
+  font-size: 1.2rem; }
+
+.fabSpeedDialdemoBasicUsage .lock-size {
+  min-width: 300px;
+  min-height: 300px;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto; }
+
+/*main content*/
+#main_content {
+  margin-top: 100px;
+  display: flex;
+}
+
+/*card*/
+#card_left{
+  margin-top: -0.5em;;
+}
+
+div md-card {
+  margin-bottom: 5em;
+}
+
+md-card-header {
+  margin-right: 0;
+}
+
+md-card-header.layout-column {
+  padding-top: 20px;
+}
+
+span.md-title {
+  padding-top: 5px;
+}
+
+span.md-subhead {
+  padding-top: 5px;
+  color: #918f8f;
+}
+
+.profil {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+/*md-card {
+  margin-top: 50px;
+  margin-left: 3em;
+}*/
+
+md-card-content {
+  border-top: 1px solid lightgrey;
+  text-align: center;
+}
+
+md-card-content.layout-row {
+  padding: 0;
+}
+
+span.score {
+  padding-top: 10px;
+  font-size: 1.5em;
+}
+
+.count {
+  border-right: 1px solid lightgrey;
+}
+
+span.md-headline {
+  padding-bottom: 10px;
+  color: #918f8f;
+}
+
+.smiley {
+  height: 42px;
+  width: 42px;
+  filter: grayscale(1);
+}
+
+.smiley:hover {
+  cursor: pointer;
+}
+
+.selected {
+  filter: grayscale(0);
+  outline: none;
+}
+
+/*Media Queries*/
+@media screen and (min-width: 980px) and (max-width: 1280px){
+  .ownsuccess {
+    margin-right: 100px !important;
+  }
+}
+@media screen and (min-width: 870px) and (max-width: 980px){
+  span._md-nav-button-text {
+    font-size: 1.3em !important;
+  }
+  .reussites_session {
+    margin-left: 0 !important;
+  }
+  #badger {
+    margin-left: 2em !important;
+  }
+  h1 {
+    font-size: 3.2em !important;
+  }
+  .logo {
+    margin-bottom: 0px;
+    width: 75px !important;
+    height: 75px !important;
+  }
+  .ownsuccess {
+    margin-right: 50px !important;
+  }
+  #username {
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (max-width: 870px){
+  span._md-nav-button-text {
+    font-size: 1.2em !important;
+  }
+
+  .evaluer {
+    text-align: right;
+  }
+
+  .reussites_session {
+    margin-left: 0 !important;
+  }
+
+  #badger {
+    margin-left: 3em !important;
+  }
+
+  h1 {
+    font-size: 3em !important;
+  }
+
+  .logo {
+    margin-bottom: 0px;
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .ownsuccess {
+    margin-right: 30px !important;
+  }
+
+  #username {
+    font-size: 1.2em;
+  }
+
+  #card_left {
+    margin-left: 20px;
+  }
+}
+
+@media(max-width:600px){
+  span._md-nav-button-text {
+    font-size: 1.2em !important;
+  }
+
+  .evaluer {
+    text-align: right;
+  }
+
+  .reussites_session {
+    margin-right: 2em !important;
+  }
+
+  #badger {
+    margin-left: 3em !important;
+  }
+
+  h1 {
+    font-size: 3em !important;
+  }
+
+  .logo {
+    margin-bottom: 0px;
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  #username {
+    font-size: 1.2em;
+  }
+
+  #main_content{
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  div #card_left{
+    margin-left: 50px;
+    width: 100em;
+  }
+
+  div #post_right{
+    margin-left: 50px;
+    width: 140em;
+  }
+
+  .smiley_sunglasses{
+    margin-top: 1.2em;
+  }
+}

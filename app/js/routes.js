@@ -25,9 +25,18 @@ angular.module('app')
             .state('anon.login', {
                 url: '/login',
                 views: {
-                    'content@': {
+                    'login@': {
                         templateUrl: 'anon/login.html',
                         controller: 'LoginController'
+                    }
+                }
+            })
+            .state('anon.createpost', {
+                url: '/createpost',
+                views: {
+                    'content@': {
+                        templateUrl: 'anon/createpost.html',
+                        controller: 'CreatePostController'
                     }
                 }
             })
@@ -54,6 +63,24 @@ angular.module('app')
                     access: AccessLevels.user
                 }
             })
+            .state('user.home', {
+                url: '/home',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/home.html',
+                        controller: 'MainController'
+                    }
+                }
+            })
+            .state('user.badger', {
+                url: '/badger',
+                views: {
+                    'badger@': {
+                        templateUrl: 'user/badger.html',
+                        controller: 'BadgerController'
+                    }
+                }
+            })
             .state('user.dashboard', {
                 url: '/dashboard',
                 views: {
@@ -63,12 +90,42 @@ angular.module('app')
                     }
                 }
             })
+            .state('user.reussites', {
+                url: '/reussites',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/reussites.html',
+                        controller: 'ReussitesController'
+                    },
+                    'home@': {
+                        templateUrl: 'user/home.html',
+                        controller: 'MainController'
+                    }
+                }
+            })
             .state('user.profile', {
                 url: '/profile',
                 views: {
                     'content@': {
                         templateUrl: 'user/profile.html',
                         controller: 'ProfileController'
+                    },
+                    'home@': {
+                        templateUrl: 'user/home.html',
+                        controller: 'MainController'
+                    }
+                }
+            })
+            .state('user.mes_reussites', {
+                url: '/mes_reussites',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/mes_reussites.html',
+                        controller: 'mes_reussitesController'
+                    },
+                    'home@': {
+                        templateUrl: 'user/home.html',
+                        controller: 'MainController'
                     }
                 }
             });
