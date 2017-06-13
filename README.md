@@ -23,6 +23,11 @@ npm install
 ```bash
 npm start
 ```
+#### Development API
+
+```
+nodemon --exec npm run server
+```
 
 #### Production
 
