@@ -28,7 +28,7 @@ db(() => {
         process.exit();
     });
     app.server.listen(process.env.PORT || 3000);
-    console.log(`Server started on port ${app.server.address().port}`);
+    console.log(`Server started`);
 });
 
 export default app;
