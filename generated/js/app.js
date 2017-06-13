@@ -90007,6 +90007,7 @@ angular.module('app')
     };
   });
 
+
 angular.module('app')
     .controller('ProfileController', function($scope, CurrentUser) {
       $scope.user = CurrentUser.user();
@@ -90103,7 +90104,7 @@ angular.module('app')
             .state('anon.login', {
                 url: '/login',
                 views: {
-                    'content@': {
+                    'login@': {
                         templateUrl: 'anon/login.html',
                         controller: 'LoginController'
                     }
@@ -90153,7 +90154,7 @@ angular.module('app')
             .state('user.badger', {
                 url: '/badger',
                 views: {
-                    'content@': {
+                    'badger@': {
                         templateUrl: 'user/badger.html',
                         controller: 'BadgerController'
                     }
@@ -90470,7 +90471,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
   );
 
   $templateCache.put("user/home.html",
-    "<div flex-xs flex-gt-md=\"30\">\n" +
+    "<div>\n" +
     "      <md-card>\n" +
     "        <md-card-header layout=\"column\" layout-align=\"space-around center\">\n" +
     "            <img class=\"profil\" src=\"http://github.com/{{user.pseudo}}.png\"/>\n" +
@@ -90494,7 +90495,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "      </md-card>\n" +
     "</div>\n" +
     "\n" +
-    "<div flex-xs flex-gt-md=\"30\">\n" +
+    "<div>\n" +
     "      <md-card id=\"badges\" layout=\"column\" layout-align=\"space-around center\">\n" +
     "        <img ng-click =\"showModal()\" ng-model=\"newDemand\" type=\"submit\" class=\"career\" src=\"../img/vintage.png\"></img>\n" +
     "      </md-card>\n" +
@@ -90504,7 +90505,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
   );
 
   $templateCache.put("user/mes_reussites.html",
-    "<div flex-offset-xs flex-offset-gt-xs=\"30\">\n" +
+    "<div>\n" +
     "    <div class=\"ownsuccess\">\n" +
     "            <md-content>\n" +
     "                <md-tabs md-dynamic-height md-border-bottom>\n" +
@@ -90604,6 +90605,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
 
   $templateCache.put("user/navbar.html",
     "<nav role=\"navigation\">\n" +
+    "\n" +
     "  <header layout=\"row\" layout-wrap layout-align-md=\"start center\" layout-align=\"start center\">\n" +
     "    <div flex=\"6\"><img class=\"logo\" src=\"img/logo_wcs.png\" alt=\"logo\"></div>\n" +
     "    <div flex=\"30\">\n" +
@@ -90634,9 +90636,11 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "      </div>\n" +
     "    </form>\n" +
     "\n" +
+    "\n" +
     "    <!-- <div flex class=\"avatar\"><img ng-src=\"http://github.com/{{user.pseudo}}.png\" ui-sref=\"user.profile\" class=\"md-avatar\" alt=\"{{contact.name}}\" /></div> -->\n" +
     "\n" +
     "  </header>\n" +
+    "\n" +
     "\n" +
     "  <md-content class=\"navbar\">\n" +
     "    <md-nav-bar class=\"menu\" md-selected-nav-item=\"currentNavItem\" nav-bar-aria-label=\"navigation links\">\n" +
@@ -90648,6 +90652,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "      <md-nav-item ng-click=\"logout()\" ui-sref=\"anon.login\" md-nav-click=\"goto('login')\">Déconnecter</md-nav-item>\n" +
     "    </md-nav-bar>\n" +
     "  </md-content>\n" +
+    "\n" +
     "</nav>\n"
   );
 
@@ -90724,7 +90729,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
   );
 
   $templateCache.put("user/reussites.html",
-    "<div flex-offset-xs flex-offset-gt-xs=\"30\">\n" +
+    "<div>\n" +
     "  <div class=\"ownsuccess\">\n" +
     "    <ul>\n" +
     "      <li class=\"newsuccess\" ng-repeat=\"post in posts | orderBy:'createdate':true\" ng-model=\"newPost\" ng-change=\"check()\">\n" +
