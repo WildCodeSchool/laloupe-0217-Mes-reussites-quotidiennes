@@ -13,8 +13,8 @@
 </head>
 
 <body>
-    <!--page login-->
-    <div flex-offset="5" ui-view="login"></div>
+    <!--page login & register-->
+    <div flex-offset="5" ui-view="sign"></div>
 
     <div ui-view='navbar'></div>
 
@@ -25,7 +25,7 @@
     </div>
 
     <!--page badger-->
-    <div flex-offset="10" flex="80" ui-view='badger'></div>
+    <div ui-view='badger'></div>
 
     <footer>
       <div class="copyright">
