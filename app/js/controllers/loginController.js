@@ -9,7 +9,7 @@ angular.module('app')
             if ($scope.userForm.$valid) {
                 $scope.errors = [];
                 Auth.login($scope.user).then(function(result) {
-                    $state.go('user.mes_reussites');
+                    $state.go('user.mes_reussites', { id: result.data.user._id});
                 }).catch(function(err) {
                     $scope.errors.push(err);
                 });
