@@ -200,6 +200,7 @@ md-content.md-padding._md{
     margin: 0 0 0 -25px;
   }
   md-input-container {
+    width: 80%;
     margin-right: 150px;
     margin-left: 60px;
   }
@@ -244,6 +245,11 @@ md-content.md-padding._md{
   }
   img.logo{
     margin-right: 2%!important;
+  }
+  md-input-container {
+    width: 80%;
+    margin-right: 150px;
+    margin-left: 60px;
   }
   .name_badge {
     width: 300px;
@@ -306,6 +312,11 @@ md-content.md-padding._md{
   img.heart {
     margin-right: 50px;
   }
+  md-input-container {
+    width: 80%;
+    margin-right: 150px;
+    margin-left: 60px;
+  }
   .copyright{
     padding-left: 180px;
     padding-right: 180px;
@@ -327,21 +338,25 @@ md-content.md-padding._md{
     font-size: 3.2em !important;
     margin: 0 5px;
   }
+  .delete_button{
+    margin-right: 1.2em;
+    margin-left: 18em;
+  }
   .logo {
     margin-bottom: 0px;
     width: 75px !important;
     height: 75px !important;
   }
   .ownsuccess {
-    margin-right: 50px !important;
+    margin-right: 5em !important;
   }
   #username {
     font-size: 1.2em;
   }
   md-input-container {
-    width: 400px!important;
-    margin-right: 150px;
-    margin-left: 75px;
+    width: 80%;
+    margin-right: 100px;
+    margin-left: 50px;
   }
   .demand{
     font-size: 1em !important;
@@ -379,9 +394,12 @@ md-content.md-padding._md{
     font-size: 1.2em !important;
   }
   md-input-container {
-    width: 400px!important;
+    width: 80%;
     margin-left: 50px;
     margin-right: 150px;
+  }
+  .delete_button{
+    margin-left: 10em;
   }
   .evaluer {
     text-align: right;
@@ -404,7 +422,7 @@ md-content.md-padding._md{
     height: 70px !important;
   }
   .ownsuccess {
-    margin-right: 30px !important;
+    margin-right: 140px !important;
   }
   #username {
     font-size: 1.2em;
@@ -454,7 +472,7 @@ md-content.md-padding._md{
     height: 70px !important;
   }
   md-input-container {
-    width: 400px !important;
+    width: 80%;
     margin-left: 15%;
     margin-right: 20%;
   }
@@ -464,11 +482,18 @@ md-content.md-padding._md{
   #badger {
     margin-left: 3em !important;
   }
+  #username{
+    font-size: 1em!important;
+    margin-top: 30px;
+  }
   .reussites_session {
     margin-left: 0 !important;
   }
   .ownsuccess {
-    margin-right: 30px !important;
+    margin-right: 10em !important;
+  }
+  .delete_button{
+    margin-left: 4em;
   }
   .demand{
     font-size: 1em !important;
@@ -509,7 +534,7 @@ md-content.md-padding._md{
   }
   md-input-container {
     width: 400px !important;
-    margin-left: 15%;
+    margin-left: 4%;
     margin-right: 20%;
   }
   .reussites_session {
@@ -521,6 +546,9 @@ md-content.md-padding._md{
   h1 {
     font-size: 3em !important;
     margin: 0 25px;
+  }
+  .delete_button{
+    margin-left: 13em;
   }
   .logo {
     margin-bottom: 0px;
