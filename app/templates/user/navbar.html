@@ -14,6 +14,7 @@
                 md-input-maxlength="18"
                 md-no-cache="true"
                 md-selected-item="selectedUser"
+                md-selected-item-change="goToUser(user)"
                 md-search-text="searchText"
                 md-items="user in searchUser(searchText)"
                 md-item-text="fullName(user)"

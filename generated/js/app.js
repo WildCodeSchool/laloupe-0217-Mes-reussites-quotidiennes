@@ -89842,7 +89842,7 @@ angular.module('app')
             if ($scope.userForm.$valid) {
                 $scope.errors = [];
                 Auth.login($scope.user).then(function(result) {
-                    $state.go('user.mes_reussites');
+                    $state.go('user.mes_reussites', { id: result.data.user._id});
                 }).catch(function(err) {
                     $scope.errors.push(err);
                 });
@@ -89904,11 +89904,18 @@ angular.module('app')
     });
 
 angular.module('app')
-    .controller('mes_reussitesController', function($scope, $mdDialog, CurrentUser, PostService, UserService, LocalService) {
-      $scope.user = CurrentUser.user();
+    .controller('mes_reussitesController', function($scope, $state, $mdDialog, CurrentUser, PostService, UserService, LocalService) {
+      $scope.currentUser = CurrentUser.user();
 
-      function load() {
-        PostService.getUserPost(CurrentUser.user()._id).then(function(res) {
+      UserService.getOne($state.params.id).then(function (res) {
+        $scope.user = res.data;
+        load(res.data._id);
+      }, function (err) {
+        $state.go('user.mes_reussites', {id: $scope.currentUser._id});
+      });
+
+      function load(id) {
+        PostService.getUserPost(id).then(function(res) {
           $scope.posts = res.data;
         });
       }
@@ -89917,7 +89924,6 @@ angular.module('app')
        $("textarea").prop('required',true);
 });
 
-      load();
       $scope.test = 'test';
       $scope.newPost = '';
 
@@ -89932,7 +89938,7 @@ angular.module('app')
       };
       $scope.removePost = function(id) {
         PostService.delete(id).then(function() {
-          load();
+          load($scope.user._id);
         });
       };
 
@@ -89975,7 +89981,7 @@ angular.module('app')
 });
 
 angular.module('app')
-  .controller('NavbarController', function($scope, Auth, UserService, CurrentUser) {
+  .controller('NavbarController', function($scope, Auth, UserService, CurrentUser, $state) {
     $scope.isCollapsed = true;
     $scope.auth = Auth;
     $scope.user = CurrentUser.user();
@@ -90004,6 +90010,11 @@ angular.module('app')
 
     $scope.fullName = function(user) {
       return user.firstname + ' ' + user.lastname;
+    };
+
+    $scope.goToUser = function (user) {
+      console.log('coucou');
+      $state.go('user.mes_reussites', {id: user._id});
     };
   });
 
@@ -90195,7 +90206,7 @@ angular.module('app')
                 }
             })
             .state('user.mes_reussites', {
-                url: '/mes_reussites',
+                url: '/mes_reussites/:id',
                 views: {
                     'content@': {
                         templateUrl: 'user/mes_reussites.html',
@@ -90619,6 +90630,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "                md-input-maxlength=\"18\"\n" +
     "                md-no-cache=\"true\"\n" +
     "                md-selected-item=\"selectedUser\"\n" +
+    "                md-selected-item-change=\"goToUser(user)\"\n" +
     "                md-search-text=\"searchText\"\n" +
     "                md-items=\"user in searchUser(searchText)\"\n" +
     "                md-item-text=\"fullName(user)\"\n" +
