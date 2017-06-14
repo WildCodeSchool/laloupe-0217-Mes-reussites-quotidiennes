@@ -27,9 +27,13 @@ img.badge {
 }
 
 img.career{
-  height: 22%;
-  width: 22%;
+  width: 16%;
   filter: grayscale(1);
+  margin: 10px;
+}
+
+.layout-align-space-around-center {
+  padding-left: 10%;
 }
 
 img.career:hover{
