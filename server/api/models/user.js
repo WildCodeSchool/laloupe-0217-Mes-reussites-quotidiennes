@@ -50,6 +50,11 @@ const userSchema = new mongoose.Schema({
     },
     bio: {
         type: String
+    },
+    mood: {
+      type: String,
+      required : true,
+      default : "img/smileys/cool.png"
     }
 });
 
