@@ -1,7 +1,11 @@
 angular.module('app')
-    .controller('MainController', function($scope, $mdDialog, CurrentUser, BadgeService, $state) {
+    .controller('MainController', function($scope, $mdDialog, CurrentUser, BadgeService, $state, PostService) {
 
         $scope.user = CurrentUser.user();
+
+        PostService.getUserPost(CurrentUser.user()._id).then(function(res) {
+          $scope.totalPosts = res.data.length;
+        });
 
         //add color emoji on click
         $scope.changeColor = function(id) {
