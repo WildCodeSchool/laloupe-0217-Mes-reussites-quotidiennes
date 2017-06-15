@@ -48,6 +48,7 @@ img.badge {
   margin: 10px 40px;
   height: 60px;
   width: 60px;
+  filter: grayscale(0);
 }
 
 .heart:hover {
