@@ -6,7 +6,7 @@
           <div class="demand"><span class="user_name">{{ user.firstname }} {{ user.lastname }}</span><br/><span class="name_badge"> a demandé le badge <br/>" {{ badge.name }} "</span></div>
       </md-card-header>
       <img class="badge" src="img/vintage.png"></img>
-      <img ng-click="actived()" ng-class="grey_heart" class="heart" src="img/smiling_heart.png"></img>
+      <img ng-click="actived()" ng-class="{'grey_heart':(smiley_color === true)}" class="heart" src="img/smiling_heart.png"></img>
   </md-card>
 
     <!-- <md-card layout="row" layout-align="space-between center">
