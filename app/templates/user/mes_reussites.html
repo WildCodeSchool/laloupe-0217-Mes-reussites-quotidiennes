@@ -17,16 +17,16 @@
                                     <div layout="row post_line1">
                                         <img ng-src="http://github.com/{{post.student.pseudo}}.png" class="md-avatar posts" alt="{{user.lastname}}" />
                                         <div id="username"> {{ post.student.firstname }} {{ post.student.lastname }} </div>
-                                        <img ng-src="img/cool.png" class="smiley_sunglasses" alt="smiley" />
+                                        <img ng-src="img/smileys/cool.png" class="smiley_sunglasses" alt="smiley" />
                                     </div>
                                     <hr>
                                     <div class="post">{{ post.content }}</div>
                                     <hr>
                                     <div class="smileys_delete">
-                                        <img ng-src="img/grinning.png" class="compteur_smiley" alt="smiley" />
-                                        <img ng-src="img/wink.png" class="compteur_smiley smileys_test" alt="smiley" />
-                                        <md-button ng-click="removePost(post._id)" type="submit" md-color="red" class="md-raised md-warn delete_button">Supprimer</md-button>
+                                        <img ng-src="img/smileys/grinning.png" class="compteur_smiley" alt="smiley" />
+                                        <img ng-src="img/smileys/wink.png" class="compteur_smiley smileys_test" alt="smiley" />
                                     </div>
+                                    <md-button ng-click="removePost(post._id)" type="submit" md-color="red" class="md-raised md-warn delete_button">Supprimer</md-button>
                                 </div>
                             </li>
                         </ul>
