@@ -1,24 +1,33 @@
 <div>
-      <md-card>
+    <md-card>
         <md-card-header layout="column" layout-align="space-around center">
-            <img class="profil" src="http://github.com/{{user.pseudo}}.png"/>
+            <img class="profil" src="http://github.com/{{user.pseudo}}.png" />
             <span class="md-title">{{ user.firstname }} {{ user.lastname }}</span>
             <span class="md-subhead">{{ user.city }}, session #{{ user.session }}</span>
             <span class="md-subhead">{{ user.language }}</span>
         </md-card-header>
         <md-card-content layout="row" layout-align="space-around none">
-          <div class="count" flex="50" layout="column"><span class="score">{{totalPosts}}</span><span class="md-headline">Réussites</span></div>
-          <div flex="50" layout="column"><span class="score">32</span><span class="md-headline">Badges</span></div>
+            <div class="count" flex="50" layout="column"><span class="score">{{totalPosts}}</span><span class="md-headline">Réussites</span></div>
+            <div flex="50" layout="column"><span class="score">32</span><span class="md-headline">Badges</span></div>
         </md-card-content>
         <md-card-content>
-          <div class="smileys" layout="row" layout-align="space-around">
-            <img ng-repeat="mood in moods" ng-class="{'selected': (user.mood === mood)}" ng-click="changeMood(mood)" class="smiley" src="{{mood}}" alt="grinning">
-          </div>
+            <div class="smileys" layout="row" layout-align="space-around">
+                <img ng-repeat="mood in moods" ng-class="{'selected': (user.mood === mood)}" ng-click="changeMood(mood)" class="smiley" src="{{mood}}" alt="grinning">
+            </div>
         </md-card-content>
-      </md-card>
+    </md-card>
 </div>
 
+
 <div>
+    <md-card id="badges" layout="row" layout-align="center">
+        <p><img ng-repeat="badge in badges" ng-click="showModal()" ng-model="newDemand" type="submit" class="career" src="{{badge}}">
+        </p>
+    </md-card>
+</div>
+
+
+<!-- <div>
       <md-card id="badges" layout="row" layout-align="center">
         <p><img ng-click ="showModal()" ng-model="newDemand" type="submit" class="career" src="../img/badges/Android/installer-le-sdk.png"></img>
         <img ng-click ="showModal()" ng-model="newDemand" type="submit" class="career" src="../img/badges/Angular/angular-data-binding.png"></img>
@@ -31,6 +40,6 @@
         <img ng-click ="showModal()" ng-model="newDemand" type="submit" class="career" src="../img/badges/HTML/html5-css3.png"></img>
         <img ng-click ="showModal()" ng-model="newDemand" type="submit" class="career" src="../img/badges/Javascript/decouverte-nodejs.png"></img></p>
       </md-card>
-</div>
+</div> -->
 
 <!-- img ng-click ="sendDemand('591d699c51f8f7fa17f12c0c')"  -->

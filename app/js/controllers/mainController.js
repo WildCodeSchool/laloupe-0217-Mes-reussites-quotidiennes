@@ -1,10 +1,11 @@
 angular.module('app')
-    .controller('MainController', function($scope, $mdDialog, CurrentUser, BadgeService, $state, PostService, Mood, UserService, LocalService) {
+    .controller('MainController', function($scope, $mdDialog, CurrentUser, BadgeService, $state, PostService, Mood, UserService, LocalService, Badge) {
 
         $scope.user = CurrentUser.user();
         console.log($scope.user);
 
         $scope.moods = Mood;
+        $scope.badges = Badge;
 
         PostService.getUserPost(CurrentUser.user()._id).then(function(res) {
           $scope.totalPosts = res.data.length;
