@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('ReussitesController', function($scope, CurrentUser, PostService) {
+  .controller('ReussitesController', function($scope, CurrentUser, PostService, SmileyService) {
     $scope.user = CurrentUser.user();
 
     function load() {
@@ -7,6 +7,15 @@ angular.module('app')
         $scope.posts = res.data;
       });
     }
+
+    function loadSmileys() {
+      SmileyService.getAll().then(function(res) {
+        $scope.smileys = res.data;
+      });
+    }
+
+    loadSmileys();
+
 
     $(function() {
       $("textarea").prop('required', true);
@@ -29,6 +38,15 @@ angular.module('app')
         load();
       });
     };
+
+    $scope.addLike = function(idPost, idSmiley) {
+      var like = {
+        student: CurrentUser.user()._id,
+        smiley: idSmiley
+      };
+      PostService.like(idPost, like);
+    };
+
     $(document).ready(function() {
       $(".reaction").on("click", function() { // like click
         var data_reaction = $(this).attr("data-reaction");
@@ -36,10 +54,11 @@ angular.module('app')
         $(".like-btn-emo").removeClass().addClass('like-btn-emo').addClass('like-btn-' + data_reaction.toLowerCase());
         $(".like-btn-text").text(data_reaction).removeClass().addClass('like-btn-text').addClass('like-btn-text-' + data_reaction.toLowerCase()).addClass("active");
 
-        if (data_reaction == "Like")
+        if (data_reaction === "Like") {
           $(".like-emo").html('<span class="like-btn-like"></span>');
-        else
+        } else {
           $(".like-emo").html('<span class="like-btn-like"></span><span class="like-btn-' + data_reaction.toLowerCase() + '"></span>');
+        }
       });
 
       $(".like-btn-text").on("click", function() { // undo like click
@@ -51,4 +70,7 @@ angular.module('app')
         }
       });
     });
+
+
+
   });

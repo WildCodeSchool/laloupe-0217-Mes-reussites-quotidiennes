@@ -1,5 +1,10 @@
 .badge_demand {
-  margin: 20px;
+  margin: 20px 100px;
+}
+
+img.badge {
+  margin-left: -140px;
+  width: 8%;
 }
 
 .user_name {
@@ -18,14 +23,17 @@
   color: #918f8f;
   font-weight: bold;
   font-size: 1.1em;
-  margin-left: 10px;
   margin-top: 40px;
 }
 
 img.career{
-  height: 22%;
-  width: 22%;
+  width: 16%;
   filter: grayscale(1);
+  margin: 10px;
+}
+
+.layout-align-center-stretch {
+  padding-left: 10%;
 }
 
 img.career:hover{
@@ -40,6 +48,7 @@ img.badge {
   margin: 10px 40px;
   height: 60px;
   width: 60px;
+  filter: grayscale(0);
 }
 
 .heart:hover {

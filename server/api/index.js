@@ -20,7 +20,7 @@ app.use(bodyParser.json({
     type: 'application/vnd.api+json'
 }));
 app.use(methodOverride('X-HTTP-Method-Override'));
-
+app.use(express.static('../dist/'));
 db(() => {
     app.use('/', api(app));
     process.on('SIGINT', () => {

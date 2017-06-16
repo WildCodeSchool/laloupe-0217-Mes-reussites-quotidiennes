@@ -23,9 +23,9 @@ angular.module('app')
                 }
             })
             .state('anon.login', {
-                url: '/login',
+                url: '/sign',
                 views: {
-                    'login@': {
+                    'sign@': {
                         templateUrl: 'anon/login.html',
                         controller: 'LoginController'
                     }
@@ -41,9 +41,9 @@ angular.module('app')
                 }
             })
             .state('anon.register', {
-                url: '/register',
+                url: '/sign',
                 views: {
-                    'content@': {
+                    'sign@': {
                         templateUrl: 'anon/register.html',
                         controller: 'RegisterController'
                     }

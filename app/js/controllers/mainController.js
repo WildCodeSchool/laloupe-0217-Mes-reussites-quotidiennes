@@ -1,11 +1,21 @@
 angular.module('app')
-    .controller('MainController', function($scope, $mdDialog, CurrentUser, BadgeService, $state) {
+    .controller('MainController', function($scope, $mdDialog, CurrentUser, BadgeService, $state, PostService, Mood, UserService, LocalService) {
 
         $scope.user = CurrentUser.user();
+        console.log($scope.user);
+
+        $scope.moods = Mood;
+
+        PostService.getUserPost(CurrentUser.user()._id).then(function(res) {
+          $scope.totalPosts = res.data.length;
+        });
 
         //add color emoji on click
-        $scope.changeColor = function(id) {
-            $scope.color = id;
+        $scope.changeMood = function(newMood) {
+          UserService.update($scope.user._id, {mood : newMood}).then(function(res) {
+            $scope.user.mood = newMood;
+            LocalService.set("user", JSON.stringify($scope.user));
+          });
         };
 
         //initialisation demand badges

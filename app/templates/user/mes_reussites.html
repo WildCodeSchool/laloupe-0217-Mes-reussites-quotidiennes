@@ -2,9 +2,9 @@
     <div class="ownsuccess">
             <md-content>
                 <md-tabs md-dynamic-height md-border-bottom>
-                    <md-tab label="Partager une réussite">
+                    <md-tab class="partager_editer" label="Partager une réussite">
                         <form class="edit" ng-submit= "sendPost()">
-                            <md-input-container class="md-block">
+                            <md-input-container class="md-block reussite_input">
                                 <label>Écrivez une réussite ici</label>
                                 <textarea ng-model="newPost" md-maxlength="200" rows="2" md-select-on-focus></textarea>
                             </md-input-container>
@@ -31,55 +31,47 @@
                             </li>
                         </ul>
                     </md-tab>
-                    <md-tab label="Editer mon profil">
+                    <md-tab class="partager_editer" label="Editer mon profil">
                         <md-content class="md-padding profile">
                             <md-content class="md-no-momentum">
                                 <md-input-container class="md-icon-float md-block">
                                     <!-- Use floating label instead of placeholder -->
                                     <label>Nom</label>
-                                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
                                     <input ng-model="user.lastname" type="text">
                                 </md-input-container>
 
                                 <md-input-container class="md-icon-float md-block">
                                     <!-- Use floating label instead of placeholder -->
                                     <label>Prénom</label>
-                                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
                                     <input ng-model="user.firstname" type="text">
                                 </md-input-container>
 
                                 <md-input-container class="md-block">
                                     <!-- Use floating placeholder instead of label -->
-                                    <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
                                     <input ng-model="user.email" type="email" placeholder="Email (requis)" ng-required="true">
                                 </md-input-container>
 
-                                <!-- <md-input-container class="md-block">
-                                    Use floating placeholder instead of label -->
-                                    <!-- <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
-                                    <input ng-model='user.password' type="password" placeholder="Mot de passe" ng-required="true">
-                                </md-input-container>
- -->
                                 <md-input-container md-no-float class="md-block">
                                     <label>Ville</label>
-                                    <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
                                     <input ng-model="user.city" type="text">
                                 </md-input-container>
 
                                 <md-input-container md-no-float class="md-block">
                                     <label>Session</label>
-                                    <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
                                     <input ng-model="user.session" type="text">
                                 </md-input-container>
 
                                 <md-input-container md-no-float class="md-block">
+                                    <label>Langage</label>
+                                    <input ng-model="user.language" type="text">
+                                </md-input-container>
+
+                                <md-input-container md-no-float class="md-block">
                                     <label>Pseudo Github</label>
-                                    <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
                                     <input ng-model="user.pseudo" type="text">
                                 </md-input-container>
 
                                 <md-input-container md-no-float class="md-block">
-                                    <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
                                     <textarea ng-model="user.bio" type="text" placeholder="Biographie" rows="3" cols="80"></textarea>
                                 </md-input-container>
 
