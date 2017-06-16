@@ -338,7 +338,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "                    </md-tab>\n" +
     "                    <md-tab class=\"partager_editer\" label=\"Editer mon profil\">\n" +
     "                        <md-content class=\"md-padding profile\">\n" +
-    "                            <md-content class=\"md-no-momentum\">\n" +
+    "                            <md-content class=\"md-no-momentum decaluser\">\n" +
     "                                <md-input-container class=\"md-icon-float md-block\">\n" +
     "                                    <!-- Use floating label instead of placeholder -->\n" +
     "                                    <label>Nom</label>\n" +

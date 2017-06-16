@@ -6,6 +6,10 @@
     background-color: white;
 }
 
+.decaluser {
+  padding-left: 2em;
+}
+
 @media screen and (max-width: 600px) {
   .profile {
     margin: auto;
