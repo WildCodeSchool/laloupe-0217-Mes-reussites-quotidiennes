@@ -410,6 +410,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "                md-input-maxlength=\"18\"\n" +
     "                md-no-cache=\"true\"\n" +
     "                md-selected-item=\"selectedUser\"\n" +
+    "                md-selected-item-change=\"goToUser(user)\"\n" +
     "                md-search-text=\"searchText\"\n" +
     "                md-items=\"user in searchUser(searchText)\"\n" +
     "                md-item-text=\"fullName(user)\"\n" +

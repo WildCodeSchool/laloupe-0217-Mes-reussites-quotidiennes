@@ -50,6 +50,12 @@ nodemon --exec npm run server
 nodemon --exec npm run server
 ```
 
+#### Development API
+
+```bash
+nodemon --exec npm run server
+```
+
 #### Production
 
 ```bash

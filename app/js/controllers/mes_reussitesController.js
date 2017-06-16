@@ -1,9 +1,16 @@
 angular.module('app')
-    .controller('mes_reussitesController', function($scope, $mdDialog, CurrentUser, PostService, UserService, LocalService) {
-      $scope.user = CurrentUser.user();
+    .controller('mes_reussitesController', function($scope, $state, $mdDialog, CurrentUser, PostService, UserService, LocalService) {
+      $scope.currentUser = CurrentUser.user();
 
-      function load() {
-        PostService.getUserPost(CurrentUser.user()._id).then(function(res) {
+      UserService.getOne($state.params.id).then(function (res) {
+        $scope.user = res.data;
+        load(res.data._id);
+      }, function (err) {
+        $state.go('user.mes_reussites', {id: $scope.currentUser._id});
+      });
+
+      function load(id) {
+        PostService.getUserPost(id).then(function(res) {
           $scope.posts = res.data;
         });
       }
@@ -12,7 +19,6 @@ angular.module('app')
        $("textarea").prop('required',true);
 });
 
-      load();
       $scope.test = 'test';
       $scope.newPost = '';
 
@@ -27,7 +33,7 @@ angular.module('app')
       };
       $scope.removePost = function(id) {
         PostService.delete(id).then(function() {
-          load();
+          load($scope.user._id);
         });
       };
 
