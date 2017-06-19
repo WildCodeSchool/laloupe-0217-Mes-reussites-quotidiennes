@@ -395,7 +395,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
 
   $templateCache.put("user/navbar.html",
     "<nav role=\"navigation\">\n" +
-    "  <header layout=\"row\" layout-wrap layout-align-md=\"start center\" layout-align=\"start center\">\n" +
+    "  <!-- <header layout=\"row\" layout-wrap layout-align-md=\"start center\" layout-align=\"start center\">\n" +
     "    <div flex=\"6\"><img class=\"logo\" src=\"img/logo_wcs.png\" alt=\"logo\"></div>\n" +
     "    <div flex=\"30\">\n" +
     "      <h1>Safaro</h1></div>\n" +
@@ -424,7 +424,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "          </form>\n" +
     "        </md-content>\n" +
     "      </div>\n" +
-    "    </form>\n" +
+    "    </form> -->\n" +
     "\n" +
     "    <header layout=\"row\" layout-align=\"start center\">\n" +
     "        <div flex=\"10\"><img class=\"logo\" src=\"img/logo_wcs.png\" alt=\"logo\"></div>\n" +
@@ -436,7 +436,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "                <md-content class=\"md-padding search_bar\">\n" +
     "                    <form ng-submit=\"$event.preventDefault()\" name=\"searchForm\">\n" +
     "                        <div layout-gt-sm=\"row\">\n" +
-    "                            <md-autocomplete flex required md-input-name=\"userAutocompleteField\" md-input-minlength=\"3\" md-input-maxlength=\"18\" md-no-cache=\"true\" md-selected-item=\"selectedUser\" md-search-text=\"searchText\" md-items=\"user in searchUser(searchText)\" md-item-text=\"fullName(user)\"\n" +
+    "                            <md-autocomplete flex required md-input-name=\"userAutocompleteField\" md-input-minlength=\"3\" md-input-maxlength=\"18\" md-no-cache=\"true\" md-selected-item=\"selectedUser\" md-selected-item-change=\"goToUser(user)\" md-search-text=\"searchText\" md-items=\"user in searchUser(searchText)\" md-item-text=\"fullName(user)\"\n" +
     "                                md-require-match md-floating-label=\" Rechercher \">\n" +
     "                                <md-item-template>\n" +
     "                                    <span md-highlight-text=\"searchText\">{{user.firstname}} {{ user.lastname}}</span>\n" +
