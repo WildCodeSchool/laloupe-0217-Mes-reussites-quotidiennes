@@ -19,7 +19,8 @@ angular.module('app')
       $scope.sendPost = function() {
         PostService.create({
           content: $scope.newPost,
-          student: $scope.user._id
+          student: $scope.user._id,
+          mood: CurrentUser.user().mood
         }).then(function(res) {
           load();
           $scope.newPost = '';

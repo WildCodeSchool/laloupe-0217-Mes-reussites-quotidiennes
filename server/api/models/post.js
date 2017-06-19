@@ -4,9 +4,6 @@ const postSchema = new mongoose.Schema({
   content: {
     type: String
   },
-  mood: {
-    type: String
-  },
   created_at: {
     type: Date,
     default: Date.now
@@ -18,6 +15,10 @@ const postSchema = new mongoose.Schema({
   updated_at: {
     type: Date,
     default: Date.now
+  },
+  mood: {
+    type: String,
+    required : true,
   },
   likes: [{
     student: {
@@ -125,6 +126,6 @@ export default class Post {
       } else {
         res.json(post);
       }
-    })
+    });
   }
 }

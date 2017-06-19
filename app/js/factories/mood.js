@@ -6,5 +6,5 @@ angular.module('app')
                 "img/smileys/angryface.png",
                 "img/smileys/heart.png",
                 "img/smileys/wink.png"
-              ]            
+              ];
     });
