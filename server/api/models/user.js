@@ -25,6 +25,9 @@ const userSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    language: {
+        type: String,
+    },
     email: {
         type: String,
         required: [true, 'Email address is required'],
@@ -47,6 +50,11 @@ const userSchema = new mongoose.Schema({
     },
     bio: {
         type: String
+    },
+    mood: {
+      type: String,
+      required : true,
+      default : "img/smileys/cool.png"
     }
 });
 

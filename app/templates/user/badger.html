@@ -1,12 +1,12 @@
 <div class="badge_demand">
 
   <md-card ng-repeat="demandBadge in demandBadges | orderBy:'date':true track by $index" layout="row" layout-align="space-between center">
-      <md-card-header flex="50">
+      <md-card-header flex="60">
         <img class="user_badge" ng-src="http://github.com/{{user.pseudo}}.png" />
-          <span class="user_name">{{ user.firstname }} {{ user.lastname }}</span><span class="name_badge">a demandé le badge " {{ badge.name }} "</span>
+          <div class="demand"><span class="user_name">{{ user.firstname }} {{ user.lastname }}</span><br/><span class="name_badge"> a demandé le badge <br/>" {{ badge.name }} "</span></div>
       </md-card-header>
-      <img flex="5" class="badge" src="img/vintage.png"></img>
-      <img ng-click="actived()" ng-class="grey_heart" class="heart" src="img/smiling_heart.png"></img>
+      <img class="badge" src="img/vintage.png"></img>
+      <img ng-click="actived()" ng-class="{'grey_heart':(smiley_color === true)}" class="heart" src="img/smiling_heart.png"></img>
   </md-card>
 
     <!-- <md-card layout="row" layout-align="space-between center">

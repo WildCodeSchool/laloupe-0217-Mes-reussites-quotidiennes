@@ -11,11 +11,12 @@ header {
 h1 {
   font-size: 3.5em;
   padding: 0;
-  margin: 5px 0 10px 10px;
+  margin: 5px 0 10px 0px;
 }
 
 .logo {
-  margin-bottom: 0px;
+  margin-bottom: 0;
+  margin-top: 2%;
   width: 80px;
   height: 80px;
 }
@@ -143,11 +144,6 @@ span.md-subhead {
   border-radius: 50px;
 }
 
-/*md-card {
-  margin-top: 50px;
-  margin-left: 3em;
-}*/
-
 md-card-content {
   border-top: 1px solid lightgrey;
   text-align: center;
@@ -186,24 +182,169 @@ span.md-headline {
   outline: none;
 }
 
+md-content.md-padding._md{
+  padding: 0 !important;
+}
+
 /*Media Queries*/
-@media screen and (min-width: 980px) and (max-width: 1280px){
+@media screen and (min-width: 1280px) {
   .ownsuccess {
     margin-right: 100px !important;
   }
+  h1 {
+    margin: 0 0 0 -25px;
+  }
+  .search_bar{
+    width: 110%;
+    margin-left: 30px;
+  }
+  .user_name {
+    width: 150px;
+  }
+  .name_badge {
+    width: 300px;
+    padding-left: 10px;
+  }
+  .demand{
+    margin-top: 16px;
+    margin-left: 50px;
+    margin-right: -50px;
+    width: 220px;
+    line-height: 1.5em;
+    text-align: center;
+  }
+  .badge_demand{
+    margin-left: 120px;
+    margin-right: 120px;
+  }
+  img.badge {
+    width: 90px;
+    margin-right: 200px;
+  }
+  img.heart {
+    margin-right: 120px;
+  }
+  .copyright{
+    padding-left: 300px;
+    padding-right: 300px;
+  }
+  .reussite_input{
+    margin-left: 60px;
+    width: 80%;
+  }
 }
+
+@media screen and (min-width: 1110px) and (max-width: 1280px){
+  .ownsuccess {
+    margin-right: 100px !important;
+  }
+  h1 {
+    margin: 0 0 0 -10px;
+  }
+  img.logo{
+    margin-right: 2%!important;
+  }
+  .search_bar{
+    width: 100%;
+    margin-left: 20px;
+  }
+  .name_badge {
+    width: 300px;
+    text-align: center;
+  }
+  .user_name {
+    width: 160px;
+  }
+  img.badge {
+    width: 90px;
+  }
+  .demand{
+    margin-top: 16px;
+    margin-right: -50px;
+    margin-left: 50px;
+    width: 220px;
+    line-height: 1.5em;
+    text-align: center;
+  }
+  img.heart {
+    margin-right: 100px;
+  }
+  .badge_demand{
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+  .copyright{
+    padding-left: 300px;
+    padding-right: 300px;
+  }
+  .reussite_input{
+    margin-left: 40px;
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 980px) and (max-width: 1110px){
+  .ownsuccess {
+    margin-right: 100px !important;
+  }
+  h1 {
+    margin: 0 2px;
+  }
+  #badger {
+    margin-left: 20px;
+  }
+  .reussites_session {
+    margin-right: 15px;
+  }
+  .name_badge {
+    text-align: center;
+  }
+  .demand{
+    font-size: 1em !important;
+    margin-top: 16px;
+    margin-right: -50px;
+    width: 220px;
+    line-height: 1.5em;
+    text-align: center;
+  }
+  img.badge {
+    width: 85px;
+  }
+  img.heart {
+    margin-right: 50px;
+  }
+  .search_bar{
+    width: 100%;
+    margin-left: 20px;
+  }
+  .copyright{
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+  .reussite_input{
+    margin-left: 25px;
+    width: 80%;
+  }
+}
+
 @media screen and (min-width: 870px) and (max-width: 980px){
   span._md-nav-button-text {
     font-size: 1.3em !important;
   }
   .reussites_session {
     margin-left: 0 !important;
+    margin-right: 10px;
   }
   #badger {
     margin-left: 2em !important;
   }
   h1 {
     font-size: 3.2em !important;
+    margin: 0 5px;
+  }
+  .delete_button{
+    margin-right: 1.2em;
+    margin-left: 18em;
   }
   .logo {
     margin-bottom: 0px;
@@ -211,50 +352,186 @@ span.md-headline {
     height: 75px !important;
   }
   .ownsuccess {
-    margin-right: 50px !important;
+    margin-right: 5em !important;
   }
   #username {
     font-size: 1.2em;
   }
+  .demand{
+    font-size: 1em !important;
+    margin-top: 12px;
+    margin-right: -50px;
+    width: 220px;
+    line-height: 1.5em;
+    text-align: center;
+  }
+  .search_bar{
+    width: 60%;
+    margin-left: 20px;
+  }
+  .badge_demand{
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+  img.heart{
+    width: 54px;
+    height: 54px;
+    margin-right: 50px;
+  }
+  img.badge{
+    margin-right: 5px;
+    width: 80px;
+  }
+  img.user_badge{
+    width: 74px;
+    height: 74px;
+  }
+  .copyright{
+    padding-left: 170px;
+    padding-right: 170px;
+  }
+  .reussite_input{
+    margin-left: 20px;
+    width: 90%;
+  }
 }
 
-@media screen and (max-width: 870px){
+@media screen and (min-width: 750px) and (max-width: 870px){
   span._md-nav-button-text {
     font-size: 1.2em !important;
   }
-
+  .delete_button{
+    margin-left: 10em;
+  }
   .evaluer {
     text-align: right;
   }
-
   .reussites_session {
     margin-left: 0 !important;
+    margin-right: 20px;
   }
-
   #badger {
     margin-left: 3em !important;
   }
-
   h1 {
     font-size: 3em !important;
+    margin: 0 10px;
   }
-
   .logo {
+    margin-right: 2%;
     margin-bottom: 0px;
     width: 70px !important;
     height: 70px !important;
   }
-
   .ownsuccess {
-    margin-right: 30px !important;
+    margin-right: 40px !important;
   }
-
   #username {
     font-size: 1.2em;
   }
-
   #card_left {
     margin-left: 20px;
+  }
+  .demand{
+    font-size: 1em !important;
+    margin-top: 12px;
+    margin-right: -50px;
+    width: 220px;
+    line-height: 1.5em;
+    text-align: center;
+  }
+  .badge_demand{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  img.heart{
+    width: 52px;
+    height: 52px;
+  }
+  img.badge{
+    margin-right: -60px;
+    width: 80px;
+  }
+  img.user_badge{
+    width: 70px;
+    height: 70px;
+  }
+  .copyright{
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+  .search_bar{
+    width: 60%;
+    margin-left: 20px;
+  }
+  .reussite_input{
+    margin-left: 15px;
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 750px){
+  h1 {
+    font-size: 3em !important;
+    margin: 0 15px;
+  }
+  .logo {
+    margin-bottom: 0px;
+    margin-right: 10%;
+    width: 70px !important;
+    height: 70px !important;
+  }
+  .search_bar {
+    width: 60%;
+    margin-left: 35px;
+  }
+  span._md-nav-button-text {
+    font-size: 1.2em !important;
+  }
+  #badger {
+    margin-left: 3em !important;
+  }
+  #username{
+    font-size: 1em!important;
+    margin-top: 30px;
+  }
+  .reussites_session {
+    margin-left: 0 !important;
+  }
+  .ownsuccess {
+    margin-right: 2em !important;
+  }
+  .delete_button{
+    margin-left: 4em;
+  }
+  .demand{
+    font-size: 1em !important;
+    margin-top: 12px;
+    margin-right: -50px;
+    width: 220px;
+    line-height: 1.5em;
+    text-align: center;
+  }
+  .badge_demand{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  img.heart{
+    width: 48px;
+    height: 48px;
+  }
+  img.badge{
+    margin-right: -120px;
+    width: 65px;
+  }
+  img.user_badge{
+    width: 65px;
+    height: 65px;
+  }
+
+  .copyright{
+    padding-left: 70px;
+    padding-right: 70px;
   }
 }
 
@@ -262,49 +539,82 @@ span.md-headline {
   span._md-nav-button-text {
     font-size: 1.2em !important;
   }
-
   .evaluer {
     text-align: right;
   }
-
+  .search_bar {
+    width: 60%;
+    margin-left: 60px;
+  }
   .reussites_session {
-    margin-right: 2em !important;
+    margin-left: 0 !important;
   }
-
   #badger {
-    margin-left: 3em !important;
+    margin-left: 4em !important;
   }
-
   h1 {
     font-size: 3em !important;
+    margin: 0 25px;
   }
-
+  .delete_button{
+    margin-left: 13em;
+  }
   .logo {
     margin-bottom: 0px;
+    margin-right: 10px;
     width: 70px !important;
     height: 70px !important;
   }
-
   #username {
     font-size: 1.2em;
   }
-
   #main_content{
     display: flex !important;
     flex-direction: column;
   }
-
   div #card_left{
     margin-left: 50px;
     width: 100em;
   }
-
   div #post_right{
     margin-left: 50px;
     width: 140em;
   }
-
   .smiley_sunglasses{
     margin-top: 1.2em;
+  }
+  .ownsuccess {
+    margin-right: 30px !important;
+  }
+  .badge_demand{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .copyright{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  img.heart{
+    width: 45px;
+    height: 45px;
+  }
+  img.badge{
+    margin-right: -150px;
+    width: 60px;
+  }
+  img.user_badge{
+    width: 60px;
+    height: 60px;
+  }
+  .demand{
+    font-size: 0.9em !important;
+    margin-top: 12px;
+    margin-right: -50px;
+    width: 220px;
+    line-height: 1.5em;
+    text-align: center;
+  }
+  #username{
+    margin-left: 0;
   }
 }

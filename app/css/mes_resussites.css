@@ -12,21 +12,21 @@
   border: 1px solid lightgrey;
   margin-bottom: 3em;
   background-color: white;
+  padding: 20px;
 }
 
 .smileys_delete {
     max-width:100%;
-    /*margin:150px auto;*/
-    padding:0 27px;
     position: relative;
     display: flex;
-    /*justify-content: space-around;*/
     align-items: center;
     text-align: right;
   }
 
   .delete_button {
-    margin-left: 22em;
+    margin-left: 41vw;
+    margin-top: -4.5vh;
+
   }
 
 .tabsdemoDynamicHeight md-content {
@@ -48,32 +48,21 @@ md-tabs md-ink-bar {
 }
 
 #username {
-  margin-top: 1.5em;
-  margin-left: 2vw;
   font-size: 20px;
   font-weight: bold;
 }
 
 hr {
-  width: 90%;
-  border-color: #f6f6f6;
-}
-
-.posts {
-  margin-left: 5%;
-  margin-top: 2%;
+  width: 100%;
+  margin-bottom: 2vh;
 }
 
 .smiley_sunglasses {
   height: 2.5em;
-  padding-right: 30px;
-  margin-top: 1.6em;
 }
 
 .compteur_smiley {
   height: 2em;
-  padding-right: 1em;
-  margin-bottom: 2%;
 }
 
 li {
@@ -81,7 +70,7 @@ li {
 }
 
 .post {
-  margin: 40px;
+  margin: 40px 40px 35px 10px;
 }
 
 .layout-row {
@@ -89,7 +78,6 @@ li {
     -webkit-flex-direction: row;
     flex-direction: row;
     justify-content: space-between;
-    /*align-items: center;*/
 }
 
 ul {

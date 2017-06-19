@@ -8,10 +8,13 @@ angular.module('app')
       $scope.demandBadges = [];
       $scope.newDemand = "";
 
-      $scope.grey_heart = false;
+      //add color smiley on click
+      var countSmiley = 0;
       $scope.actived = function() {
-        $scope.grey_heart = true;
+          $scope.smiley_color = true;
+          countSmiley += 1;
       };
+      console.log(countSmiley);
 
       function load() {
         BadgeService.getAllDemands().then(function(res) {
