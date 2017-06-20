@@ -1,7 +1,6 @@
 angular.module('app')
-  .controller('ReussitesController', function($scope, CurrentUser, PostService, SmileyService) {
+  .controller('ReussitesController', function($scope, UserService, CurrentUser, PostService, SmileyService) {
     $scope.user = CurrentUser.user();
-
     function load() {
       PostService.getAll().then(function(res) {
         $scope.posts = res.data;
