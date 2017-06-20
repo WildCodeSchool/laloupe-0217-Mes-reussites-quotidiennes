@@ -8,8 +8,7 @@
 -   Angélique Clery
 -   Emmanuel Jousselin
 
-
-## Angular
+# Angular
 
 ### Requirements
 
@@ -39,10 +38,9 @@ curl -d "email=admin@mail.com&password=12345&isAdmin=true" -H "Content-Type: app
 ```bash
 npm start
 ```
-
 #### Development API
 
-```bash
+```
 nodemon --exec npm run server
 ```
 

@@ -12,6 +12,9 @@ angular.module('app')
       },
       delete: function(id) {
         return $http.delete("/posts/" + id);
+      },
+      like: function(id, like) {
+        return $http.put("/posts/" + id + '/like', like);
       }
     };
   });

@@ -70,11 +70,11 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "          </div>\n" +
     "          <h2>Mon humeur du jour</h2> <br />\n" +
     "          <div layout-gt-sm=\"row\">\n" +
-    "            <img src=\"../../img/grinning.png\" class=\"compteur_smiley\" alt=\"\">\n" +
-    "            <img src=\"../../img/angryface.png\" class=\"compteur_smiley\" alt=\"\">\n" +
-    "            <img src=\"../../img/confused.png\" class=\"compteur_smiley\" alt=\"\">\n" +
-    "            <img src=\"../../img/cool.png\" class=\"compteur_smiley\" alt=\"\">\n" +
-    "            <img src=\"../../img/heart.png\" class=\"compteur_smiley\" alt=\"\">\n" +
+    "            <img src=\"../../img/smileys/grinning.png\" class=\"compteur_smiley\" alt=\"\">\n" +
+    "            <img src=\"../../img/smileys/angryface.png\" class=\"compteur_smiley\" alt=\"\">\n" +
+    "            <img src=\"../../img/smileys/confused.png\" class=\"compteur_smiley\" alt=\"\">\n" +
+    "            <img src=\"../../img/smileys/cool.png\" class=\"compteur_smiley\" alt=\"\">\n" +
+    "            <img src=\"../../img/smileys/heart.png\" class=\"compteur_smiley\" alt=\"\">\n" +
     "          </div>\n" +
     "          <md-button type=\"submit\" class=\"md-raised\">Valider</md-button>\n" +
     "        </form>\n" +
@@ -186,6 +186,12 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "          </div>\n" +
     "          <div layout-gt-sm=\"row\">\n" +
     "            <md-input-container class=\"md-block\" flex-gt-sm>\n" +
+    "              <label>Langage</label>\n" +
+    "              <input ng-model=\"user.language\" required>\n" +
+    "            </md-input-container>\n" +
+    "          </div>\n" +
+    "          <div layout-gt-sm=\"row\">\n" +
+    "            <md-input-container class=\"md-block\" flex-gt-sm>\n" +
     "              <label>Mot de passe</label>\n" +
     "              <input type=\"password\" ng-model=\"user.password\" required>\n" +
     "            </md-input-container>\n" +
@@ -233,12 +239,12 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "<div class=\"badge_demand\">\n" +
     "\n" +
     "  <md-card ng-repeat=\"demandBadge in demandBadges | orderBy:'date':true track by $index\" layout=\"row\" layout-align=\"space-between center\">\n" +
-    "      <md-card-header flex=\"50\">\n" +
+    "      <md-card-header flex=\"60\">\n" +
     "        <img class=\"user_badge\" ng-src=\"http://github.com/{{user.pseudo}}.png\" />\n" +
-    "          <span class=\"user_name\">{{ user.firstname }} {{ user.lastname }}</span><span class=\"name_badge\">a demandé le badge \" {{ badge.name }} \"</span>\n" +
+    "          <div class=\"demand\"><span class=\"user_name\">{{ user.firstname }} {{ user.lastname }}</span><br/><span class=\"name_badge\"> a demandé le badge <br/>\" {{ badge.name }} \"</span></div>\n" +
     "      </md-card-header>\n" +
-    "      <img flex=\"5\" class=\"badge\" src=\"img/vintage.png\"></img>\n" +
-    "      <img ng-click=\"actived()\" ng-class=\"grey_heart\" class=\"heart\" src=\"img/smiling_heart.png\"></img>\n" +
+    "      <img class=\"badge\" src=\"img/vintage.png\"></img>\n" +
+    "      <img ng-click=\"actived()\" ng-class=\"{'grey_heart':(smiley_color === true)}\" class=\"heart\" src=\"img/smiling_heart.png\"></img>\n" +
     "  </md-card>\n" +
     "\n" +
     "    <!-- <md-card layout=\"row\" layout-align=\"space-between center\">\n" +
@@ -258,33 +264,38 @@ angular.module("app").run(["$templateCache", function($templateCache) {
   );
 
   $templateCache.put("user/home.html",
-    "<div flex-xs flex-gt-md=\"30\">\n" +
+    "<div>\n" +
     "      <md-card>\n" +
     "        <md-card-header layout=\"column\" layout-align=\"space-around center\">\n" +
     "            <img class=\"profil\" src=\"http://github.com/{{user.pseudo}}.png\"/>\n" +
     "            <span class=\"md-title\">{{ user.firstname }} {{ user.lastname }}</span>\n" +
     "            <span class=\"md-subhead\">{{ user.city }}, session #{{ user.session }}</span>\n" +
+    "            <span class=\"md-subhead\">{{ user.language }}</span>\n" +
     "        </md-card-header>\n" +
     "        <md-card-content layout=\"row\" layout-align=\"space-around none\">\n" +
-    "          <div class=\"count\" flex=\"50\" layout=\"column\"><span class=\"score\">400</span><span class=\"md-headline\">Réussites</span></div>\n" +
+    "          <div class=\"count\" flex=\"50\" layout=\"column\"><span class=\"score\">{{totalPosts}}</span><span class=\"md-headline\">Réussites</span></div>\n" +
     "          <div flex=\"50\" layout=\"column\"><span class=\"score\">32</span><span class=\"md-headline\">Badges</span></div>\n" +
     "        </md-card-content>\n" +
     "        <md-card-content>\n" +
     "          <div class=\"smileys\" layout=\"row\" layout-align=\"space-around\">\n" +
-    "            <img ng-class=\"{'selected': (color === 1)}\" ng-click=\"changeColor(1)\" class=\"smiley\" src=\"img/grinning.png\" alt=\"grinning\">\n" +
-    "            <img ng-class=\"{'selected': (color === 2)}\" ng-click=\"changeColor(2)\" class=\"smiley\" src=\"img/confused.png\" alt=\"confused\">\n" +
-    "            <img ng-class=\"{'selected': (color === 3)}\" ng-click=\"changeColor(3)\" class=\"smiley\" src=\"img/crying.png\" alt=\"crying\">\n" +
-    "            <img ng-class=\"{'selected': (color === 4)}\" ng-click=\"changeColor(4)\" class=\"smiley\" src=\"img/pouting.png\" alt=\"pouting\">\n" +
-    "            <img ng-class=\"{'selected': (color === 5)}\" ng-click=\"changeColor(5)\" class=\"smiley\" src=\"img/sleeping.png\" alt=\"sleeping\">\n" +
-    "            <img ng-class=\"{'selected': (color === 6)}\" ng-click=\"changeColor(6)\" class=\"smiley\" src=\"img/cool.png\" alt=\"cool\">\n" +
+    "            <img ng-repeat=\"mood in moods\" ng-class=\"{'selected': (user.mood === mood)}\" ng-click=\"changeMood(mood)\" class=\"smiley\" src=\"{{mood}}\" alt=\"grinning\">\n" +
     "          </div>\n" +
     "        </md-card-content>\n" +
     "      </md-card>\n" +
     "</div>\n" +
     "\n" +
-    "<div flex-xs flex-gt-md=\"30\">\n" +
-    "      <md-card id=\"badges\" layout=\"column\" layout-align=\"space-around center\">\n" +
-    "        <img ng-click =\"showModal()\" ng-model=\"newDemand\" type=\"submit\" class=\"career\" src=\"../img/vintage.png\"></img>\n" +
+    "<div>\n" +
+    "      <md-card id=\"badges\" layout=\"row\" layout-align=\"center\">\n" +
+    "        <p><img ng-click =\"showModal()\" ng-model=\"newDemand\" type=\"submit\" class=\"career\" src=\"../img/badges/Android/installer-le-sdk.png\"></img>\n" +
+    "        <img ng-click =\"showModal()\" ng-model=\"newDemand\" type=\"submit\" class=\"career\" src=\"../img/badges/Angular/angular-data-binding.png\"></img>\n" +
+    "        <img ng-click =\"showModal()\" ng-model=\"newDemand\" type=\"submit\" class=\"career\" src=\"../img/badges/Autres/enrichir-profil-user-firebase.png\"></img>\n" +
+    "        <img ng-click =\"showModal()\" ng-model=\"newDemand\" type=\"submit\" class=\"career\" src=\"../img/badges/BDD/a-la-decouverte-des-bdd.png\"></img>\n" +
+    "        <img ng-click =\"showModal()\" ng-model=\"newDemand\" type=\"submit\" class=\"career\" src=\"../img/badges/Bootstrap/bootstrap.png\"></img>\n" +
+    "        <img ng-click =\"showModal()\" ng-model=\"newDemand\" type=\"submit\" class=\"career\" src=\"../img/badges/CSS/integrer-maquette-html-css.png\"></img>\n" +
+    "        <img ng-click =\"showModal()\" ng-model=\"newDemand\" type=\"submit\" class=\"career\" src=\"../img/badges/Git/comprendre-git.png\"></img>\n" +
+    "        <img ng-click =\"showModal()\" ng-model=\"newDemand\" type=\"submit\" class=\"career\" src=\"../img/badges/GitHub/hello-github.png\"></img>\n" +
+    "        <img ng-click =\"showModal()\" ng-model=\"newDemand\" type=\"submit\" class=\"career\" src=\"../img/badges/HTML/html5-css3.png\"></img>\n" +
+    "        <img ng-click =\"showModal()\" ng-model=\"newDemand\" type=\"submit\" class=\"career\" src=\"../img/badges/Javascript/decouverte-nodejs.png\"></img></p>\n" +
     "      </md-card>\n" +
     "</div>\n" +
     "\n" +
@@ -292,13 +303,13 @@ angular.module("app").run(["$templateCache", function($templateCache) {
   );
 
   $templateCache.put("user/mes_reussites.html",
-    "<div flex-offset-xs flex-offset-gt-xs=\"30\">\n" +
+    "<div>\n" +
     "    <div class=\"ownsuccess\">\n" +
     "            <md-content>\n" +
     "                <md-tabs md-dynamic-height md-border-bottom>\n" +
-    "                    <md-tab label=\"Partager une réussite\">\n" +
+    "                    <md-tab class=\"partager_editer\" label=\"Partager une réussite\">\n" +
     "                        <form class=\"edit\" ng-submit= \"sendPost()\">\n" +
-    "                            <md-input-container class=\"md-block\">\n" +
+    "                            <md-input-container class=\"md-block reussite_input\">\n" +
     "                                <label>Écrivez une réussite ici</label>\n" +
     "                                <textarea ng-model=\"newPost\" md-maxlength=\"200\" rows=\"2\" md-select-on-focus></textarea>\n" +
     "                            </md-input-container>\n" +
@@ -325,55 +336,47 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "                            </li>\n" +
     "                        </ul>\n" +
     "                    </md-tab>\n" +
-    "                    <md-tab label=\"Editer mon profil\">\n" +
+    "                    <md-tab class=\"partager_editer\" label=\"Editer mon profil\">\n" +
     "                        <md-content class=\"md-padding profile\">\n" +
-    "                            <md-content class=\"md-no-momentum\">\n" +
+    "                            <md-content class=\"md-no-momentum decaluser\">\n" +
     "                                <md-input-container class=\"md-icon-float md-block\">\n" +
     "                                    <!-- Use floating label instead of placeholder -->\n" +
     "                                    <label>Nom</label>\n" +
-    "                                    <md-icon md-svg-src=\"img/icons/ic_person_24px.svg\" class=\"name\"></md-icon>\n" +
     "                                    <input ng-model=\"user.lastname\" type=\"text\">\n" +
     "                                </md-input-container>\n" +
     "\n" +
     "                                <md-input-container class=\"md-icon-float md-block\">\n" +
     "                                    <!-- Use floating label instead of placeholder -->\n" +
     "                                    <label>Prénom</label>\n" +
-    "                                    <md-icon md-svg-src=\"img/icons/ic_person_24px.svg\" class=\"name\"></md-icon>\n" +
     "                                    <input ng-model=\"user.firstname\" type=\"text\">\n" +
     "                                </md-input-container>\n" +
     "\n" +
     "                                <md-input-container class=\"md-block\">\n" +
     "                                    <!-- Use floating placeholder instead of label -->\n" +
-    "                                    <md-icon md-svg-src=\"img/icons/ic_email_24px.svg\" class=\"email\"></md-icon>\n" +
     "                                    <input ng-model=\"user.email\" type=\"email\" placeholder=\"Email (requis)\" ng-required=\"true\">\n" +
     "                                </md-input-container>\n" +
     "\n" +
-    "                                <!-- <md-input-container class=\"md-block\">\n" +
-    "                                    Use floating placeholder instead of label -->\n" +
-    "                                    <!-- <md-icon md-svg-src=\"img/icons/ic_email_24px.svg\" class=\"email\"></md-icon>\n" +
-    "                                    <input ng-model='user.password' type=\"password\" placeholder=\"Mot de passe\" ng-required=\"true\">\n" +
-    "                                </md-input-container>\n" +
-    " -->\n" +
     "                                <md-input-container md-no-float class=\"md-block\">\n" +
     "                                    <label>Ville</label>\n" +
-    "                                    <md-icon md-svg-src=\"img/icons/ic_phone_24px.svg\"></md-icon>\n" +
     "                                    <input ng-model=\"user.city\" type=\"text\">\n" +
     "                                </md-input-container>\n" +
     "\n" +
     "                                <md-input-container md-no-float class=\"md-block\">\n" +
     "                                    <label>Session</label>\n" +
-    "                                    <md-icon md-svg-src=\"img/icons/ic_phone_24px.svg\"></md-icon>\n" +
     "                                    <input ng-model=\"user.session\" type=\"text\">\n" +
     "                                </md-input-container>\n" +
     "\n" +
     "                                <md-input-container md-no-float class=\"md-block\">\n" +
+    "                                    <label>Langage</label>\n" +
+    "                                    <input ng-model=\"user.language\" type=\"text\">\n" +
+    "                                </md-input-container>\n" +
+    "\n" +
+    "                                <md-input-container md-no-float class=\"md-block\">\n" +
     "                                    <label>Pseudo Github</label>\n" +
-    "                                    <md-icon md-svg-src=\"img/icons/ic_phone_24px.svg\"></md-icon>\n" +
     "                                    <input ng-model=\"user.pseudo\" type=\"text\">\n" +
     "                                </md-input-container>\n" +
     "\n" +
     "                                <md-input-container md-no-float class=\"md-block\">\n" +
-    "                                    <md-icon md-svg-src=\"img/icons/ic_phone_24px.svg\"></md-icon>\n" +
     "                                    <textarea ng-model=\"user.bio\" type=\"text\" placeholder=\"Biographie\" rows=\"3\" cols=\"80\"></textarea>\n" +
     "                                </md-input-container>\n" +
     "\n" +
@@ -392,7 +395,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
 
   $templateCache.put("user/navbar.html",
     "<nav role=\"navigation\">\n" +
-    "  <header layout=\"row\" layout-wrap layout-align-md=\"start center\" layout-align=\"start center\">\n" +
+    "  <!-- <header layout=\"row\" layout-wrap layout-align-md=\"start center\" layout-align=\"start center\">\n" +
     "    <div flex=\"6\"><img class=\"logo\" src=\"img/logo_wcs.png\" alt=\"logo\"></div>\n" +
     "    <div flex=\"30\">\n" +
     "      <h1>Safaro</h1></div>\n" +
@@ -421,99 +424,58 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "          </form>\n" +
     "        </md-content>\n" +
     "      </div>\n" +
-    "    </form>\n" +
+    "    </form> -->\n" +
     "\n" +
-    "    <!-- <div flex class=\"avatar\"><img ng-src=\"http://github.com/{{user.pseudo}}.png\" ui-sref=\"user.profile\" class=\"md-avatar\" alt=\"{{contact.name}}\" /></div> -->\n" +
+    "  <header layout=\"row\" layout-align=\"start center\">\n" +
+    "    <div flex=\"10\"><img class=\"logo\" src=\"img/logo_wcs.png\" alt=\"logo\"></div>\n" +
+    "    <div flex=\"25\">\n" +
+    "      <h1>Safaro</h1></div>\n" +
+    "    <div flex=\"75\" layout-gt-sm=\"row\">\n" +
+    "      <form ng-submit=\"$event.preventDefault()\">\n" +
     "\n" +
+    "        <md-content class=\"md-padding search_bar\">\n" +
+    "          <form ng-submit=\"$event.preventDefault()\" name=\"searchForm\">\n" +
+    "            <div layout-gt-sm=\"row\">\n" +
+    "              <md-autocomplete flex required\n" +
+    "               md-input-name=\"userAutocompleteField\"\n" +
+    "               md-input-minlength=\"3\"\n" +
+    "               md-input-maxlength=\"18\"\n" +
+    "               md-no-cache=\"true\"\n" +
+    "               md-selected-item=\"selectedUser\"\n" +
+    "               md-selected-item-change=\"goToUser(user)\"\n" +
+    "               md-search-text=\"searchText\"\n" +
+    "               md-items=\"user in searchUser(searchText)\"\n" +
+    "               md-item-text=\"fullName(user)\"\n" +
+    "               md-require-match\n" +
+    "               md-floating-label=\" Rechercher \">\n" +
+    "                <md-item-template>\n" +
+    "                  <span md-highlight-text=\"searchText\">{{user.firstname}} {{ user.lastname}}</span>\n" +
+    "                </md-item-template>\n" +
+    "              </md-autocomplete>\n" +
+    "            </div>\n" +
+    "          </form>\n" +
+    "        </md-content>\n" +
+    "\n" +
+    "      </form>\n" +
+    "    </div>\n" +
     "  </header>\n" +
+    "\n" +
     "\n" +
     "  <md-content class=\"navbar\">\n" +
     "    <md-nav-bar class=\"menu\" md-selected-nav-item=\"currentNavItem\" nav-bar-aria-label=\"navigation links\">\n" +
     "      <md-nav-item ui-sref=\"user.reussites\" class=\"reussites_session\" flex=\"45\" md-nav-click=\"goto('page1')\" name=\"page1\">\n" +
     "        <!--route provisoire à changer-->\n" +
     "        Réussites de la session</md-nav-item>\n" +
-    "      <md-nav-item class=\"reussites\" ui-sref=\"user.mes_reussites\" flex=\"15\" md-nav-click=\"goto('page2')\" name=\"page2\">Mes réussites</md-nav-item>\n" +
+    "      <md-nav-item class=\"reussites\" ui-sref=\"user.mes_reussites({id: user._id})\" flex=\"15\" md-nav-click=\"goto('page2')\" name=\"page2\">Mes réussites</md-nav-item>\n" +
     "      <md-nav-item id=\"badger\" ui-sref=\"user.badger\" flex md-nav-click=\"goto('page3')\" name=\"page3\">Badger</md-nav-item>\n" +
-    "      <md-nav-item ng-click=\"logout()\" ui-sref=\"anon.login\" md-nav-click=\"goto('login')\">Déconnecter</md-nav-item>\n" +
     "    </md-nav-bar>\n" +
     "  </md-content>\n" +
+    "\n" +
     "</nav>\n"
   );
 
-  $templateCache.put("user/profile.html",
-    "<div flex-offset-xs flex-offset-gt-xs=\"30\">\n" +
-    "    <md-content class=\"profile\">\n" +
-    "        <md-tabs md-dynamic-height md-border-bottom>\n" +
-    "            <md-tab class=\"info\" label=\"EDITER MON PROFIL\">\n" +
-    "                <md-content class=\"md-padding\">\n" +
-    "                    <md-content class=\"md-no-momentum\">\n" +
-    "                        <md-input-container class=\"md-icon-float md-block\">\n" +
-    "                            <!-- Use floating label instead of placeholder -->\n" +
-    "                            <label>Nom</label>\n" +
-    "                            <md-icon md-svg-src=\"img/ic_person_24px.svg\" class=\"name\"></md-icon>\n" +
-    "                            <input ng-model=\"user.lastname\" type=\"text\">\n" +
-    "                        </md-input-container>\n" +
-    "\n" +
-    "                        <md-input-container class=\"md-icon-float md-block\">\n" +
-    "                            <!-- Use floating label instead of placeholder -->\n" +
-    "                            <label>Prénom</label>\n" +
-    "                            <md-icon md-svg-src=\"img/ic_person_24px.svg\" class=\"name\"></md-icon>\n" +
-    "                            <input ng-model=\"user.firstname\" type=\"text\">\n" +
-    "                        </md-input-container>\n" +
-    "\n" +
-    "                        <md-input-container class=\"md-block\">\n" +
-    "                            <!-- Use floating placeholder instead of label -->\n" +
-    "                            <md-icon md-svg-src=\"img/icons/ic_email_24px.svg\" class=\"email\"></md-icon>\n" +
-    "                            <input ng-model=\"user.email\" type=\"email\" placeholder=\"Email (requis)\" ng-required=\"true\">\n" +
-    "                        </md-input-container>\n" +
-    "\n" +
-    "                        <md-input-container class=\"md-block\">\n" +
-    "                            <!-- Use floating placeholder instead of label -->\n" +
-    "                            <md-icon md-svg-src=\"img/icons/ic_email_24px.svg\" class=\"email\"></md-icon>\n" +
-    "                            <input type=\"password\" placeholder=\"Mot de passe\">\n" +
-    "                        </md-input-container>\n" +
-    "\n" +
-    "                        <md-input-container md-no-float class=\"md-block\">\n" +
-    "                            <label>Ville</label>\n" +
-    "                            <md-icon md-svg-src=\"img/icons/ic_phone_24px.svg\"></md-icon>\n" +
-    "                            <input ng-model=\"user.city\" type=\"text\">\n" +
-    "                        </md-input-container>\n" +
-    "\n" +
-    "                        <md-input-container md-no-float class=\"md-block\">\n" +
-    "                            <label>Session</label>\n" +
-    "                            <md-icon md-svg-src=\"img/icons/ic_phone_24px.svg\"></md-icon>\n" +
-    "                            <input ng-model=\"user.session\" type=\"text\">\n" +
-    "                        </md-input-container>\n" +
-    "\n" +
-    "\n" +
-    "                        <md-input-container md-no-float class=\"md-block\">\n" +
-    "                            <label>Pseudo Github</label>\n" +
-    "                            <md-icon md-svg-src=\"img/icons/ic_phone_24px.svg\"></md-icon>\n" +
-    "                            <input ng-model=\"user.pseudo\" type=\"text\">\n" +
-    "                        </md-input-container>\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "                        <md-input-container md-no-float class=\"md-block\">\n" +
-    "                            <md-icon md-svg-src=\"img/icons/ic_phone_24px.svg\"></md-icon>\n" +
-    "                            <textarea ng-model=\"user.bio\" type=\"text\" placeholder=\"Biographie\" rows=\"3\" cols=\"80\"></textarea>\n" +
-    "                        </md-input-container>\n" +
-    "\n" +
-    "                    </md-content>\n" +
-    "                </md-content>\n" +
-    "            </md-tab>\n" +
-    "            <md-tab ui-sref=\"user.mes_reussites\" label=\"Partager une réussite\">\n" +
-    "              <md-content class=\"md-padding\">\n" +
-    "              </md-content>\n" +
-    "            </md-tab>\n" +
-    "        </md-tabs>\n" +
-    "        <md-button type=\"submit\" class=\"md-raised md-primary\">Valider</md-button>\n" +
-    "    </md-content>\n" +
-    "</div>\n"
-  );
-
   $templateCache.put("user/reussites.html",
-    "<div flex-offset-xs flex-offset-gt-xs=\"30\">\n" +
+    "<div>\n" +
     "  <div class=\"ownsuccess\">\n" +
     "    <ul>\n" +
     "      <li class=\"newsuccess\" ng-repeat=\"post in posts | orderBy:'createdate':true\" ng-model=\"newPost\" ng-change=\"check()\">\n" +
@@ -521,7 +483,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "          <div layout=\"row post_line1\">\n" +
     "            <img ng-src=\"http://github.com/{{post.student.pseudo}}.png\" class=\"md-avatar posts\" alt=\"{{post.student.lastname}}\" />\n" +
     "            <div id=\"username\"> {{ post.student.firstname }} {{ post.student.lastname }} </div>\n" +
-    "            <img ng-src=\"img/cool.png\" class=\"smiley_sunglasses\" alt=\"smiley\" />\n" +
+    "            <img ng-src=\"img/smileys/cool.png\" class=\"smiley_sunglasses\" alt=\"smiley\" />\n" +
     "          </div>\n" +
     "          <hr>\n" +
     "          <div class=\"post\">{{ post.content }}</div>\n" +
@@ -529,8 +491,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "          <div>\n" +
     "          </div>\n" +
     "          <div class=\"facebook-reaction\">\n" +
-    "            <img ng-src=\"img/grinning.png\" class=\"compteur_smiley\" alt=\"smiley\" />\n" +
-    "            <img ng-src=\"img/wink.png\" class=\"compteur_smiley\" alt=\"smiley\" />\n" +
+    "            <div\n" +
     "            <!-- container div for reaction system -->\n" +
     "            <span class=\"like-btn\"> <!-- Default like button -->\n" +
     "\t\t\t\t\t\t<span class=\"like-btn-emo like-btn-default\"></span>\n" +
@@ -539,12 +500,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "            <!-- Default like button text,(Like, wow, sad..) default:Like  -->\n" +
     "            <ul class=\"reactions-box\">\n" +
     "              <!-- Reaction buttons container-->\n" +
-    "              <li class=\"reaction reaction-like\" data-reaction=\"Like\"></li>\n" +
-    "              <li class=\"reaction reaction-love\" data-reaction=\"J'adore\"></li>\n" +
-    "              <li class=\"reaction reaction-haha\" data-reaction=\"Félicitations\"></li>\n" +
-    "              <li class=\"reaction reaction-wow\" data-reaction=\"Wow\"></li>\n" +
-    "              <li class=\"reaction reaction-sad\" data-reaction=\"Pas mal\"></li>\n" +
-    "              <li class=\"reaction reaction-angry\" data-reaction=\"Courage\"></li>\n" +
+    "              <li ng-repeat=\"smiley in smileys track by $index\"><img src=\"{{ smiley.image }}\" class=\"reaction\" ng-click=\"addLike({{post._id}}, {{smiley._id}})\" alt=\"{{ smiley.name }}\"></li>\n" +
     "            </ul>\n" +
     "            </span>\n" +
     "          </div>\n" +

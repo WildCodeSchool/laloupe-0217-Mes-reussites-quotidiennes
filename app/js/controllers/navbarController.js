@@ -31,7 +31,8 @@ angular.module('app')
     };
 
     $scope.goToUser = function (user) {
-      console.log('coucou');
+      // console.log('coucou');
+      $scope.currentNavItem = 'page2';
       $state.go('user.mes_reussites', {id: user._id});
     };
   });

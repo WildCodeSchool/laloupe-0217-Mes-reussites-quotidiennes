@@ -1,5 +1,5 @@
 <nav role="navigation">
-  <header layout="row" layout-wrap layout-align-md="start center" layout-align="start center">
+  <!-- <header layout="row" layout-wrap layout-align-md="start center" layout-align="start center">
     <div flex="6"><img class="logo" src="img/logo_wcs.png" alt="logo"></div>
     <div flex="30">
       <h1>Safaro</h1></div>
@@ -28,20 +28,51 @@
           </form>
         </md-content>
       </div>
-    </form>
+    </form> -->
 
-    <!-- <div flex class="avatar"><img ng-src="http://github.com/{{user.pseudo}}.png" ui-sref="user.profile" class="md-avatar" alt="{{contact.name}}" /></div> -->
+  <header layout="row" layout-align="start center">
+    <div flex="10"><img class="logo" src="img/logo_wcs.png" alt="logo"></div>
+    <div flex="25">
+      <h1>Safaro</h1></div>
+    <div flex="75" layout-gt-sm="row">
+      <form ng-submit="$event.preventDefault()">
 
+        <md-content class="md-padding search_bar">
+          <form ng-submit="$event.preventDefault()" name="searchForm">
+            <div layout-gt-sm="row">
+              <md-autocomplete flex required
+               md-input-name="userAutocompleteField"
+               md-input-minlength="3"
+               md-input-maxlength="18"
+               md-no-cache="true"
+               md-selected-item="selectedUser"
+               md-selected-item-change="goToUser(user)"
+               md-search-text="searchText"
+               md-items="user in searchUser(searchText)"
+               md-item-text="fullName(user)"
+               md-require-match
+               md-floating-label=" Rechercher ">
+                <md-item-template>
+                  <span md-highlight-text="searchText">{{user.firstname}} {{ user.lastname}}</span>
+                </md-item-template>
+              </md-autocomplete>
+            </div>
+          </form>
+        </md-content>
+
+      </form>
+    </div>
   </header>
+
 
   <md-content class="navbar">
     <md-nav-bar class="menu" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
       <md-nav-item ui-sref="user.reussites" class="reussites_session" flex="45" md-nav-click="goto('page1')" name="page1">
         <!--route provisoire à changer-->
         Réussites de la session</md-nav-item>
-      <md-nav-item class="reussites" ui-sref="user.mes_reussites" flex="15" md-nav-click="goto('page2')" name="page2">Mes réussites</md-nav-item>
+      <md-nav-item class="reussites" ui-sref="user.mes_reussites({id: user._id})" flex="15" md-nav-click="goto('page2')" name="page2">Mes réussites</md-nav-item>
       <md-nav-item id="badger" ui-sref="user.badger" flex md-nav-click="goto('page3')" name="page3">Badger</md-nav-item>
-      <md-nav-item ng-click="logout()" ui-sref="anon.login" md-nav-click="goto('login')">Déconnecter</md-nav-item>
     </md-nav-bar>
   </md-content>
+
 </nav>

@@ -23,9 +23,9 @@ angular.module('app')
                 }
             })
             .state('anon.login', {
-                url: '/login',
+                url: '/sign',
                 views: {
-                    'content@': {
+                    'sign@': {
                         templateUrl: 'anon/login.html',
                         controller: 'LoginController'
                     }
@@ -41,9 +41,9 @@ angular.module('app')
                 }
             })
             .state('anon.register', {
-                url: '/register',
+                url: '/sign',
                 views: {
-                    'content@': {
+                    'sign@': {
                         templateUrl: 'anon/register.html',
                         controller: 'RegisterController'
                     }
@@ -75,7 +75,7 @@ angular.module('app')
             .state('user.badger', {
                 url: '/badger',
                 views: {
-                    'content@': {
+                    'badger@': {
                         templateUrl: 'user/badger.html',
                         controller: 'BadgerController'
                     }
@@ -91,7 +91,7 @@ angular.module('app')
                 }
             })
             .state('user.reussites', {
-                url: '/reussites',
+                url: '/reussites/:id',
                 views: {
                     'content@': {
                         templateUrl: 'user/reussites.html',
