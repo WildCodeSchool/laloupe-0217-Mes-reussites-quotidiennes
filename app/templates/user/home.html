@@ -21,25 +21,11 @@
 
 <div>
     <md-card id="badges" layout="row" layout-align="center">
-        <p><img ng-repeat="badge in badges" ng-click="showModal()" ng-model="newDemand" type="submit" class="career" src="{{badge}}">
+        <p><img ng-repeat="badge in badges | limitTo:10" ng-click="showModal(badge)" ng-model="newDemand" type="submit" class="career" src="{{badge.url}}">
+            <md-button type="submit" ng-click="showBadges()" class="md-raised md-warn button_more">Voir plus</md-button>
         </p>
     </md-card>
 </div>
 
-
-<!-- <div>
-      <md-card id="badges" layout="row" layout-align="center">
-        <p><img ng-click ="showModal()" ng-model="newDemand" type="submit" class="career" src="../img/badges/Android/installer-le-sdk.png"></img>
-        <img ng-click ="showModal()" ng-model="newDemand" type="submit" class="career" src="../img/badges/Angular/angular-data-binding.png"></img>
-        <img ng-click ="showModal()" ng-model="newDemand" type="submit" class="career" src="../img/badges/Autres/enrichir-profil-user-firebase.png"></img>
-        <img ng-click ="showModal()" ng-model="newDemand" type="submit" class="career" src="../img/badges/BDD/a-la-decouverte-des-bdd.png"></img>
-        <img ng-click ="showModal()" ng-model="newDemand" type="submit" class="career" src="../img/badges/Bootstrap/bootstrap.png"></img>
-        <img ng-click ="showModal()" ng-model="newDemand" type="submit" class="career" src="../img/badges/CSS/integrer-maquette-html-css.png"></img>
-        <img ng-click ="showModal()" ng-model="newDemand" type="submit" class="career" src="../img/badges/Git/comprendre-git.png"></img>
-        <img ng-click ="showModal()" ng-model="newDemand" type="submit" class="career" src="../img/badges/GitHub/hello-github.png"></img>
-        <img ng-click ="showModal()" ng-model="newDemand" type="submit" class="career" src="../img/badges/HTML/html5-css3.png"></img>
-        <img ng-click ="showModal()" ng-model="newDemand" type="submit" class="career" src="../img/badges/Javascript/decouverte-nodejs.png"></img></p>
-      </md-card>
-</div> -->
 
 <!-- img ng-click ="sendDemand('591d699c51f8f7fa17f12c0c')"  -->
