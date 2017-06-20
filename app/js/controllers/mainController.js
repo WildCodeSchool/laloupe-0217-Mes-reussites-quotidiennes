@@ -1,10 +1,16 @@
 angular.module('app')
-    .controller('MainController', function($scope, $mdDialog, CurrentUser, BadgeService, $state, PostService, Mood, UserService, LocalService) {
+    .controller('MainController', function($scope, $mdDialog, CurrentUser, BadgeService, $state, PostService, Mood, UserService, LocalService, Badges) {
 
         $scope.user = CurrentUser.user();
+
         console.log($scope.user);
+        console.log($scope.badges);
 
         $scope.moods = Mood;
+        $scope.badges = [];
+        BadgeService.getAll().then(function(res) {
+          $scope.badges = res.data;
+        });
 
         PostService.getUserPost(CurrentUser.user()._id).then(function(res) {
           $scope.totalPosts = res.data.length;
@@ -21,24 +27,19 @@ angular.module('app')
         //initialisation demand badges
         $scope.newDemand = "";
 
-        $scope.showModal = function(ev) {
+        $scope.showModal = function(badge) {
             // Appending dialog to document.body to cover sidenav in docs app
             var confirm = $mdDialog.confirm()
                 .title('Demande de Badge')
-                .textContent('Ici votre badge.')
-                .ariaLabel('Lucky day')
-                .targetEvent(ev)
+                .textContent(badge.name)
+                // .targetEvent(ev)
                 .ok('Confirmer')
                 .cancel('Pas maintenant')
                 .openFrom(angular.element(document.querySelector('#badges')))
                 .closeTo(angular.element(document.querySelector('#badger')));
             $mdDialog.show(confirm).then(function() {
                 //send the demand on confirm
-                $scope.sendDemand = function(badgeId) {
-                    BadgeService.create(badgeId, $scope.user._id).then(function(res) {}, function(err) {
-                        console.log('error when creating a demand', err);
-                    });
-                };
+                sendDemand(badge._id);
                 //show modal de confirmation
                 $mdDialog.show(
                     $mdDialog.alert({
@@ -50,6 +51,43 @@ angular.module('app')
                             '</md-icon>' +
                             '</md-title>' +
                             '</md-dialog>',
+                    })
+                    .clickOutsideToClose(true)
+                    .title('Demande envoyée')
+                );
+
+            }, function() {
+                console.log('demande annulée');
+            });
+        };
+
+        var sendDemand = function(badgeId) {
+          console.log('sendDemand executed');
+            BadgeService.create(badgeId, $scope.user._id).then(function(res) {
+              console.log('demande envoyée');
+            }, function(err) {
+                console.log('error when creating a demand', err);
+            });
+        };
+
+        //modal pour tous les badges
+        $scope.showBadges = function(ev) {
+            // Appending dialog to document.body to cover sidenav in docs app
+            var confirm = $mdDialog.confirm()
+                // .ariaLabel('Lucky day')
+                // .targetEvent(ev)
+                // .ok('Confirmer')
+                // .cancel('Pas maintenant')
+                // .openFrom(angular.element(document.querySelector('#badges')))
+                // .closeTo(angular.element(document.querySelector('#badger')));
+            $mdDialog.show(confirm).then(function() {
+                //send the demand on confirm
+                sendDemand();
+                //show modal de confirmation
+                $mdDialog.show(
+                    $mdDialog.alert({
+                        templateUrl: ''
+
                     })
                     .clickOutsideToClose(true)
                     .title('Demande envoyée')

@@ -1,0 +1,54 @@
+{"name":"Installer le SDK","url":"img/badges/Android/installer-le-sdk.png"}
+{"name":"Angular Data-Binding","url":"img/badges/Angular/angular-data-binding.png"}
+{"name":"Enrichir profil user firebase","url":"img/badges/Autres/enrichir-profil-user-firebase.png"}
+{"name":"Bootstrap","url":"img/badges/Bootstrap/bootstrap.png"}
+{"name":"A la découverte des BDD","url":"img/badges/BDD/a-la-decouverte-des-bdd.png"}
+{"name":"Intégrer la maquette HTML-CSS","url":"img/badges/CSS/integrer-maquette-html-css.png"}
+{"name":"Comprendre Git","url":"img/badges/Git/comprendre-git.png"}
+{"name":"Hello Github","url":"img/badges/GitHub/hello-github.png"}
+{"name":"HTML5/CSS3","url":"img/badges/HTML/html5-css3.png"}
+{"name":"Découverte Node.js","url":"img/badges/Javascript/decouverte-nodejs.png"}
+{"name":"Android adapter","url":"img/badges/Android/adapter.png"}
+{"name":"Créer app simple","url":"img/badges/Android/creer-app-simple.png"}
+{"name":"Les objets parcelable","url":"img/badges/Android/les-objets-parcelable.png"}
+{"name":"Plusieurs activités","url":"img/badges/Android/plusieurs-activities.png"}
+{"name":"Utiliser le datapickerdialog","url":"img/badges/Android/utiliser-le-datapickerdialog.png"}
+{"name":"Gérer la connexion firebase","url":"img/badges/Autres/gerer-connexion-firebase.png"}
+{"name":"Restful","url":"img/badges/Autres/restful.png"}
+{"name":"Se connecter à une BDD firebase","url":"img/badges/Autres/se-connecter-a-bdd-firebase.png"}
+{"name":"Traduire une app","url":"img/badges/Autres/traduire-une-app.png"}
+{"name":"Utiliser géolocalisation","url":"img/badges/Autres/utiliser-geolocalisation.png"}
+{"name":"Discuter en SQL","url":"img/badges/BDD/discuter-en-sql.png"}
+{"name":"Interagir avec la BDD SQL 2","url":"img/badges/BDD/interagir-avec-bdd-sql-2.png"}
+{"name":"Interagir avec la BDD SQL","url":"img/badges/BDD/interagir-avec-bdd-sql.png"}
+{"name":"Git Workflow","url":"img/badges/Git/git-workflow.png"}
+{"name":"Dynamiser le DOM","url":"img/badges/Javascript/dynamiser-le-dom.png"}
+{"name":"HTTP Request","url":"img/badges/Javascript/httpRequest.png"}
+{"name":"Javascripting","url":"img/badges/Javascript/Javascripting.png"}
+{"name":"jQuery","url":"img/badges/Javascript/jQuery.png"}
+{"name":"Serveur HTTP","url":"img/badges/Javascript/serveur-http.png"}
+{"name":"Dans le peau d'un cornac","url":"img/badges/PHP/dans-la-peau-dun-cornac.png"}
+{"name":"Installation des outils PHP","url":"img/badges/PHP/installation-outils-php.png"}
+{"name":"Installation PHPStorm","url":"img/badges/PHP/installation-phpstorm.png"}
+{"name":"Installation xdebug","url":"img/badges/PHP/installation-xdebug.png"}
+{"name":"Laisse pas traîner ton file ","url":"img/badges/PHP/laisse-pas-tainer-ton-file.png"}
+{"name":"PHP orienté objet","url":"img/badges/PHP/php-oriente-objet.png"}
+{"name":"Retour vers le futur","url":"img/badges/PHP/retour-vers-le-futur.png"}
+{"name":"Bundler gemfile","url":"img/badges/Ruby/bundler-gemfile.png"}
+{"name":"Ma première gem","url":"img/badges/Ruby/ma-premiere-gem.png"}
+{"name":"Ruby debuggeur","url":"img/badges/Ruby/ruby-debuggeur.png"}
+{"name":"Ruby new","url":"img/badges/Ruby/ruby-new.png"}
+{"name":"Sinatra","url":"img/badges/Ruby/sinatra.png"}
+{"name":"Générer le CRUD","url":"img/badges/Symfony/generer-le-crud.png"}
+{"name":"Relations entre entités","url":"img/badges/Symfony/relations-entre-entites.png"}
+{"name":"Création d'un projet","url":"img/badges/Symfony/symfony-creation-dun-projet.png"}
+{"name":"Symfony l'interface admin","url":"img/badges/Symfony/symfony-linterface-admin.png"}
+{"name":"GIST in the CLI","url":"img/badges/Unix/gist-in-the-cli.png"}
+{"name":"Linux tips","url":"img/badges/Unix/linux-tips.png"}
+{"name":"Maîtriser Unix","url":"img/badges/Unix/maitriser-unix.png"}
+{"name":"Unix au pays des merveilles","url":"img/badges/Unix/unix-au-pays-des-merveilles.png"}
+{"name":"Mission candidats","url":"img/badges/WCS/mission-candidats.png"}
+{"name":"Apprendre à apprendre","url":"img/badges/Wild/apprendre-a-apprendre.png"}
+{"name":"CV Linkedin","url":"img/badges/Wild/cv-linkedin.png"}
+{"name":"Markdown","url":"img/badges/Wild/markdown.png"}
+{"name":"Pseudo-code","url":"img/badges/Wild/pseudo-code.png"}

@@ -57,3 +57,8 @@ npm run production
 ```
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
+
+#### Exporter et Importer les badges de la BDD vers badges.json
+
+npm run exportBadges (exporte les badges de la BDD vers badges.json)
+npm run importBadges (importe les badges du dossier badges.json vers la BDD)

@@ -9,7 +9,9 @@
     "test": "lineman spec-ci",
     "production": "lineman clean build && cd server && babel-node index.js",
     "server": "cd server && babel-node index.js",
-    "createAdmin": "cd server && babel-node ./api/userCreation.js"
+    "createAdmin": "cd server && babel-node ./api/userCreation.js",
+    "exportBadges": "cp badges.json .badges.json.backup && mongo localhost:27017/safaro --quiet --eval 'db.badges.find({}, {_id:0}).forEach(printjson);' > ./badges.json",
+    "importBadges": "mongoimport --db safaro --collection badges --file ./badges.json"
  },
   "dependencies": {
     "express": "",

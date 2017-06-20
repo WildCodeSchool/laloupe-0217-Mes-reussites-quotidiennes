@@ -10,9 +10,6 @@ const badgeSchema = new mongoose.Schema({
 });
 
 
-
-
-
 let model = mongoose.model('Badge', badgeSchema);
 
 export default class Badge {
