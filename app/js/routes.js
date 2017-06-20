@@ -91,7 +91,7 @@ angular.module('app')
                 }
             })
             .state('user.reussites', {
-                url: '/reussites',
+                url: '/reussites/:id',
                 views: {
                     'content@': {
                         templateUrl: 'user/reussites.html',
