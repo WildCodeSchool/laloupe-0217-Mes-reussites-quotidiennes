@@ -6,7 +6,7 @@ angular.module('app')
         $scope.user = res.data;
         load(res.data._id);
       }, function (err) {
-        $state.go('user.mes_reussites', {id: $scope.currentUser._id});
+        $state.go('user.mes_reussites', {id: $scope.CurrentUser._id});
       });
 
       function load(id) {
@@ -17,7 +17,7 @@ angular.module('app')
 
       $(function(){
        $("textarea").prop('required',true);
-});
+      });
 
       $scope.test = 'test';
       $scope.newPost = '';
@@ -28,7 +28,7 @@ angular.module('app')
           student: $scope.user._id,
           mood: CurrentUser.user().mood
         }).then(function(res) {
-          load();
+          load(CurrentUser.user()._id);
           $scope.newPost = '';
         });
       };
