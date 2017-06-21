@@ -1,6 +1,9 @@
 angular.module('app')
-    .controller('LoginController', function($scope, $state, Auth) {
+    .controller('LoginController', function($scope, $state, Auth, Mood, UserService, LocalService) {
         $scope.errors = [];
+
+        $scope.moods = Mood;
+        $scope.user = {};
 
         $scope.login = function() {
             if ($scope.userForm.$valid) {
@@ -11,5 +14,9 @@ angular.module('app')
                     $scope.errors.push(err);
                 });
             }
+        };
+
+        $scope.changeMood = function(newMood) {
+          $scope.user.mood = newMood;
         };
     });

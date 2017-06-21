@@ -18,12 +18,8 @@
             </md-input-container>
           </div>
           <h2>Mon humeur du jour</h2> <br />
-          <div layout-gt-sm="row">
-            <img src="../../img/smileys/grinning.png" class="compteur_smiley" alt="">
-            <img src="../../img/smileys/angryface.png" class="compteur_smiley" alt="">
-            <img src="../../img/smileys/confused.png" class="compteur_smiley" alt="">
-            <img src="../../img/smileys/cool.png" class="compteur_smiley" alt="">
-            <img src="../../img/smileys/heart.png" class="compteur_smiley" alt="">
+          <div class="smileys" layout="row" layout-align="space-around">
+              <img ng-repeat="mood in moods" ng-class="{'selected': (user.mood === mood)}" ng-click="changeMood(mood)" class="smiley" src="{{mood}}" alt="grinning">
           </div>
           <md-button type="submit" class="md-raised">Valider</md-button>
         </form>

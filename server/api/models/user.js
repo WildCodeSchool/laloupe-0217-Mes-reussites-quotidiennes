@@ -70,14 +70,22 @@ let model = mongoose.model('User', userSchema);
 export default class User {
 
     connect(req, res) {
+      console.log(req.body);
         if (!req.body.email) {
             res.status(400).send('Please enter an email');
         } else if (!req.body.password) {
             res.status(400).send('Please enter a password');
+        } else if (!req.body.mood) {
+            res.status(400).send('Please choose a mood');
         } else {
-            model.findOne({
+            model.findOneAndUpdate({
                 email: req.body.email
-            }, (err, user) => {
+            }, {
+                mood: req.body.mood
+            }, {
+                new: true
+            },
+            (err, user) => {
                 if (err || !user) {
                     res.sendStatus(403);
                 } else {
