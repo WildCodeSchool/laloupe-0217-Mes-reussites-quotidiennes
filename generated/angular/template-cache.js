@@ -267,7 +267,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "<div>\n" +
     "      <md-card>\n" +
     "        <md-card-header layout=\"column\" layout-align=\"space-around center\">\n" +
-    "            <img class=\"profil\" src=\"http://github.com/{{user.pseudo}}.png\"/>\n" +
+    "            <img class=\"profil\" src=\"http://github.com/{{user.pseudo}}.png\" ui-sref=\"user.mes_reussites\"/>\n" +
     "            <span class=\"md-title\">{{ user.firstname }} {{ user.lastname }}</span>\n" +
     "            <span class=\"md-subhead\">{{ user.city }}, session #{{ user.session }}</span>\n" +
     "            <span class=\"md-subhead\">{{ user.language }}</span>\n" +

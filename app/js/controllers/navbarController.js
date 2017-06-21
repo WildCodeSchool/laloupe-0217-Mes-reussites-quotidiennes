@@ -35,4 +35,5 @@ angular.module('app')
       $scope.currentNavItem = 'page2';
       $state.go('user.mes_reussites', {id: user._id});
     };
+    $scope.searchText = "";
   });

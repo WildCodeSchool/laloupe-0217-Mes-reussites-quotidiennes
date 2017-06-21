@@ -89947,7 +89947,7 @@ angular.module('app')
         $scope.user = res.data;
         load(res.data._id);
       }, function (err) {
-        $state.go('user.mes_reussites', {id: $scope.currentUser._id});
+        $state.go('user.mes_reussites', {id: $scope.CurrentUser._id});
       });
 
       function load(id) {
@@ -89958,7 +89958,7 @@ angular.module('app')
 
       $(function(){
        $("textarea").prop('required',true);
-});
+      });
 
       $scope.test = 'test';
       $scope.newPost = '';
@@ -89966,9 +89966,9 @@ angular.module('app')
       $scope.sendPost = function() {
         PostService.create({
           content: $scope.newPost,
-          student: $scope.user._id
+          student: CurrentUser.user()._id
         }).then(function(res) {
-          load();
+          load(CurrentUser.user()._id);
           $scope.newPost = '';
         });
       };
@@ -90053,6 +90053,7 @@ angular.module('app')
       $scope.currentNavItem = 'page2';
       $state.go('user.mes_reussites', {id: user._id});
     };
+    $scope.searchText = "";
   });
 
 angular.module('app')
@@ -90553,7 +90554,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "<div>\n" +
     "      <md-card>\n" +
     "        <md-card-header layout=\"column\" layout-align=\"space-around center\">\n" +
-    "            <img class=\"profil\" src=\"http://github.com/{{user.pseudo}}.png\"/>\n" +
+    "            <img class=\"profil\" src=\"http://github.com/{{user.pseudo}}.png\" ui-sref=\"user.mes_reussites\"/>\n" +
     "            <span class=\"md-title\">{{ user.firstname }} {{ user.lastname }}</span>\n" +
     "            <span class=\"md-subhead\">{{ user.city }}, session #{{ user.session }}</span>\n" +
     "            <span class=\"md-subhead\">{{ user.language }}</span>\n" +
