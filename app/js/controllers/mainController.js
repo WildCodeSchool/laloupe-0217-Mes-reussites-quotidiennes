@@ -3,9 +3,6 @@ angular.module('app')
 
         $scope.user = CurrentUser.user();
 
-        console.log($scope.user);
-        console.log($scope.badges);
-
         $scope.moods = Mood;
         $scope.badges = [];
         BadgeService.getAll().then(function(res) {

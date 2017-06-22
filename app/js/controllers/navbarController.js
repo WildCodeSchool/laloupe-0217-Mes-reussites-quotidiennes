@@ -31,9 +31,9 @@ angular.module('app')
     };
 
     $scope.goToUser = function (user) {
-      // console.log('coucou');
+      console.log(user);
       $scope.currentNavItem = 'page2';
-      $state.go('user.mes_reussites', {id: user._id});
-    };
-    $scope.searchText = "";
+        $state.go('user.mes_reussites', {id: user._id});
+        //$scope.searchText = "";
+        };
   });
