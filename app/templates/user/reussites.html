@@ -6,7 +6,7 @@
           <div layout="row post_line1">
             <img ng-src="http://github.com/{{post.student.pseudo}}.png" class="md-avatar posts" alt="{{post.student.lastname}}" />
             <div id="username"> {{ post.student.firstname }} {{ post.student.lastname }} </div>
-            <img ng-src="img/smileys/cool.png" class="smiley_sunglasses" alt="smiley" />
+            <img ng-src="{{post.mood}}" class="smiley_sunglasses" alt="smiley" />
           </div>
           <hr>
           <div class="post">{{ post.content }}</div>
