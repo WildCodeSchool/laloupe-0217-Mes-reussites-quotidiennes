@@ -8,7 +8,8 @@
 -   Angélique Clery
 -   Emmanuel Jousselin
 
-# Angular
+
+## Angular
 
 ### Requirements
 
@@ -41,12 +42,6 @@ npm start
 #### Development API
 
 ```
-nodemon --exec npm run server
-```
-
-#### Development API
-
-```bash
 nodemon --exec npm run server
 ```
 
