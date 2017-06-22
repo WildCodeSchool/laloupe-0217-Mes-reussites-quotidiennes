@@ -395,37 +395,6 @@ angular.module("app").run(["$templateCache", function($templateCache) {
 
   $templateCache.put("user/navbar.html",
     "<nav role=\"navigation\">\n" +
-    "  <!-- <header layout=\"row\" layout-wrap layout-align-md=\"start center\" layout-align=\"start center\">\n" +
-    "    <div flex=\"6\"><img class=\"logo\" src=\"img/logo_wcs.png\" alt=\"logo\"></div>\n" +
-    "    <div flex=\"30\">\n" +
-    "      <h1>Safaro</h1></div>\n" +
-    "    <form ng-submit=\"$event.preventDefault()\">\n" +
-    "      <div layout-gt-sm=\"row\">\n" +
-    "        <md-content class=\"md-padding\">\n" +
-    "          <form ng-submit=\"$event.preventDefault()\" name=\"searchForm\">\n" +
-    "            <div layout-gt-sm=\"row\">\n" +
-    "              <md-autocomplete required\n" +
-    "                md-input-name=\"userAutocompleteField\"\n" +
-    "                md-input-minlength=\"3\"\n" +
-    "                md-input-maxlength=\"18\"\n" +
-    "                md-no-cache=\"true\"\n" +
-    "                md-selected-item=\"selectedUser\"\n" +
-    "                md-selected-item-change=\"goToUser(user)\"\n" +
-    "                md-search-text=\"searchText\"\n" +
-    "                md-items=\"user in searchUser(searchText)\"\n" +
-    "                md-item-text=\"fullName(user)\"\n" +
-    "                md-require-match\n" +
-    "                md-floating-label=\" Rechercher \">\n" +
-    "                <md-item-template>\n" +
-    "                  <span md-highlight-text=\"searchText\">{{user.firstname}} {{ user.lastname}}</span>\n" +
-    "                </md-item-template>\n" +
-    "              </md-autocomplete>\n" +
-    "            </div>\n" +
-    "          </form>\n" +
-    "        </md-content>\n" +
-    "      </div>\n" +
-    "    </form> -->\n" +
-    "\n" +
     "  <header layout=\"row\" layout-align=\"start center\">\n" +
     "    <div flex=\"10\"><img class=\"logo\" src=\"img/logo_wcs.png\" alt=\"logo\"></div>\n" +
     "    <div flex=\"25\">\n" +
@@ -438,7 +407,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "            <div layout-gt-sm=\"row\">\n" +
     "              <md-autocomplete flex required\n" +
     "               md-input-name=\"userAutocompleteField\"\n" +
-    "               md-input-minlength=\"3\"\n" +
+    "               md-min-length=\"1 \"\n" +
     "               md-input-maxlength=\"18\"\n" +
     "               md-no-cache=\"true\"\n" +
     "               md-selected-item=\"selectedUser\"\n" +

@@ -2,7 +2,6 @@ angular.module('app')
     .controller('MainController', function($scope, $mdDialog, CurrentUser, BadgeService, $state, PostService, Mood, UserService, LocalService) {
 
         $scope.user = CurrentUser.user();
-        console.log($scope.user);
 
         $scope.moods = Mood;
 
