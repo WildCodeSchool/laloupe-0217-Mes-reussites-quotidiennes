@@ -11,23 +11,26 @@
           <hr>
           <div class="post">{{ post.content }}</div>
           <hr>
-          <div>
+          <div class="likeButton">
+            <md-button class="md-primary md-raised" ng-click="showAlert($event)"   >
+              J'aime
+            </md-button>
           </div>
-          <div class="facebook-reaction">
-            <div
-            <!-- container div for reaction system -->
-            <span class="like-btn"> <!-- Default like button -->
+          <!-- <div class="facebook-reaction">
+            <!- <div
+            <!- container div for reaction system ->
+            <span class="like-btn"> <!- Default like button ->
 						<span class="like-btn-emo like-btn-default"></span>
-            <!-- Default like button emotion-->
+            <!- Default like button emotion->
             <span class="like-btn-text">J'aime</span>
-            <!-- Default like button text,(Like, wow, sad..) default:Like  -->
+            <!- Default like button text,(Like, wow, sad..) default:Like  ->
             <ul class="reactions-box">
-              <!-- Reaction buttons container-->
+              <!- Reaction buttons container->
               <li ng-repeat="smiley in smileys track by $index"><img src="{{ smiley.image }}" class="reaction" ng-click="addLike({{post._id}}, {{smiley._id}})" alt="{{ smiley.name }}"></li>
             </ul>
             </span>
           </div>
-        </div>
+        </div> -->
       </li>
     </ul>
   </div>
