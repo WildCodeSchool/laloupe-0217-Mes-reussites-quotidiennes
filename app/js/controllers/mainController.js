@@ -6,92 +6,114 @@ angular.module('app')
         $scope.moods = Mood;
         $scope.badges = [];
         BadgeService.getAll().then(function(res) {
-          $scope.badges = res.data;
+            $scope.badges = res.data;
         });
 
         PostService.getUserPost(CurrentUser.user()._id).then(function(res) {
-          $scope.totalPosts = res.data.length;
+            $scope.totalPosts = res.data.length;
         });
 
         //add color emoji on click
         $scope.changeMood = function(newMood) {
-          UserService.update($scope.user._id, {mood : newMood}).then(function(res) {
-            $scope.user.mood = newMood;
-            LocalService.set("user", JSON.stringify($scope.user));
-          });
-        };
-
-        //initialisation demand badges
-        $scope.newDemand = "";
-
-        $scope.showModal = function(badge) {
-            // Appending dialog to document.body to cover sidenav in docs app
-            var confirm = $mdDialog.confirm()
-                .title('Demande de Badge')
-                .textContent(badge.name)
-                // .targetEvent(ev)
-                .ok('Confirmer')
-                .cancel('Pas maintenant')
-                .openFrom(angular.element(document.querySelector('#badges')))
-                .closeTo(angular.element(document.querySelector('#badger')));
-            $mdDialog.show(confirm).then(function() {
-                //send the demand on confirm
-                sendDemand(badge._id);
-                //show modal de confirmation
-                $mdDialog.show(
-                    $mdDialog.alert({
-                        template:
-                            '<md-dialog>' +
-                            '<md-title class="Modal2">' +
-                            'Demande envoyée' +
-                            '<md-icon md-svg-src="img/checkmark.svg" class="s24" aria-label="checkmark">'+
-                            '</md-icon>' +
-                            '</md-title>' +
-                            '</md-dialog>',
-                    })
-                    .clickOutsideToClose(true)
-                    .title('Demande envoyée')
-                );
-
-            }, function() {
-                console.log('demande annulée');
+            UserService.update($scope.user._id, {
+                mood: newMood
+            }).then(function(res) {
+                $scope.user.mood = newMood;
+                LocalService.set("user", JSON.stringify($scope.user));
             });
         };
 
+        //initialisation demand badges
+        $scope.showModal = function(badge) {
+            $scope.badge = badge;
+            // Appending dialog to document.body to cover sidenav in docs app
+            $mdDialog.show({
+                template: '<md-dialog aria-label="List dialog">' +
+                    '<md-title class="Modal">' +
+                    'Demande du badge' +
+                    '</md-title>' +
+                    '<md-dialog-content>' +
+                    '<img class="modal1_img" src="' + badge.url + '" alt="badge">' +
+                    '</md-dialog-content>' +
+                    '<md-dialog-actions>' +
+                    '<md-button ng-click="close()" class="name_button">' +
+                    'Pas maintenant' +
+                    '</md-button>' +
+                    '<md-button ng-click="confirmer(badge)" class="name_button">' +
+                    'Confirmer' +
+                    '</md-button>' +
+                    '</md-dialog-actions>' +
+                    '</md-dialog>',
+                locals: {
+                    badge: badge
+                },
+                bindToController: true,
+                scope: $scope,
+                preserveScope: true,
+                controller: 'MainController'
+            });
+        };
+
+        //show confirmation modal on click
+        $scope.confirmer = function(badge) {
+            sendDemand(badge);
+            $mdDialog.show(
+                $mdDialog.alert({
+                    template: '<md-dialog>' +
+                        '<md-title class="Modal">' +
+                        'Demande envoyée' +
+                        '<md-icon md-svg-src="img/checkmark.svg" class="s24" aria-label="checkmark">' +
+                        '</md-icon>' +
+                        '</md-title>' +
+                        '</md-dialog>',
+                })
+                .clickOutsideToClose(true)
+                .title('Demande envoyée')
+            );
+        };
+
+        //close Modal
+        $scope.close = function() {
+          $mdDialog.hide();
+        };
+
+        // var confirm = $mdDialog.confirm()
+        //     .openFrom(angular.element(document.querySelector('#badges')))
+        //     .closeTo(angular.element(document.querySelector('#badger')));
+        //  };
+
         var sendDemand = function(badgeId) {
-          console.log('sendDemand executed');
+            console.log('sendDemand executed');
             BadgeService.create(badgeId, $scope.user._id).then(function(res) {
-              console.log('demande envoyée');
+                console.log('demande envoyée');
             }, function(err) {
                 console.log('error when creating a demand', err);
             });
         };
 
         //modal pour tous les badges
-        $scope.showBadges = function(ev) {
+        $scope.showBadges = function(badge) {
+            $scope.badge = badge;
+            console.log($scope.badge);
+            console.log(badges.url);
             // Appending dialog to document.body to cover sidenav in docs app
-            var confirm = $mdDialog.confirm()
-                // .ariaLabel('Lucky day')
-                // .targetEvent(ev)
-                // .ok('Confirmer')
-                // .cancel('Pas maintenant')
-                // .openFrom(angular.element(document.querySelector('#badges')))
-                // .closeTo(angular.element(document.querySelector('#badger')));
-            $mdDialog.show(confirm).then(function() {
-                //send the demand on confirm
-                sendDemand();
-                //show modal de confirmation
-                $mdDialog.show(
-                    $mdDialog.alert({
-                        templateUrl: ''
-
-                    })
-                    .clickOutsideToClose(true)
-                    .title('Demande envoyée')
-                );
-
-            }, function() {
-                console.log('demande annulée');
+            $mdDialog.show({
+                template: '<md-dialog aria-label="List dialog">' +
+                    '<md-dialog-content>' +
+                    '<md-dialog-actions>' +
+                    '<img ng-repeat="badge in badges" class="modal1_img" src="' + badge.url + '" alt="badge">' +
+                    '</md-dialog-actions>' +
+                    '</md-dialog-content>' +
+                    '</md-dialog>',
+                locals: {
+                    badge: badge
+                },
+                bindToController: true,
+                scope: $scope,
+                preserveScope: true,
+                controller: 'MainController'
             });
         };
+
+
     });
