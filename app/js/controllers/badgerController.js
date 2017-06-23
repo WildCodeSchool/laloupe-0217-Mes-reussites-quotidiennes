@@ -4,9 +4,7 @@ angular.module('app')
 
       $scope.user = CurrentUser.user();
       $scope.badge = "";
-
       $scope.demandBadges = [];
-      $scope.newDemand = "";
 
       //add color smiley on click
       var countSmiley = 0;
@@ -19,8 +17,8 @@ angular.module('app')
       function load() {
         BadgeService.getAllDemands().then(function(res) {
           $scope.demandBadges = res.data;
-          $scope.badge = res.data[0].badge;
-          console.log('demands', $scope.demandBadges, $scope.badge);
+          // $scope.badge = res.data[0].badge_id;
+          console.log('demands', $scope.demandBadges);
         });
       }
       load();

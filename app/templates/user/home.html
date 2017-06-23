@@ -21,11 +21,8 @@
 
 <div>
     <md-card id="badges" layout="row" layout-align="center">
-        <p><img ng-repeat="badge in badges | limitTo:10" ng-click="showModal(badge)" ng-model="newDemand" type="submit" class="career" src="{{badge.url}}">
-            <md-button type="submit" ng-click="showBadges()" class="md-raised md-warn button_more">Voir plus</md-button>
+        <p><img ng-repeat="badge in badges | limitTo:10" ng-click="showModal(badge)" type="submit" class="career" src="{{badge.url}}">
+            <md-button type="submit" ng-click="showBadges(badges)" class="md-raised md-warn button_more">Voir plus</md-button>
         </p>
     </md-card>
 </div>
-
-
-<!-- img ng-click ="sendDemand('591d699c51f8f7fa17f12c0c')"  -->
