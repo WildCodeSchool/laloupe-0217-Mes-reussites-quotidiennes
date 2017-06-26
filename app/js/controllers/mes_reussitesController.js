@@ -25,7 +25,7 @@ angular.module('app')
       $scope.sendPost = function() {
         PostService.create({
           content: $scope.newPost,
-          student: CurrentUser.user()._id,
+          student: $scope.user._id,
           mood: CurrentUser.user().mood
         }).then(function(res) {
           load(CurrentUser.user()._id);
@@ -74,32 +74,5 @@ angular.module('app')
         LocalService.set('user', JSON.stringify($scope.user));
         $scope.user = CurrentService.user();
       };
-
-      $scope.del = function() {
-        console.log('hello');
-          $mdDialog.show({
-                  contentElement: '#modalDelPost',
-                  controller: 'mes_reussitesController',
-                  // parent: angular.element(document.body),
-                  scope: $scope,
-                  bindToController: true,
-                  clickOutsideToClose: true,
-                  preserveScope:true,
-                  fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
-               });
-       };
-
-       $scope.supprimer = function(id) {
-         console.log(id);
-         PostService.delete(id).then(function(res) {
-           load($scope.user._id)
-         })
-       };
-
-       $scope.close = function() {
-           $mdDialog.cancel();
-       };
-
-
 
 });

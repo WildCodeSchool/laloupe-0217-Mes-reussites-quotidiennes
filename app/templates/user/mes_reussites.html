@@ -3,7 +3,7 @@
             <md-content>
                 <md-tabs md-dynamic-height md-border-bottom>
                     <md-tab class="partager_editer" label="Partager une réussite">
-                        <form class="edit" ng-submit= "sendPost()">
+                        <form ng-show="user._id === currentUser._id" class="edit" ng-submit= "sendPost()">
                             <md-input-container class="md-block reussite_input">
                                 <label>Écrivez une réussite ici</label>
                                 <textarea ng-model="newPost" md-maxlength="200" rows="2" md-select-on-focus></textarea>
@@ -88,7 +88,7 @@
                                     <textarea ng-model="user.bio" type="text" placeholder="Biographie" rows="3" cols="80"></textarea>
                                 </md-input-container>
 
-                                <md-button class="md-raised md-warn" ng-click="update()">Editer</md-button>
+                                <md-button ng-show="user._id === currentUser._id" class="md-raised md-warn" ng-click="update()">Editer</md-button>
 
                             </md-content>
 
