@@ -3,16 +3,21 @@ angular.module('app')
 
 
       $scope.user = CurrentUser.user();
-      $scope.badge = "";
       $scope.demandBadges = [];
+      // $scope.vote = res.data[0].vote;
+      // console.log($scope.vote);
 
       //add color smiley on click
-      var countSmiley = 0;
-      $scope.actived = function() {
-          $scope.smiley_color = true;
-          countSmiley += 1;
-      };
-      console.log(countSmiley);
+      var countVotes = 0;
+      // $scope.hasVoted = function() {
+      //     $scope.smiley_color = true;
+      //     countVotes += 1;
+      //     BadgeService.create().then(function(res) {
+      //       $scope.vote = countVotes;
+      //
+      //
+      //     });
+      // };
 
       function load() {
         BadgeService.getAllDemands().then(function(res) {
