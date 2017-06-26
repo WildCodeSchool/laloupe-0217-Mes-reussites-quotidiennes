@@ -37,42 +37,42 @@
                                 <md-input-container class="md-icon-float md-block">
                                     <!-- Use floating label instead of placeholder -->
                                     <label>Nom</label>
-                                    <input ng-model="user.lastname" type="text">
+                                    <input ng-readonly="user._id !== currentUser._id" ng-model="user.lastname" type="text">
                                 </md-input-container>
 
                                 <md-input-container class="md-icon-float md-block">
                                     <!-- Use floating label instead of placeholder -->
                                     <label>Prénom</label>
-                                    <input ng-model="user.firstname" type="text">
+                                    <input ng-readonly="user._id !== currentUser._id" ng-model="user.firstname" type="text">
                                 </md-input-container>
 
                                 <md-input-container class="md-block">
                                     <!-- Use floating placeholder instead of label -->
-                                    <input ng-model="user.email" type="email" placeholder="Email (requis)" ng-required="true">
+                                    <input ng-readonly="user._id !== currentUser._id" ng-model="user.email" type="email" placeholder="Email (requis)" ng-required="true">
                                 </md-input-container>
 
                                 <md-input-container md-no-float class="md-block">
                                     <label>Ville</label>
-                                    <input ng-model="user.city" type="text">
+                                    <input ng-readonly="user._id !== currentUser._id" ng-model="user.city" type="text">
                                 </md-input-container>
 
                                 <md-input-container md-no-float class="md-block">
                                     <label>Session</label>
-                                    <input ng-model="user.session" type="text">
+                                    <input ng-readonly="user._id !== currentUser._id" ng-model="user.session" type="text">
                                 </md-input-container>
 
                                 <md-input-container md-no-float class="md-block">
                                     <label>Langage</label>
-                                    <input ng-model="user.language" type="text">
+                                    <input ng-readonly="user._id !== currentUser._id" ng-model="user.language" type="text">
                                 </md-input-container>
 
                                 <md-input-container md-no-float class="md-block">
                                     <label>Pseudo Github</label>
-                                    <input ng-model="user.pseudo" type="text">
+                                    <input ng-readonly="user._id !== currentUser._id" ng-model="user.pseudo" type="text">
                                 </md-input-container>
 
                                 <md-input-container md-no-float class="md-block">
-                                    <textarea ng-model="user.bio" type="text" placeholder="Biographie" rows="3" cols="80"></textarea>
+                                    <textarea ng-readonly="user._id !== currentUser._id" ng-model="user.bio" type="text" placeholder="Biographie" rows="3" cols="80"></textarea>
                                 </md-input-container>
 
                                 <md-button ng-show="user._id === currentUser._id" class="md-raised md-warn" ng-click="update()">Editer</md-button>
