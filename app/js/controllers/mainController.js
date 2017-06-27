@@ -76,6 +76,7 @@ angular.module('app')
                     scope: $scope,
                     bindToController: true,
                     clickOutsideToClose: true,
+                    preserveScope:true,
                     fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
                  });
          };
