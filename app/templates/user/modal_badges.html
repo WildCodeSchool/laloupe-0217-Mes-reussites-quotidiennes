@@ -1,6 +1,5 @@
-<div>
-    <md-card layout="row" layout-align="center">
-        <p><img ng-repeat="badge in badges" ng-model="newDemand" type="submit" class="career" src="{{badge.url}}">
-        </p>
-    </md-card>
-</div>
+<md-card class="all_badges" layout="row" layout-align="center">
+    <md-card-content>
+      <img ng-repeat="badge in badges" ng-click="showModal(badge)" ng-model="newDemand" type="submit" class="career" src="{{badge.url}}">
+    </md-card-content>
+</md-card>

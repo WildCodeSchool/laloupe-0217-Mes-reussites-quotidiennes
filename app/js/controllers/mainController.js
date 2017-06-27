@@ -2,9 +2,9 @@ angular.module('app')
     .controller('MainController', function($scope, $mdDialog, CurrentUser, BadgeService, $state, PostService, Mood, UserService, LocalService, Badges) {
 
         $scope.user = CurrentUser.user();
-
         $scope.moods = Mood;
         $scope.badges = [];
+        $scope.Selectbadge = null;
         BadgeService.getAll().then(function(res) {
             $scope.badges = res.data;
         });
@@ -24,36 +24,71 @@ angular.module('app')
         };
 
         //initialisation demand badges
-        $scope.showModal = function(badge) {
-            $scope.badge = badge;
+        // $scope.showModal = function(badge) {
+        //     $scope.badge = badge;
             // Appending dialog to document.body to cover sidenav in docs app
-            $mdDialog.show({
-                template: '<md-dialog aria-label="List dialog">' +
-                    '<md-title class="Modal">' +
-                    'Demande du badge' +
-                    '</md-title>' +
-                    '<md-dialog-content>' +
-                    '<img class="modal1_img" src="' + badge.url + '" alt="badge">' +
-                    '</md-dialog-content>' +
-                    '<md-dialog-actions>' +
-                    '<md-button ng-click="close()" class="name_button">' +
-                    'Pas maintenant' +
-                    '</md-button>' +
-                    '<md-button ng-click="confirmer(badge)" class="name_button">' +
-                    'Confirmer' +
-                    '</md-button>' +
-                    '</md-dialog-actions>' +
-                    '</md-dialog>',
-                locals: {
-                    badge: badge
-                },
-                bindToController: true,
-                scope: $scope,
-                preserveScope: true,
-                controller: 'MainController'
-            });
-        };
+            // $mdDialog.show({
+            //     template: '<md-dialog aria-label="List dialog">' +
+            //         '<md-title class="Modal">' +
+            //         'Demande du badge' +
+            //         '</md-title>' +
+            //         '<md-dialog-content>' +
+            //         '<img class="modal1_img" src="' + badge.url + '" alt="badge">' +
+            //         '</md-dialog-content>' +
+            //         '<md-dialog-actions>' +
+            //         '<md-button ng-click="close()" class="name_button">' +
+            //         'Pas maintenant' +
+            //         '</md-button>' +
+            //         '<md-button ng-click="confirmer(\''+badge._id+'\')" class="name_button">' +
+            //         'Confirmer' +
+            //         '</md-button>' +
+            //         '</md-dialog-actions>' +
+            //         '</md-dialog>',
+        //         locals: {
+        //             badge: badge
+        //         },
+        //         bindToController: true,
+        //         scope: $scope,
+        //         preserveScope: true,
+        //         controller: 'MainController'
+        //     });
+        // };
 
+        $scope.showModal = function(badge) {
+          $scope.Selectbadge = badge;
+          $mdDialog.show({
+                  contentElement: '#modalBadge',
+                  controller: 'MainController',
+                  bindToController: true,
+                  multiple: true,
+                  scope: $scope,
+                  preserveScope:true,
+                  fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+               });
+             };
+
+        $scope.showBadges = function(badge) {
+          console.log('hello');
+            $mdDialog.show({
+                    contentElement: '#modalBadges',
+                    controller: 'MainController',
+                    // parent: angular.element(document.body),
+                    scope: $scope,
+                    bindToController: true,
+                    clickOutsideToClose: true,
+                    preserveScope:true,
+                    fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+                 });
+         };
+
+         var sendDemand = function(badgeId) {
+             console.log('sendDemand executed');
+             BadgeService.create(badgeId, $scope.user._id).then(function(res) {
+                 console.log('demande envoyée');
+             }, function(err) {
+                 console.log('error when creating a demand', err);
+             });
+         };
         //show confirmation modal on click
         $scope.confirmer = function(badge) {
             sendDemand(badge);
@@ -74,46 +109,6 @@ angular.module('app')
 
         //close Modal
         $scope.close = function() {
-          $mdDialog.hide();
+            $mdDialog.cancel();
         };
-
-        // var confirm = $mdDialog.confirm()
-        //     .openFrom(angular.element(document.querySelector('#badges')))
-        //     .closeTo(angular.element(document.querySelector('#badger')));
-        //  };
-
-        var sendDemand = function(badgeId) {
-            console.log('sendDemand executed');
-            BadgeService.create(badgeId, $scope.user._id).then(function(res) {
-                console.log('demande envoyée');
-            }, function(err) {
-                console.log('error when creating a demand', err);
-            });
-        };
-
-        //modal pour tous les badges
-        $scope.showBadges = function(badge) {
-            $scope.badge = badge;
-            console.log($scope.badge);
-            console.log(badges.url);
-            // Appending dialog to document.body to cover sidenav in docs app
-            $mdDialog.show({
-                template: '<md-dialog aria-label="List dialog">' +
-                    '<md-dialog-content>' +
-                    '<md-dialog-actions>' +
-                    '<img ng-repeat="badge in badges" class="modal1_img" src="' + badge.url + '" alt="badge">' +
-                    '</md-dialog-actions>' +
-                    '</md-dialog-content>' +
-                    '</md-dialog>',
-                locals: {
-                    badge: badge
-                },
-                bindToController: true,
-                scope: $scope,
-                preserveScope: true,
-                controller: 'MainController'
-            });
-        };
-
-
     });
