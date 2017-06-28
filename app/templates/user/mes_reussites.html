@@ -26,7 +26,20 @@
                                         <img ng-src="img/smileys/grinning.png" class="compteur_smiley" alt="smiley" />
                                         <img ng-src="img/smileys/wink.png" class="compteur_smiley smileys_test" alt="smiley" />
                                     </div>
-                                    <md-button ng-click="removePost(post._id)" type="submit" md-color="red" class="md-raised md-warn delete_button">Supprimer</md-button>
+                                    <md-button class="md-raised md-warn delete_button" ng-click="del()">Supprimer</md-button>
+                                    <!-- <md-button class="md-raised md-warn delete_button" ng-click="showAlert($event)">Supprimer</md-button> -->
+                                    <!--modal pour la suppression de réussite -->
+                                    <div style="visibility: hidden">
+                                        <div class="md-dialog-container" id="modalDelPost">
+                                            <md-dialog aria-label="List dialog">
+                                                <md-title class="Modal">Supprimer cette réussite ?</md-title>
+                                                <md-dialog-actions>
+                                                    <md-button ng-click="close()" class="name_button">Pas maintenant</md-button>
+                                                    <md-button class="name_button" ng-click="supprimer(post._id)">Supprimer</md-button>
+                                                </md-dialog-actions>
+                                            </md-dialog>
+                                        </div>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -85,4 +98,6 @@
                 </md-tabs>
             </md-content>
     </div>
+
+
 </div>

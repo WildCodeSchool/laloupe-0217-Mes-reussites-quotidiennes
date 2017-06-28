@@ -23,6 +23,8 @@ angular.module('app')
             });
         };
 
+        $scope.user.session = moment($scope.user.session).format("DD/MM/YYYY");
+
         //initialisation demand badges
         // $scope.showModal = function(badge) {
         //     $scope.badge = badge;

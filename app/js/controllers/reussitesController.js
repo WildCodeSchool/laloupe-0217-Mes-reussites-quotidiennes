@@ -46,6 +46,8 @@ angular.module('app')
       PostService.like(idPost, like);
     };
 
+// <md-button ng-click="removePost(post._id)" type="submit" md-color="red" class="md-raised md-warn delete_button">Supprimer</md-button>
+
     $scope.showAlert = function(ev) {
         // Appending dialog to document.body to cover sidenav in docs app
         // Modal dialogs should fully cover application
