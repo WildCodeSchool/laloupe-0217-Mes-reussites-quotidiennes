@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     session: {
-        type: Number,
+        type: Date,
         required: true
     },
     language: {
