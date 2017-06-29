@@ -99,7 +99,4 @@ angular.module('app')
        $scope.close = function() {
            $mdDialog.cancel();
        };
-
-
-
 });

@@ -106,7 +106,12 @@
   background-image: url('../img/blush.png');
 }
 
-
+.newsuccess_reussites {
+  border: 1px solid lightgrey;
+  margin-bottom: 3em;
+  background-color: white;
+  padding: 20px 20px 58px 20px;
+}
 
 .like-btn:hover .reaction {
   opacity: 1;
