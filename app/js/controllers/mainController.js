@@ -132,7 +132,9 @@ angular.module('app')
         };
 
         BadgeService.getCompleted(CurrentUser.user()._id).then(function(res) {
-          console.log(res.data);
+          // console.log(res.data);
+          $scope.badgesCompleted = res.data.length;
+          console.log($scope.badgesCompleted);
           for(var i = 0; i < $scope.badges.length; i++){
             $scope.badges[i].completed = false;
             for(var j = 0; j < res.data.length; j++){

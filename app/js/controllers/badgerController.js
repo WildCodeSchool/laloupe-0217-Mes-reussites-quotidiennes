@@ -10,7 +10,7 @@ angular.module('app')
             BadgeService.getAllDemands().then(function(res) {
                 $scope.demandBadges = res.data;
                 $scope.demandBadges.forEach(function(demand) {
-                    demand.hasVoted = demand.vote.indexOf($scope.user._id) == -1;
+                    demand.hasVoted = demand.vote.indexOf($scope.user._id) === -1;
                 });
                 console.log('demands', $scope.demandBadges);
             });

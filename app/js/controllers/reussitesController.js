@@ -102,8 +102,8 @@ angular.module('app')
         imageWidth: 48,
         imageHeight: 48,
         animation: true
-      })
-    }
+      });
+    };
 
     $scope.showAlert = function(ev) {
       // Appending dialog to document.body to cover sidenav in docs app
@@ -122,21 +122,6 @@ angular.module('app')
     };
 
     // Begin Sab
-
-    $scope.showAdvanced = function(ev, id) {
-      $mdDialog.show({
-        controller: DialogController,
-        templateUrl: 'dialog1.tmpl.html',
-        parent: angular.element(document.body),
-        targetEvent: ev,
-        clickOutsideToClose: true,
-        fullscreen: false,
-        locals: {
-          postid: id
-        }
-      });
-    };
-
     function DialogController($scope, $mdDialog, CurrentUser, postid) {
       $scope.hide = function() {
         $mdDialog.hide();
@@ -160,6 +145,20 @@ angular.module('app')
           name: 'cool'
         }
       ];
+
+      $scope.showAdvanced = function(ev, id) {
+        $mdDialog.show({
+          controller: DialogController,
+          templateUrl: 'dialog1.tmpl.html',
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          clickOutsideToClose: true,
+          fullscreen: false,
+          locals: {
+            postid: id
+          }
+        });
+      };
 
       $scope.addSmiley = function(name) {
         PostService.getOne(postid).then(function(res) {
