@@ -7,8 +7,14 @@ angular.module('app')
       getAllDemands: function () {
         return $http.get("/demandBadges");
       },
+      getCompleted: function (user) {
+        return $http.get("/demandBadges/" + {user: user});
+      },
       create: function(badgeId, userId) {
         return $http.post("/demandBadges", {student:userId, badge:badgeId});
       },
+      vote: function(user, demandId) {
+        return $http.put("/demandBadges/" + demandId, {user: user});
+      }
     };
   });

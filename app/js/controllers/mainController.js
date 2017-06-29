@@ -105,6 +105,8 @@ angular.module('app')
                         '</md-dialog>',
                 })
                 .clickOutsideToClose(true)
+                .openFrom(angular.element(document.querySelector('#badges')))
+                .closeTo(angular.element(document.querySelector('#badger')))
                 .title('Demande envoyée')
             );
         };
