@@ -75,4 +75,28 @@ angular.module('app')
         $scope.user = CurrentService.user();
       };
 
+      $scope.del = function() {
+        console.log('hello');
+          $mdDialog.show({
+                  contentElement: '#modalDelPost',
+                  controller: 'mes_reussitesController',
+                  // parent: angular.element(document.body),
+                  scope: $scope,
+                  bindToController: true,
+                  clickOutsideToClose: true,
+                  preserveScope:true,
+                  fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+               });
+       };
+
+       $scope.supprimer = function(id) {
+         console.log(id);
+         PostService.delete(id).then(function(res) {
+           load($scope.user._id)
+         })
+       };
+
+       $scope.close = function() {
+           $mdDialog.cancel();
+       };
 });
