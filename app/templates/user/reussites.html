@@ -11,11 +11,42 @@
           <hr>
           <div class="post">{{ post.content }}</div>
           <hr>
-          <div class="likeButton">
-            <md-button class="md-primary md-raised" ng-click="showAlert($event)">J'aime</md-button>
+          <div>
+            <span ng-repeat="smiley in post.smileyBis track by $index">
+                <img class="compteur_smiley" ng-src="/img/smileys/{{smiley}}.png">
+              </span>
+            <md-button ng-show="liked(post._id)" class="md-primary md-raised" ng-click="showAdvanced($event, post._id)">J'aime</md-button>
           </div>
         </div>
-          <!-- <div class="facebook-reaction">
+        <script type="text/ng-template" id="dialog1.tmpl.html">
+                        <md-dialog aria-label="Smileys">
+                            <form>
+                                <md-toolbar>
+                                    <div class="md-toolbar-tools">
+                                        <h2>Smileys</h2>
+                                    </div>
+                                </md-toolbar>
+                                <md-dialog-content>
+                                    <div class="md-dialog-content">
+                                        <span ng-repeat="smiley in smileys">
+                                          <img ng-click="addSmiley(smiley.name)" class="compteur_smiley" ng-src="/img/smileys/{{smiley.name}}.png">
+                                        </span>
+                                    </div>
+                                </md-dialog-content>
+                            </form>
+                        </md-dialog>
+                    </script>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- <span  ng-show="liked(post._id)" class="like-btn-text md-primary md-raised" ng-click="showAdvanced($event, post._id)" flex="100" flex-gt-md="auto">J'aime</span> -->
+<!-- Default like button text,(Like, wow, sad..) default:Like  -->
+
+<!-- <div class="likeButton">
+            <md-button class="md-primary md-raised" ng-click="testModal()">J'aime</md-button>
+          </div> -->
+<!-- <div class="facebook-reaction">
             <!- <div
             <!- container div for reaction system ->
             <span class="like-btn"> <!- Default like button ->
@@ -30,7 +61,3 @@
             </span>
           </div>
         </div> -->
-      </li>
-    </ul>
-  </div>
-</div>

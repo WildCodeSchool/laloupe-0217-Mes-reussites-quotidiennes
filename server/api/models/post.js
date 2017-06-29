@@ -16,6 +16,16 @@ const postSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
+  smileyBis:{
+      type: Array,
+    },
+    likers:{
+      type: Array,
+    },
+    likeNumber: {
+      type: Number,
+      default:0
+    },
   mood: {
     type: String,
     required : true,
@@ -53,6 +63,18 @@ export default class Post {
         }
       });
   }
+
+  findById(req, res) {
+   model.findById(req.params.id, {
+       password: 0
+   }, (err, post) => {
+       if (err || !post) {
+           res.sendStatus(403);
+       } else {
+           res.json(post);
+       }
+   });
+}
 
   findUserPost(req, res) {
     model.find({
