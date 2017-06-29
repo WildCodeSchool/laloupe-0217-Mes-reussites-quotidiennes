@@ -8,9 +8,10 @@ module.exports = (app) => {
 
     var demand = new DemandBadge();
 
-
     router.post('/', Auth.hasAuthorization, demand.create);
     router.get('/', Auth.hasAuthorization, demand.findAll);
+    router.put('/:id', Auth.hasAuthorization, demand.vote);
+    router.get('/:user', Auth.hasAuthorization, demand.completed);
 
     app.use('/demandBadges', router);
 
