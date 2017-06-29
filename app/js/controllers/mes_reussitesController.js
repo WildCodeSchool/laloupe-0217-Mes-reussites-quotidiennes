@@ -1,33 +1,40 @@
 angular.module('app')
-    .controller('mes_reussitesController', function($scope, $mdDialog, CurrentUser, PostService, UserService, LocalService) {
-      $scope.user = CurrentUser.user();
+    .controller('mes_reussitesController', function($scope, $state, $mdDialog, CurrentUser, PostService, UserService, LocalService) {
+      $scope.currentUser = CurrentUser.user();
 
-      function load() {
-        PostService.getUserPost(CurrentUser.user()._id).then(function(res) {
+      UserService.getOne($state.params.id).then(function (res) {
+        $scope.user = res.data;
+        load(res.data._id);
+      }, function (err) {
+        $state.go('user.mes_reussites', {id: $scope.CurrentUser._id});
+      });
+
+      function load(id) {
+        PostService.getUserPost(id).then(function(res) {
           $scope.posts = res.data;
         });
       }
 
       $(function(){
        $("textarea").prop('required',true);
-});
+      });
 
-      load();
       $scope.test = 'test';
       $scope.newPost = '';
 
       $scope.sendPost = function() {
         PostService.create({
           content: $scope.newPost,
-          student: $scope.user._id
+          student: $scope.user._id,
+          mood: CurrentUser.user().mood
         }).then(function(res) {
-          load();
+          load(CurrentUser.user()._id);
           $scope.newPost = '';
         });
       };
       $scope.removePost = function(id) {
         PostService.delete(id).then(function() {
-          load();
+          load($scope.user._id);
         });
       };
 
@@ -67,4 +74,29 @@ angular.module('app')
         LocalService.set('user', JSON.stringify($scope.user));
         $scope.user = CurrentService.user();
       };
+
+      $scope.del = function() {
+        console.log('hello');
+          $mdDialog.show({
+                  contentElement: '#modalDelPost',
+                  controller: 'mes_reussitesController',
+                  // parent: angular.element(document.body),
+                  scope: $scope,
+                  bindToController: true,
+                  clickOutsideToClose: true,
+                  preserveScope:true,
+                  fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+               });
+       };
+
+       $scope.supprimer = function(id) {
+         console.log(id);
+         PostService.delete(id).then(function(res) {
+           load($scope.user._id)
+         })
+       };
+
+       $scope.close = function() {
+           $mdDialog.cancel();
+       };
 });

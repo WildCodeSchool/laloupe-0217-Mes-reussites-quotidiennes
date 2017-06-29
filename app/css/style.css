@@ -206,10 +206,10 @@ md-content.md-padding._md{
     padding-left: 10px;
   }
   .demand{
-    margin-top: 16px;
-    margin-left: 50px;
-    margin-right: -50px;
-    width: 220px;
+    margin-top: 25px;
+    margin-right: 100px;
+    /*margin-left: 1%;*/
+    width: 500px;
     line-height: 1.5em;
     text-align: center;
   }
@@ -230,7 +230,7 @@ md-content.md-padding._md{
   }
   .reussite_input{
     margin-left: 60px;
-    width: 80%;
+    width: 88%;
   }
 }
 

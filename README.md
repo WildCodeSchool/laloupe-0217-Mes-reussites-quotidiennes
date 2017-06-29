@@ -1,3 +1,4 @@
+s
 # Safaro
 
 ## Projet 3
@@ -8,7 +9,8 @@
 -   Angélique Clery
 -   Emmanuel Jousselin
 
-# Angular
+
+## Angular
 
 ### Requirements
 
@@ -44,16 +46,16 @@ npm start
 nodemon --exec npm run server
 ```
 
-#### Development API
-
-```bash
-nodemon --exec npm run server
-```
-
 #### Production
 
 ```bash
 npm run production
 ```
 
+#### Exporter et Importer les badges de la BDD vers badges.json
+
+```bash
+npm run exportBadges (exporte les badges de la BDD vers badges.json)
+npm run importBadges (importe les badges du dossier badges.json vers la BDD)
+```
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)

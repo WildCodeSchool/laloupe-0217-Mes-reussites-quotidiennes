@@ -12,7 +12,7 @@
   border: 1px solid lightgrey;
   margin-bottom: 3em;
   background-color: white;
-  padding: 20px;
+  padding: 20px 20px 25px 20px;
 }
 
 .smileys_delete {
@@ -23,7 +23,7 @@
     text-align: right;
   }
 
-  .delete_button {
+.delete_button {
     margin-left: 41vw;
     margin-top: -4.5vh;
 
@@ -62,6 +62,11 @@ hr {
 }
 
 .compteur_smiley {
+  height: 2em;
+  float: left;
+}
+
+.compteur_smiley_modal {
   height: 2em;
 }
 

@@ -2,26 +2,33 @@ angular.module('app')
     .controller('BadgerController', function($scope, CurrentUser, BadgeService) {
 
 
-      $scope.user = CurrentUser.user();
-      $scope.badge = "";
+        $scope.user = CurrentUser.user();
+        // $scope.demandBadges = [];
+        var numberVote = [];
 
-      $scope.demandBadges = [];
-      $scope.newDemand = "";
+        function load() {
+            BadgeService.getAllDemands().then(function(res) {
+                $scope.demandBadges = res.data;
+                $scope.demandBadges.forEach(function(demand) {
+                    demand.hasVoted = demand.vote.indexOf($scope.user._id) == -1;
+                });
 
-      //add color smiley on click
-      var countSmiley = 0;
-      $scope.actived = function() {
-          $scope.smiley_color = true;
-          countSmiley += 1;
-      };
-      console.log(countSmiley);
+            BadgeService.getCompleted(CurrentUser.user()).then(function(res) {
+              console.log('coucou',CurrentUser.user()._id);
+              console.log(res.data);
 
-      function load() {
-        BadgeService.getAllDemands().then(function(res) {
-          $scope.demandBadges = res.data;
-          $scope.badge = res.data[0].badge;
-          console.log('demands', $scope.demandBadges, $scope.badge);
-        });
-      }
-      load();
+
+            });
+
+                console.log('demands', $scope.demandBadges, $scope.vote);
+            });
+        }
+        load();
+
+        //voter pour un badge
+        $scope.hasVoted = function(demandeId) {
+            BadgeService.vote($scope.user._id, demandeId).then(function(res) {
+                load();
+            });
+        };
     });

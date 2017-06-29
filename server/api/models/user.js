@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     session: {
-        type: Number,
+        type: Date,
         required: true
     },
     language: {
@@ -52,9 +52,9 @@ const userSchema = new mongoose.Schema({
         type: String
     },
     mood: {
-      type: String,
-      required : true,
-      default : "img/smileys/cool.png"
+        type: String,
+        required: true,
+        default: "img/smileys/cool.png"
     }
 });
 
@@ -69,39 +69,51 @@ let model = mongoose.model('User', userSchema);
 
 export default class User {
 
+    constructor(hauteur, largeur) {
+      this.model = mongoose.model('User', userSchema);
+    }
+
     connect(req, res) {
+        console.log(req.body);
         if (!req.body.email) {
             res.status(400).send('Please enter an email');
         } else if (!req.body.password) {
             res.status(400).send('Please enter a password');
+        } else if (!req.body.mood) {
+            res.status(400).send('Please choose a mood');
         } else {
-            model.findOne({
-                email: req.body.email
-            }, (err, user) => {
-                if (err || !user) {
-                    res.sendStatus(403);
-                } else {
-                    user.comparePassword(req.body.password, (err, isMatch) => {
-                        if (err) {
-                            res.sendStatus(400);
-                        } else {
-                            if (isMatch) {
-                                user.password = null;
-                                let tk = jsonwebtoken.sign(user, token, {
-                                    expiresIn: "24h"
-                                });
-                                res.json({
-                                    success: true,
-                                    user: user,
-                                    token: tk
-                                });
+            model.findOneAndUpdate({
+                    email: req.body.email
+                }, {
+                    mood: req.body.mood
+                }, {
+                    new: true
+                },
+                (err, user) => {
+                    if (err || !user) {
+                        res.sendStatus(403);
+                    } else {
+                        user.comparePassword(req.body.password, (err, isMatch) => {
+                            if (err) {
+                                res.sendStatus(400);
                             } else {
-                                res.send();
+                                if (isMatch) {
+                                    user.password = null;
+                                    let tk = jsonwebtoken.sign(user, token, {
+                                        expiresIn: "24h"
+                                    });
+                                    res.json({
+                                        success: true,
+                                        user: user,
+                                        token: tk
+                                    });
+                                } else {
+                                    res.send();
+                                }
                             }
-                        }
-                    });
-                }
-            });
+                        });
+                    }
+                });
         }
     }
 
@@ -159,15 +171,15 @@ export default class User {
             _id: req.params.userId
         }, req.body, (err, user) => {
             if (err || !user) {
-              res.status(500).send(err.message);
+                res.status(500).send(err.message);
             } else {
                 let tk = jsonwebtoken.sign(user, token, {
-                  expiresIn: "24h"
+                    expiresIn: "24h"
                 });
                 res.json({
-                  success: true,
-                  user: user,
-                  token: tk
+                    success: true,
+                    user: user,
+                    token: tk
                 });
             }
         });

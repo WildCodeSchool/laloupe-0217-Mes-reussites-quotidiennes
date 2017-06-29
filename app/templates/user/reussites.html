@@ -1,34 +1,63 @@
 <div>
   <div class="ownsuccess">
     <ul>
-      <li class="newsuccess" ng-repeat="post in posts | orderBy:'createdate':true" ng-model="newPost" ng-change="check()">
+      <li class="newsuccess_reussites" ng-repeat="post in posts | orderBy:'createdate':true" ng-model="newPost" ng-change="check()">
         <div class="success">
           <div layout="row post_line1">
-            <img ng-src="http://github.com/{{post.student.pseudo}}.png" class="md-avatar posts" alt="{{post.student.lastname}}" />
+            <img ng-src="http://github.com/{{post.student.pseudo}}.png" ng-click="goToUser(post.student)" class="md-avatar posts" alt="{{post.student.lastname}}" />
             <div id="username"> {{ post.student.firstname }} {{ post.student.lastname }} </div>
-            <img ng-src="img/smileys/cool.png" class="smiley_sunglasses" alt="smiley" />
+            <img ng-src="{{post.mood}}" class="smiley_sunglasses" alt="smiley" />
           </div>
           <hr>
           <div class="post">{{ post.content }}</div>
           <hr>
           <div>
-          </div>
-          <div class="facebook-reaction">
-            <div
-            <!-- container div for reaction system -->
-            <span class="like-btn"> <!-- Default like button -->
-						<span class="like-btn-emo like-btn-default"></span>
-            <!-- Default like button emotion-->
-            <span class="like-btn-text">J'aime</span>
-            <!-- Default like button text,(Like, wow, sad..) default:Like  -->
-            <ul class="reactions-box">
-              <!-- Reaction buttons container-->
-              <li ng-repeat="smiley in smileys track by $index"><img src="{{ smiley.image }}" class="reaction" ng-click="addLike({{post._id}}, {{smiley._id}})" alt="{{ smiley.name }}"></li>
-            </ul>
-            </span>
+            <span ng-repeat="smiley in post.smileyBis track by $index">
+                <img class="compteur_smiley" ng-src="/img/smileys/{{smiley}}.png">
+              </span>
+            <md-button ng-show="liked(post._id)" class="md-primary md-raised" ng-click="showAdvanced($event, post._id)">J'aime</md-button>
           </div>
         </div>
+        <script type="text/ng-template" id="dialog1.tmpl.html">
+          <md-dialog aria-label="Smileys">
+            <form>
+              <md-toolbar>
+                <div class="md-toolbar-tools">
+                  <h2>Smileys</h2>
+                </div>
+              </md-toolbar>
+              <md-dialog-content>
+                <div class="md-dialog-content">
+                  <span ng-repeat="smiley in smileys">
+                    <img ng-click="addSmiley(smiley.name)" class="compteur_smiley_modal" ng-src="/img/smileys/{{smiley.name}}.png">
+                  </span>
+                </div>
+              </md-dialog-content>
+            </form>
+          </md-dialog>
+        </script>
       </li>
     </ul>
   </div>
 </div>
+<!-- <span  ng-show="liked(post._id)" class="like-btn-text md-primary md-raised" ng-click="showAdvanced($event, post._id)" flex="100" flex-gt-md="auto">J'aime</span> -->
+<!-- Default like button text,(Like, wow, sad..) default:Like  -->
+
+<!-- <div class="likeButton">
+            <md-button class="md-primary md-raised" ng-click="testModal()">J'aime</md-button>
+          </div> -->
+<!-- <div class="facebook-reaction">
+            <!- <div
+            <!- container div for reaction system ->
+            <span class="like-btn"> <!- Default like button ->
+						<span class="like-btn-emo like-btn-default"></span>
+            <!- Default like button emotion->
+            <span class="like-btn-text">J'aime</span>
+            <!- Default like button text,(Like, wow, sad..) default:Like  ->
+            <ul class="reactions-box">
+              <!- Reaction buttons container->
+              <li ng-repeat="smiley in smileys track by $index"><img src="{{ smiley.image }}" class="reaction" ng-click="addLike({{post._id}}, {{smiley._id}})" alt="{{ smiley.name }}"></li>
+            </ul>
+            </span>
+          </div>
+        </div> -->

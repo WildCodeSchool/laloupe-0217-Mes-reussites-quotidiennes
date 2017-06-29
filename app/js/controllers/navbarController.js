@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('NavbarController', function($scope, Auth, UserService, CurrentUser) {
+  .controller('NavbarController', function($scope, Auth, UserService, CurrentUser, $state) {
     $scope.isCollapsed = true;
     $scope.auth = Auth;
     $scope.user = CurrentUser.user();
@@ -29,5 +29,11 @@ angular.module('app')
     $scope.fullName = function(user) {
       return user.firstname + ' ' + user.lastname;
     };
-  });
 
+    $scope.goToUser = function (user) {
+      // console.log(user);
+      $scope.currentNavItem = 'page2';
+        $state.go('user.mes_reussites', {id: user._id});
+        //$scope.searchText = "";
+        };
+  });
