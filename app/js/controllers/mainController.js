@@ -2,6 +2,20 @@ angular.module('app')
     .controller('MainController', function($scope, $mdDialog, CurrentUser, BadgeService, $state, PostService, Mood, UserService, LocalService, Badges) {
 
         $scope.user = CurrentUser.user();
+
+        if($state.params.id) {
+          UserService.getOne($state.params.id).then(function (res) {
+            $scope.user = res.data;
+            // load(res.data._id);
+          });
+        }
+
+        // function load(id) {
+        //   PostService.getUserPost(id).then(function(res) {
+        //     $scope.posts = res.data;
+        //   });
+        // }
+
         $scope.moods = Mood;
         $scope.badges = [];
         $scope.Selectbadge = null;

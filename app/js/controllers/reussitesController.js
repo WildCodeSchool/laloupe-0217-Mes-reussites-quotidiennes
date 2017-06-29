@@ -1,6 +1,21 @@
 angular.module('app')
-  .controller('ReussitesController', function($scope, UserService, CurrentUser, PostService, SmileyService, $mdDialog, $interval) {
+  .controller('ReussitesController', function($scope, $state, UserService, CurrentUser, PostService, SmileyService, $mdDialog, $interval) {
     $scope.user = CurrentUser.user();
+
+    function loadPlayers() {
+      UserService.getAll().then(function(res) {
+        $scope.users = res.data;
+      });
+    }
+
+    loadPlayers();
+
+        $scope.goToUser = function (user) {
+          // console.log(user);
+          $scope.currentNavItem = 'page2';
+            $state.go('user.mes_reussites', {id: user._id});
+            //$scope.searchText = "";
+            };
 
     function load() {
       PostService.getAll().then(function(res) {
