@@ -94,13 +94,14 @@ export default class DemandBadge {
     }
 
     completed(req, res) {
-        model.find({student: req.params.id})
+        model.find({student: req.params.user})
             .populate('badge')
             .populate('student')
             .exec((err, demandsBadge) => {
                 if (err || !demandsBadge) {
                     res.sendStatus(403);
                 } else {
+                  console.log(demandsBadge);
                     user.model.find({}).exec((err, users) => {
                         res.json(demandsBadge.filter((demande) => {
                             return demande.vote.length / users.length >= 0.6;

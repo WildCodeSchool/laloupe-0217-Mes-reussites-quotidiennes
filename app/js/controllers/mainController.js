@@ -19,6 +19,7 @@ angular.module('app')
         $scope.moods = Mood;
         $scope.badges = [];
         $scope.Selectbadge = null;
+
         BadgeService.getAll().then(function(res) {
             $scope.badges = res.data;
         });
@@ -129,4 +130,19 @@ angular.module('app')
         $scope.close = function() {
             $mdDialog.cancel();
         };
+
+        BadgeService.getCompleted(CurrentUser.user()._id).then(function(res) {
+          console.log(res.data);
+          for(var i = 0; i < $scope.badges.length; i++){
+            $scope.badges[i].completed = false;
+            for(var j = 0; j < res.data.length; j++){
+              if(($scope.badges[i]._id)===(res.data[j].badge._id)){
+                $scope.badges[i].completed = true;
+                console.log(res.data[j].badge._id);
+                console.log($scope.badges[i]._id);
+              }
+            }
+          }
+          console.log($scope.badges);
+        });
     });

@@ -8,7 +8,7 @@ angular.module('app')
         return $http.get("/demandBadges");
       },
       getCompleted: function (user) {
-        return $http.get("/demandBadges/" + {user: user});
+        return $http.get("/demandBadges/" + user);
       },
       create: function(badgeId, userId) {
         return $http.post("/demandBadges", {student:userId, badge:badgeId});

@@ -20,7 +20,7 @@
 
 <div>
     <md-card id="badges" layout="row" layout-align="center">
-        <p><img ng-repeat="badge in badges | limitTo:10" ng-click="showModal(badge)" type="submit" class="career" src="{{badge.url}}">
+        <p><img ng-repeat="badge in badges | limitTo:10" ng-click="showModal(badge)" type="submit" ng-class="{'completed': badge.completed, 'career': !badge.completed}" src="{{badge.url}}">
             <md-button type="submit" ng-click="showBadges(badge)" class="md-raised md-warn button_more">Voir plus</md-button>
         </p>
     </md-card>
@@ -31,11 +31,12 @@
   <div class="md-dialog-container" id="modalBadges">
     <md-dialog aria-label="List dialog" class="all_badges" layout="row">
         <md-dialog-content layout-align="center">
-          <img ng-repeat="badge in badges" ng-click="showModal(badge)" ng-model="newDemand" type="submit" class="career" src="{{badge.url}}">
+          <img ng-repeat="badge in badges"  ng-click="showModal(badge)" ng-model="newDemand" ng-class="{'completed': badge.completed, 'career': !badge.completed}" type="submit" src="{{badge.url}}">
         </md-dialog-content>
     </md-dialog>
   </div>
 </div>
+
 
 <!--modal pour la demande de badge-->
 <div style="visibility: hidden">
