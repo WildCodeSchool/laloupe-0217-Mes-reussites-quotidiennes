@@ -92,35 +92,6 @@ angular.module('app')
       PostService.like(idPost, like);
     };
 
-    // <md-button ng-click="removePost(post._id)" type="submit" md-color="red" class="md-raised md-warn delete_button">Supprimer</md-button>
-
-    $scope.testModal = function() {
-      swal({
-        title: 'Sweet!',
-        text: 'Modal with a custom image.',
-        imageUrl: '../../img/smileys/grinning.png',
-        imageWidth: 48,
-        imageHeight: 48,
-        animation: true
-      });
-    };
-
-    $scope.showAlert = function(ev) {
-      // Appending dialog to document.body to cover sidenav in docs app
-      // Modal dialogs should fully cover application
-      // to prevent interaction outside of dialog
-      $mdDialog.show(
-        $mdDialog.alert()
-        .parent(angular.element(document.querySelector('#popupContainer')))
-        .clickOutsideToClose(true)
-        .title('Choisis ton smiley !')
-        .textContent('Liste des smileys ici.')
-        .ariaLabel('Alert Dialog Demo')
-        .ok('Got it!')
-        .targetEvent(ev)
-      );
-    };
-
     // Begin Sab
     function DialogController($scope, $mdDialog, CurrentUser, postid) {
       $scope.hide = function() {
