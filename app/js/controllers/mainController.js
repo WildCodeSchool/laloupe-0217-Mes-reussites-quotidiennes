@@ -24,7 +24,7 @@ angular.module('app')
             $scope.badges = res.data;
         });
 
-        PostService.getUserPost(CurrentUser.user()._id).then(function(res) {
+        PostService.getUserPost($state.params.id).then(function(res) {
             $scope.totalPosts = res.data.length;
         });
 
