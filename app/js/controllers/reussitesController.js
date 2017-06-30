@@ -25,7 +25,6 @@ angular.module('app')
 
     // Begin Sab
     $scope.liked = function(id) {
-      // console.log("ATTENTION, CETTE CONSOLE VA EXPLOSER");
       for (var i = 0; i < $scope.posts.length; i++) {
         if ($scope.posts[i]._id === id) {
           if ($scope.posts[i].likers.indexOf(CurrentUser.user()._id) !== -1 || undefined) {
@@ -52,7 +51,7 @@ angular.module('app')
     function callAtInterval() {
       load2();
     }
-    $interval(callAtInterval, 2000); // end Sab
+    //$interval(callAtInterval, 2000); // end Sab
 
     function loadSmileys() {
       SmileyService.getAll().then(function(res) {
@@ -94,21 +93,6 @@ angular.module('app')
     };
 
     // Begin Sab
-
-    $scope.showAdvanced = function(ev, id) {
-      $mdDialog.show({
-        controller: DialogController,
-        templateUrl: 'dialog1.tmpl.html',
-        parent: angular.element(document.body),
-        targetEvent: ev,
-        clickOutsideToClose: true,
-        fullscreen: false,
-        locals: {
-          postid: id
-        }
-      });
-    };
-
     function DialogController($scope, $mdDialog, CurrentUser, postid) {
       $scope.hide = function() {
         $mdDialog.hide();
@@ -132,6 +116,20 @@ angular.module('app')
           name: 'cool'
         }
       ];
+
+      $scope.showAdvanced = function(ev, id) {
+        $mdDialog.show({
+          controller: DialogController,
+          templateUrl: 'dialog1.tmpl.html',
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          clickOutsideToClose: true,
+          fullscreen: false,
+          locals: {
+            postid: id
+          }
+        });
+      };
 
       $scope.addSmiley = function(name) {
         PostService.getOne(postid).then(function(res) {
