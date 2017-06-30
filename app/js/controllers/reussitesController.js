@@ -25,7 +25,7 @@ angular.module('app')
 
     // Begin Sab
     $scope.liked = function(id) {
-      console.log("ATTENTION, CETTE CONSOLE VA EXPLOSER");
+      // console.log("ATTENTION, CETTE CONSOLE VA EXPLOSER");
       for (var i = 0; i < $scope.posts.length; i++) {
         if ($scope.posts[i]._id === id) {
           if ($scope.posts[i].likers.indexOf(CurrentUser.user()._id) !== -1 || undefined) {
@@ -91,35 +91,6 @@ angular.module('app')
         smiley: idSmiley
       };
       PostService.like(idPost, like);
-    };
-
-    // <md-button ng-click="removePost(post._id)" type="submit" md-color="red" class="md-raised md-warn delete_button">Supprimer</md-button>
-
-    $scope.testModal = function() {
-      swal({
-        title: 'Sweet!',
-        text: 'Modal with a custom image.',
-        imageUrl: '../../img/smileys/grinning.png',
-        imageWidth: 48,
-        imageHeight: 48,
-        animation: true
-      })
-    }
-
-    $scope.showAlert = function(ev) {
-      // Appending dialog to document.body to cover sidenav in docs app
-      // Modal dialogs should fully cover application
-      // to prevent interaction outside of dialog
-      $mdDialog.show(
-        $mdDialog.alert()
-        .parent(angular.element(document.querySelector('#popupContainer')))
-        .clickOutsideToClose(true)
-        .title('Choisis ton smiley !')
-        .textContent('Liste des smileys ici.')
-        .ariaLabel('Alert Dialog Demo')
-        .ok('Got it!')
-        .targetEvent(ev)
-      );
     };
 
     // Begin Sab
