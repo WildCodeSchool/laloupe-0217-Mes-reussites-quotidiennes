@@ -52,7 +52,8 @@ angular.module('app')
     function callAtInterval() {
       load2();
     }
-    $interval(callAtInterval, 2000); // end Sab
+    $interval(callAtInterval, 2000);
+    // end Sab
 
     function loadSmileys() {
       SmileyService.getAll().then(function(res) {
@@ -95,6 +96,11 @@ angular.module('app')
 
     // Begin Sab
 
+    function DialogController($scope, $mdDialog, CurrentUser, postid) {
+      $scope.hide = function() {
+        $mdDialog.hide();
+      };
+
     $scope.showAdvanced = function(ev, id) {
       $mdDialog.show({
         controller: DialogController,
@@ -108,30 +114,26 @@ angular.module('app')
         }
       });
     };
-
-    function DialogController($scope, $mdDialog, CurrentUser, postid) {
-      $scope.hide = function() {
-        $mdDialog.hide();
-      };
       $scope.cancel = function() {
         $mdDialog.cancel();
       };
       $scope.smileys = [{
-          name: 'blush'
-        },
-        {
-          name: 'grinning'
-        },
-        {
-          name: 'heart'
-        },
-        {
-          name: 'wink'
-        },
-        {
-          name: 'cool'
-        }
-      ];
+        name: 'blush'
+      },
+      {
+        name: 'grinning'
+      },
+      {
+        name: 'heart'
+      },
+      {
+        name: 'wink'
+      },
+      {
+        name: 'cool'
+      }
+    ];
+
 
       $scope.addSmiley = function(name) {
         PostService.getOne(postid).then(function(res) {
