@@ -72,7 +72,7 @@ angular.module('app')
           );
         });
         LocalService.set('user', JSON.stringify($scope.user));
-        $scope.user = CurrentService.user();
+        $scope.user = CurrentUser.user();
       };
 
       $scope.del = function() {
@@ -80,12 +80,11 @@ angular.module('app')
           $mdDialog.show({
                   contentElement: '#modalDelPost',
                   controller: 'mes_reussitesController',
-                  // parent: angular.element(document.body),
                   scope: $scope,
                   bindToController: true,
                   clickOutsideToClose: true,
                   preserveScope:true,
-                  fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+                  fullscreen: $scope.customFullscreen 
                });
        };
 

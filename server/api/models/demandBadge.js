@@ -18,7 +18,6 @@ const demandSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    //creation d'un tableau pour stocker les élèves qui ont déjà voté
     vote: [{
         type: mongoose.Schema.Types.ObjectId,
         required: true,
@@ -46,7 +45,7 @@ export default class DemandBadge {
             }, //argument pour insérer
             {
                 upsert: true
-            }, //si ne trouve pas= pour insérer
+            }, //si ne trouve pas = pour insérer
             (err, demand) => {
                 if (err) {
                     res.sendStatus(500);
@@ -79,7 +78,10 @@ export default class DemandBadge {
     findAll(req, res) {
         model.find({})
             .populate('badge')
-            .populate('student')
+            .populate('student', {
+              password: 0,
+              __v: 0
+            })
             .exec((err, demandsBadge) => {
                 if (err || !demandsBadge) {
                     res.sendStatus(403);
@@ -96,7 +98,10 @@ export default class DemandBadge {
     completed(req, res) {
         model.find({student: req.params.user})
             .populate('badge')
-            .populate('student')
+            .populate('student', {
+              password: 0,
+              __v: 0
+            })
             .exec((err, demandsBadge) => {
                 if (err || !demandsBadge) {
                     res.sendStatus(403);

@@ -1,9 +1,8 @@
 import mongoose from 'mongoose';
 
 const postSchema = new mongoose.Schema({
-  content: {
-    type: String
-  },
+  content: String,
+
   created_at: {
     type: Date,
     default: Date.now
@@ -16,19 +15,17 @@ const postSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  smileyBis:{
-      type: Array,
-    },
-    likers:{
-      type: Array,
-    },
-    likeNumber: {
-      type: Number,
-      default:0
-    },
+  smileyBis: Array,
+
+  likers: Array,
+
+  likeNumber: {
+    type: Number,
+    default: 0
+  },
   mood: {
     type: String,
-    required : true,
+    required: true,
   },
   likes: [{
     student: {
@@ -65,16 +62,16 @@ export default class Post {
   }
 
   findById(req, res) {
-   model.findById(req.params.id, {
-       password: 0
-   }, (err, post) => {
-       if (err || !post) {
-           res.sendStatus(403);
-       } else {
-           res.json(post);
-       }
-   });
-}
+    model.findById(req.params.id, {
+      password: 0
+    }, (err, post) => {
+      if (err || !post) {
+        res.sendStatus(403);
+      } else {
+        res.json(post);
+      }
+    });
+  }
 
   findUserPost(req, res) {
     model.find({
