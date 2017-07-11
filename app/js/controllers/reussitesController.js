@@ -11,10 +11,8 @@ angular.module('app')
     loadPlayers();
 
         $scope.goToUser = function (user) {
-          // console.log(user);
           $scope.currentNavItem = 'page2';
             $state.go('user.mes_reussites', {id: user._id});
-            //$scope.searchText = "";
             };
 
     function load() {
@@ -22,10 +20,9 @@ angular.module('app')
         $scope.posts = res.data;
       });
     }
-
+    
     // Begin Sab
     $scope.liked = function(id) {
-      // console.log("ATTENTION, CETTE CONSOLE VA EXPLOSER");
       for (var i = 0; i < $scope.posts.length; i++) {
         if ($scope.posts[i]._id === id) {
           if ($scope.posts[i].likers.indexOf(CurrentUser.user()._id) !== -1 || undefined) {
@@ -52,7 +49,8 @@ angular.module('app')
     function callAtInterval() {
       load2();
     }
-    $interval(callAtInterval, 2000); // end Sab
+    $interval(callAtInterval, 2000);
+    // end Sab
 
     function loadSmileys() {
       SmileyService.getAll().then(function(res) {
@@ -95,9 +93,51 @@ angular.module('app')
 
     // Begin Sab
 
+
     $scope.showAdvanced = function(ev, id) {
       $mdDialog.show({
-        controller: DialogController,
+        controller:     function DialogController($scope, $mdDialog, CurrentUser, postid) {
+              $scope.hide = function() {
+                $mdDialog.hide();
+              };
+              $scope.cancel = function() {
+                $mdDialog.cancel();
+              };
+              $scope.smileys = [{
+                name: 'blush'
+              },
+              {
+                name: 'grinning'
+              },
+              {
+                name: 'heart'
+              },
+              {
+                name: 'wink'
+              },
+              {
+                name: 'cool'
+              }
+            ];
+
+
+              $scope.addSmiley = function(name) {
+                PostService.getOne(postid).then(function(res) {
+                  $scope.post = res.data;
+                  console.log($scope.post);
+                  $scope.post.likers.push(CurrentUser.user()._id);
+                  $scope.post.likeNumber++;
+                  $scope.post.smileyBis.push(name);
+                  PostService.update(postid, {
+                    likers: $scope.post.likers,
+                    likeNumber: $scope.post.likeNumber,
+                    smileyBis: $scope.post.smileyBis
+                  });
+                });
+                $scope.hide();
+
+              };
+            },
         templateUrl: 'dialog1.tmpl.html',
         parent: angular.element(document.body),
         targetEvent: ev,
@@ -108,47 +148,6 @@ angular.module('app')
         }
       });
     };
-
-    function DialogController($scope, $mdDialog, CurrentUser, postid) {
-      $scope.hide = function() {
-        $mdDialog.hide();
-      };
-      $scope.cancel = function() {
-        $mdDialog.cancel();
-      };
-      $scope.smileys = [{
-          name: 'blush'
-        },
-        {
-          name: 'grinning'
-        },
-        {
-          name: 'heart'
-        },
-        {
-          name: 'wink'
-        },
-        {
-          name: 'cool'
-        }
-      ];
-
-      $scope.addSmiley = function(name) {
-        PostService.getOne(postid).then(function(res) {
-          $scope.post = res.data;
-          console.log($scope.post);
-          $scope.post.likers.push(CurrentUser.user()._id);
-          $scope.post.likeNumber++;
-          $scope.post.smileyBis.push(name);
-          PostService.update(postid, {
-            likers: $scope.post.likers,
-            likeNumber: $scope.post.likeNumber,
-            smileyBis: $scope.post.smileyBis
-          });
-        });
-        $scope.hide();
-
-      };
-    } //End Sab
+ //End Sab
 
   });

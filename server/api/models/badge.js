@@ -1,12 +1,9 @@
 import mongoose from 'mongoose';
 
 const badgeSchema = new mongoose.Schema({
-  name: {
-      type: String
-  },
-  url: {
-      type: String
-  }
+  name: String,
+
+  url: String
 });
 
 

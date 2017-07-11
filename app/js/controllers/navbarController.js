@@ -29,11 +29,8 @@ angular.module('app')
     $scope.fullName = function(user) {
       return user.firstname + ' ' + user.lastname;
     };
-
     $scope.goToUser = function (user) {
-      // console.log(user);
       $scope.currentNavItem = 'page2';
         $state.go('user.mes_reussites', {id: user._id});
-        //$scope.searchText = "";
         };
   });

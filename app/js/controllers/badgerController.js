@@ -3,8 +3,6 @@ angular.module('app')
 
 
         $scope.user = CurrentUser.user();
-        // $scope.demandBadges = [];
-
 
         function load() {
             BadgeService.getAllDemands().then(function(res) {

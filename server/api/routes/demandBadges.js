@@ -8,11 +8,11 @@ module.exports = (app) => {
 
     var demand = new DemandBadge();
 
-    router.post('/', Auth.hasAuthorization, demand.create);
-    router.get('/', Auth.hasAuthorization, demand.findAll);
-    router.put('/:id', Auth.hasAuthorization, demand.vote);
-    router.get('/:user', Auth.hasAuthorization, demand.completed);
+    router.post('/', demand.create);
+    router.get('/', demand.findAll);
+    router.put('/:id', demand.vote);
+    router.get('/:user', demand.completed);
 
-    app.use('/demandBadges', router);
+    app.use('/demandBadges', Auth.hasAuthorization, router);
 
 };
