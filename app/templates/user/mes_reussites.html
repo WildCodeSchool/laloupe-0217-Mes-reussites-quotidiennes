@@ -1,103 +1,95 @@
 <div>
-    <div class="ownsuccess">
-            <md-content>
-                <md-tabs md-dynamic-height md-border-bottom>
-                    <md-tab class="partager_editer" label="Partager une réussite">
-                        <form ng-show="user._id === currentUser._id" class="edit" ng-submit= "sendPost()">
-                            <md-input-container class="md-block reussite_input">
-                                <label>Écrivez une réussite ici</label>
-                                <textarea ng-model="newPost" md-maxlength="200" rows="2" md-select-on-focus></textarea>
-                            </md-input-container>
-                            <md-button type="submit" class="md-raised">Valider</md-button>
-                        </form>
+  <div class="ownsuccess">
+    <md-content>
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab class="partager_editer" label="Partager une réussite">
+          <form ng-show="user._id === currentUser._id" class="edit" ng-submit="sendPost()">
+            <md-input-container class="md-block reussite_input">
+              <label>Écrivez une réussite ici</label>
+              <textarea ng-model="newPost" md-maxlength="200" rows="2" md-select-on-focus></textarea>
+            </md-input-container>
+            <md-button type="submit" class="md-raised">Valider</md-button>
+          </form>
 
-                        <ul>
-                            <li class="newsuccess animated fadeIn" ng-repeat="post in posts | orderBy:'createdate':true" ng-model="newPost" ng-change="check()">
-                                <div class="success">
-                                    <div layout="row post_line1">
-                                        <img ng-src="http://github.com/{{post.student.pseudo}}.png" class="md-avatar posts" alt="{{user.lastname}}" />
-                                        <div id="username"> {{ post.student.firstname }} {{ post.student.lastname }} </div>
-                                        <img ng-src="{{post.mood}}" class="smiley_sunglasses" alt="smiley" />
-                                    </div>
-                                    <hr>
-                                    <div class="post">{{ post.content }}</div>
-                                    <hr>
-                                    <div style="visibility: hidden" class="smileys_delete">
-                                        <img ng-src="img/smileys/grinning.png" class="compteur_smiley" alt="smiley" />
-                                        <img ng-src="img/smileys/wink.png" class="compteur_smiley smileys_test" alt="smiley" />
-                                    </div>
-                                    <md-button class="md-raised md-warn delete_button" ng-click="del()">Supprimer</md-button>
-                                    <!-- <md-button class="md-raised md-warn delete_button" ng-click="showAlert($event)">Supprimer</md-button> -->
-                                    <!--modal pour la suppression de réussite -->
-                                    <div style="visibility: hidden">
-                                        <div class="md-dialog-container" id="modalDelPost">
-                                            <md-dialog aria-label="List dialog">
-                                                <md-title class="Modal">Supprimer cette réussite ?</md-title>
-                                                <md-dialog-actions>
-                                                    <md-button ng-click="close()">Pas maintenant</md-button>
-                                                    <md-button class="name_button" ng-click="supprimer(post._id)">Supprimer</md-button>
-                                                </md-dialog-actions>
-                                            </md-dialog>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </md-tab>
-                    <md-tab ngclass="partager_editer" label="Editer mon profil">
-                        <md-content class="md-padding profile">
-                            <md-content class="md-no-momentum decaluser">
-                                <md-input-container class="md-icon-float md-block">
-                                    <!-- Use floating label instead of placeholder -->
-                                    <label>Nom</label>
-                                    <input ng-readonly="user._id !== currentUser._id" ng-model="user.lastname" type="text">
-                                </md-input-container>
+          <ul>
+            <li class="newsuccess animated fadeIn" ng-repeat="post in posts | orderBy:'createdate':true" ng-model="newPost" ng-change="check()">
+              <div class="success">
+                <div layout="row post_line1">
+                  <img ng-src="http://github.com/{{post.student.pseudo}}.png" class="md-avatar posts" alt="{{user.lastname}}" />
+                  <div id="username"> {{ post.student.firstname }} {{ post.student.lastname }} </div>
+                  <img ng-src="{{post.mood}}" class="smiley_sunglasses" alt="smiley" />
+                </div>
+                <hr>
+                <div class="post">{{ post.content }}</div>
+                <hr>
+                <div style="visibility: hidden" class="smileys_delete">
+                  <img ng-src="img/smileys/grinning.png" class="compteur_smiley" alt="smiley" />
+                  <img ng-src="img/smileys/wink.png" class="compteur_smiley smileys_test" alt="smiley" />
+                </div>
+                <md-button ng-show="user._id === currentUser._id" class="md-raised md-warn delete_button" ng-click="del()">Supprimer</md-button>
+                <!--modal pour la suppression de réussite -->
+                <div style="visibility: hidden">
+                  <div class="md-dialog-container" id="modalDelPost">
+                    <md-dialog aria-label="List dialog">
+                      <md-title class="Modal">Supprimer cette réussite ?</md-title>
+                      <md-dialog-actions>
+                        <md-button ng-click="close()">Pas maintenant</md-button>
+                        <md-button class="name_button" ng-click="supprimer(post._id)">Supprimer</md-button>
+                      </md-dialog-actions>
+                    </md-dialog>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </md-tab>
+        <md-tab ng-class="partager_editer" label="Editer mon profil">
+          <md-content class="md-padding profile">
+            <md-content class="md-no-momentum decaluser">
+              <md-input-container class="md-icon-float md-block">
+                <label>Nom</label>
+                <input ng-readonly="user._id !== currentUser._id" ng-model="user.lastname" type="text">
+              </md-input-container>
 
-                                <md-input-container class="md-icon-float md-block">
-                                    <!-- Use floating label instead of placeholder -->
-                                    <label>Prénom</label>
-                                    <input ng-readonly="user._id !== currentUser._id" ng-model="user.firstname" type="text">
-                                </md-input-container>
+              <md-input-container class="md-icon-float md-block">
+                <label>Prénom</label>
+                <input ng-readonly="user._id !== currentUser._id" ng-model="user.firstname" type="text">
+              </md-input-container>
 
-                                <md-input-container class="md-block">
-                                    <!-- Use floating placeholder instead of label -->
-                                    <input ng-readonly="user._id !== currentUser._id" ng-model="user.email" type="email" placeholder="Email (requis)" ng-required="true">
-                                </md-input-container>
+              <md-input-container class="md-block">
+                <input ng-readonly="user._id !== currentUser._id" ng-model="user.email" type="email" placeholder="Email (requis)" ng-required="true">
+              </md-input-container>
 
-                                <md-input-container md-no-float class="md-block">
-                                    <label>Ville</label>
-                                    <input ng-readonly="user._id !== currentUser._id" ng-model="user.city" type="text">
-                                </md-input-container>
+              <md-input-container md-no-float class="md-block">
+                <label>Ville</label>
+                <input ng-readonly="user._id !== currentUser._id" ng-model="user.city" type="text">
+              </md-input-container>
 
-                                <md-input-container md-no-float class="md-block">
-                                    <label>Session</label>
-                                    <input ng-readonly="user._id !== currentUser._id" ng-model="user.session" type="text">
-                                </md-input-container>
+              <md-input-container md-no-float class="md-block">
+                <label>Session</label>
+                <input ng-readonly="user._id !== currentUser._id" ng-model="user.session" type="text">
+              </md-input-container>
 
-                                <md-input-container md-no-float class="md-block">
-                                    <label>Langage</label>
-                                    <input ng-readonly="user._id !== currentUser._id" ng-model="user.language" type="text">
-                                </md-input-container>
+              <md-input-container md-no-float class="md-block">
+                <label>Langage</label>
+                <input ng-readonly="user._id !== currentUser._id" ng-model="user.language" type="text">
+              </md-input-container>
 
-                                <md-input-container md-no-float class="md-block">
-                                    <label>Pseudo Github</label>
-                                    <input ng-readonly="user._id !== currentUser._id" ng-model="user.pseudo" type="text">
-                                </md-input-container>
+              <md-input-container md-no-float class="md-block">
+                <label>Pseudo Github</label>
+                <input ng-readonly="user._id !== currentUser._id" ng-model="user.pseudo" type="text">
+              </md-input-container>
 
-                                <md-input-container md-no-float class="md-block">
-                                    <textarea ng-readonly="user._id !== currentUser._id" ng-model="user.bio" type="text" placeholder="Biographie" rows="3" cols="80"></textarea>
-                                </md-input-container>
+              <md-input-container md-no-float class="md-block">
+                <textarea ng-readonly="user._id !== currentUser._id" ng-model="user.bio" type="text" placeholder="Biographie" rows="3" cols="80"></textarea>
+              </md-input-container>
 
-                                <md-button ng-show="user._id === currentUser._id" class="md-raised md-warn" ng-click="update()">Editer</md-button>
+              <md-button ng-show="user._id === currentUser._id" class="md-raised md-warn" ng-click="update()">Editer</md-button>
 
-                            </md-content>
-
-                        </md-content>
-                    </md-tab>
-
-                </md-tabs>
             </md-content>
-    </div>
-
-
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-content>
+  </div>
 </div>

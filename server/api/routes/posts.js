@@ -1,6 +1,6 @@
 import express from 'express';
 import Post from '../models/post.js';
-// import Auth from '../middlewares/authorization.js';
+import Auth from '../middlewares/authorization.js';
 
 let router = express.Router();
 
@@ -15,6 +15,6 @@ module.exports = (app) => {
     router.put('/:id/like', post.createLike);
     router.delete('/:id', post.delete);
 
-    app.use('/posts', router);
+    app.use('/posts', Auth.hasAuthorization, router);
 
 };

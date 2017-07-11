@@ -8,7 +8,7 @@ module.exports = (app) => {
 
     var smiley = new Smiley();
 
-    router.get('/', Auth.hasAuthorization, smiley.findAll);
-    app.use('/smileys', router);
+    router.get('/',smiley.findAll);
+    app.use('/smileys', Auth.hasAuthorization, router);
 
 };
